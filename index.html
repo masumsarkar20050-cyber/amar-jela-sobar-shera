@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>আমার জেলা সবার সেরা 🇧🇩</title>
 
   <style>
@@ -35,7 +36,7 @@
     }
 
     .container {
-      max-width: 600px;
+      max-width: 650px;
       margin: 25px auto;
       padding: 0 18px;
     }
@@ -55,6 +56,7 @@
       border-radius: 10px;
       border: 1px solid #ccc;
       margin-top: 10px;
+      background: white;
     }
 
     .place {
@@ -123,13 +125,97 @@
   <div class="container">
 
     <div class="card">
+
       <h2>📍 আপনার জেলা নির্বাচন করুন</h2>
 
       <select id="district">
+
         <option value="">-- জেলা নির্বাচন করুন --</option>
+
+        <!-- ঢাকা বিভাগ -->
+        <option value="dhaka">ঢাকা</option>
+        <option value="faridpur">ফরিদপুর</option>
+        <option value="gazipur">গাজীপুর</option>
+        <option value="gopalganj">গোপালগঞ্জ</option>
+        <option value="kishoreganj">কিশোরগঞ্জ</option>
+        <option value="madaripur">মাদারীপুর</option>
+        <option value="manikganj">মানিকগঞ্জ</option>
+        <option value="munshiganj">মুন্সিগঞ্জ</option>
+        <option value="narayanganj">নারায়ণগঞ্জ</option>
+        <option value="narshingdi">নরসিংদী</option>
+        <option value="rajbari">রাজবাড়ী</option>
+        <option value="shariatpur">শরীয়তপুর</option>
+        <option value="tangail">টাঙ্গাইল</option>
+
+        <!-- চট্টগ্রাম বিভাগ -->
+        <option value="bandarban">বান্দরবান</option>
+        <option value="brahmanbaria">ব্রাহ্মণবাড়িয়া</option>
+        <option value="chandpur">চাঁদপুর</option>
+        <option value="chattogram">চট্টগ্রাম</option>
+        <option value="cumilla">কুমিল্লা</option>
+        <option value="coxsbazar">কক্সবাজার</option>
+        <option value="feni">ফেনী</option>
+        <option value="khagrachhari">খাগড়াছড়ি</option>
+        <option value="lakshmipur">লক্ষ্মীপুর</option>
+        <option value="noakhali">নোয়াখালী</option>
+        <option value="rangamati">রাঙ্গামাটি</option>
+
+        <!-- রাজশাহী বিভাগ -->
+        <option value="bogura">বগুড়া</option>
+        <option value="joypurhat">জয়পুরহাট</option>
+        <option value="naogaon">নওগাঁ</option>
+        <option value="natore">নাটোর</option>
+        <option value="chapainawabganj">চাঁপাইনবাবগঞ্জ</option>
+        <option value="pabna">পাবনা</option>
+        <option value="rajshahi">রাজশাহী</option>
+        <option value="sirajganj">সিরাজগঞ্জ</option>
+
+        <!-- খুলনা বিভাগ -->
+        <option value="bagerhat">বাগেরহাট</option>
+        <option value="chuadanga">চুয়াডাঙ্গা</option>
+        <option value="jashore">যশোর</option>
+        <option value="jhenaidah">ঝিনাইদহ</option>
+        <option value="khulna">খুলনা</option>
+        <option value="kushtia">কুষ্টিয়া</option>
+        <option value="magura">মাগুরা</option>
+        <option value="meherpur">মেহেরপুর</option>
+        <option value="narail">নড়াইল</option>
+        <option value="satkhira">সাতক্ষীরা</option>
+
+        <!-- বরিশাল বিভাগ -->
+        <option value="barguna">বরগুনা</option>
+        <option value="barishal">বরিশাল</option>
+        <option value="bhola">ভোলা</option>
+        <option value="jhalokathi">ঝালকাঠি</option>
+        <option value="patuakhali">পটুয়াখালী</option>
+        <option value="pirojpur">পিরোজপুর</option>
+
+        <!-- সিলেট বিভাগ -->
+        <option value="habiganj">হবিগঞ্জ</option>
+        <option value="moulvibazar">মৌলভীবাজার</option>
+        <option value="sunamganj">সুনামগঞ্জ</option>
+        <option value="sylhet">সিলেট</option>
+
+        <!-- রংপুর বিভাগ -->
         <option value="dinajpur">দিনাজপুর</option>
+        <option value="gaibandha">গাইবান্ধা</option>
+        <option value="kurigram">কুড়িগ্রাম</option>
+        <option value="lalmonirhat">লালমনিরহাট</option>
+        <option value="nilphamari">নীলফামারী</option>
+        <option value="panchagarh">পঞ্চগড়</option>
+        <option value="rangpur">রংপুর</option>
+        <option value="thakurgaon">ঠাকুরগাঁও</option>
+
+        <!-- ময়মনসিংহ বিভাগ -->
+        <option value="jamalpur">জামালপুর</option>
+        <option value="mymensingh">ময়মনসিংহ</option>
+        <option value="netrokona">নেত্রকোণা</option>
+        <option value="sherpur">শেরপুর</option>
+
       </select>
+
     </div>
+
 
     <div class="card" id="placesCard" style="display:none;">
 
@@ -155,6 +241,7 @@
 
   </div>
 
+
   <div class="footer">
     © 2026 আমার জেলা সবার সেরা 🇧🇩
   </div>
@@ -173,38 +260,99 @@ const data = {
       "সীতাকোট বিহার",
       "স্বপ্নপুরী"
     ]
+  },
+
+  dhaka: {
+    name: "📍 ঢাকা",
+    places: []
+  },
+
+  chattogram: {
+    name: "📍 চট্টগ্রাম",
+    places: []
+  },
+
+  rajshahi: {
+    name: "📍 রাজশাহী",
+    places: []
+  },
+
+  rangpur: {
+    name: "📍 রংপুর",
+    places: []
+  },
+
+  sylhet: {
+    name: "📍 সিলেট",
+    places: []
+  },
+
+  coxsbazar: {
+    name: "📍 কক্সবাজার",
+    places: []
   }
 
 };
 
+
 const district = document.getElementById("district");
+
 
 district.addEventListener("change", function() {
 
   const selected = this.value;
 
   if (!selected) {
+
     document.getElementById("placesCard").style.display = "none";
+
     return;
+
   }
 
   const info = data[selected];
 
   document.getElementById("placesCard").style.display = "block";
 
-  document.getElementById("districtName").innerText = info.name;
+  document.getElementById("districtName").innerText =
+    info ? info.name : "📍 " + this.options[this.selectedIndex].text;
 
   const placesDiv = document.getElementById("places");
 
   placesDiv.innerHTML = "";
 
-  info.places.forEach((place, index) => {
+
+  if (!info || info.places.length === 0) {
+
+    placesDiv.innerHTML =
+      "<p>🚧 এই জেলার স্থানগুলোর তালিকা খুব শিগগিরই যোগ করা হবে।</p>";
+
+    document.getElementById("progressBar").style.width = "0%";
+
+    document.getElementById("result").innerText =
+      "0 / 0 স্থান ঘুরেছেন";
+
+    return;
+
+  }
+
+
+  info.places.forEach((place) => {
 
     placesDiv.innerHTML += `
+
       <label class="place">
-        <input type="checkbox" class="placeCheck" onchange="updateProgress()">
+
+        <input
+          type="checkbox"
+          class="placeCheck"
+          onchange="updateProgress()"
+        >
+
         <span>${place}</span>
+
       </label>
+
     `;
 
   });
@@ -216,15 +364,23 @@ district.addEventListener("change", function() {
 
 function updateProgress() {
 
-  const checks = document.querySelectorAll(".placeCheck");
+  const checks =
+    document.querySelectorAll(".placeCheck");
 
   const total = checks.length;
 
-  const visited = document.querySelectorAll(".placeCheck:checked").length;
+  const visited =
+    document.querySelectorAll(".placeCheck:checked").length;
 
-  const percent = total === 0 ? 0 : Math.round((visited / total) * 100);
+  const percent =
+    total === 0
+      ? 0
+      : Math.round((visited / total) * 100);
 
-  document.getElementById("progressBar").style.width = percent + "%";
+
+  document.getElementById("progressBar").style.width =
+    percent + "%";
+
 
   document.getElementById("result").innerText =
     `${visited} / ${total} স্থান ঘুরেছেন — ${percent}%`;
@@ -234,18 +390,28 @@ function updateProgress() {
 
 function shareResult() {
 
-  const result = document.getElementById("result").innerText;
+  const result =
+    document.getElementById("result").innerText;
+
+  const districtName =
+    document.getElementById("districtName").innerText;
+
 
   const text =
     `🇧🇩 আমার জেলা সবার সেরা\n\n` +
-    `আমি আমার জেলার ${result}\n\n` +
+    `${districtName}\n` +
+    `আমি ${result}\n\n` +
     `আপনি আপনার জেলার কতটা ঘুরেছেন?`;
+
 
   if (navigator.share) {
 
     navigator.share({
+
       title: "আমার জেলা সবার সেরা",
+
       text: text
+
     });
 
   } else {
@@ -259,4 +425,4 @@ function shareResult() {
 </script>
 
 </body>
-  </html>
+      </html>
