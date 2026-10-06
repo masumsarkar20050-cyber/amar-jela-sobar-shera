@@ -1,428 +1,772 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>আমার জেলা সবার সেরা 🇧🇩</title>
+<title>🇧🇩 আমার জেলা সবার সেরা</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<meta name="description"
+content="বাংলাদেশের ৬৪ জেলার দর্শনীয়, ঐতিহাসিক ও প্রাকৃতিক স্থান ঘুরে দেখার ডিজিটাল প্ল্যাটফর্ম।">
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f7f6;
-      color: #222;
-    }
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    .hero {
-      background: #006a4e;
-      color: white;
-      padding: 55px 20px;
-      text-align: center;
-    }
+body{
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  background:#f3f7f5;
+  color:#17251f;
+}
 
-    .hero h1 {
-      font-size: 34px;
-      margin: 0 0 12px;
-    }
+header{
+  background:linear-gradient(135deg,#006a4e,#008f68);
+  color:white;
+  padding:35px 18px 45px;
+  text-align:center;
+}
 
-    .hero p {
-      font-size: 17px;
-      margin-bottom: 25px;
-    }
+header h1{
+  font-size:30px;
+  margin-bottom:10px;
+}
 
-    .container {
-      max-width: 650px;
-      margin: 25px auto;
-      padding: 0 18px;
-    }
+header p{
+  font-size:16px;
+  opacity:.95;
+}
 
-    .card {
-      background: white;
-      padding: 22px;
-      border-radius: 18px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    }
+.container{
+  width:min(1050px,94%);
+  margin:-25px auto 40px;
+}
 
-    select {
-      width: 100%;
-      padding: 14px;
-      font-size: 16px;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      margin-top: 10px;
-      background: white;
-    }
+.panel{
+  background:white;
+  border-radius:20px;
+  padding:20px;
+  box-shadow:0 8px 30px rgba(0,0,0,.08);
+}
 
-    .place {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 13px 0;
-      border-bottom: 1px solid #eee;
-    }
+label{
+  font-weight:bold;
+  display:block;
+  margin-bottom:8px;
+}
 
-    .place input {
-      width: 20px;
-      height: 20px;
-    }
+select{
+  width:100%;
+  padding:14px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  font-size:16px;
+  background:white;
+}
 
-    .progress {
-      background: #ddd;
-      height: 14px;
-      border-radius: 20px;
-      overflow: hidden;
-      margin-top: 12px;
-    }
+.progress-box{
+  margin-top:18px;
+  background:#eef7f3;
+  padding:15px;
+  border-radius:14px;
+}
 
-    .progress-bar {
-      height: 100%;
-      width: 0%;
-      background: #006a4e;
-      transition: 0.3s;
-    }
+.progress-top{
+  display:flex;
+  justify-content:space-between;
+  font-weight:bold;
+  margin-bottom:8px;
+}
 
-    .result {
-      text-align: center;
-      font-size: 18px;
-      font-weight: bold;
-      margin-top: 15px;
-    }
+.progress{
+  width:100%;
+  height:14px;
+  background:#dce8e3;
+  border-radius:20px;
+  overflow:hidden;
+}
 
-    .share {
-      width: 100%;
-      padding: 14px;
-      border: none;
-      border-radius: 10px;
-      background: #006a4e;
-      color: white;
-      font-size: 16px;
-      margin-top: 18px;
-      cursor: pointer;
-    }
+.progress-bar{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#008f68,#00b37d);
+  transition:.3s;
+}
 
-    .footer {
-      text-align: center;
-      padding: 25px;
-      color: #777;
-      font-size: 14px;
-    }
-  </style>
+.buttons{
+  display:flex;
+  gap:10px;
+  margin-top:15px;
+}
+
+button{
+  border:0;
+  border-radius:12px;
+  padding:12px 18px;
+  font-size:15px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.share{
+  background:#006a4e;
+  color:white;
+}
+
+.reset{
+  background:#eee;
+  color:#333;
+}
+
+h2{
+  margin:25px 0 15px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.card{
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 5px 18px rgba(0,0,0,.08);
+  border:1px solid #e9efec;
+}
+
+.photo{
+  height:150px;
+  background:linear-gradient(135deg,#007a59,#55b998);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:58px;
+}
+
+.card-body{
+  padding:16px;
+}
+
+.card h3{
+  font-size:19px;
+  margin-bottom:7px;
+}
+
+.category{
+  display:inline-block;
+  font-size:12px;
+  background:#e7f5ef;
+  color:#00704f;
+  padding:5px 9px;
+  border-radius:20px;
+  margin-bottom:9px;
+}
+
+.card p{
+  font-size:14px;
+  line-height:1.6;
+  color:#555;
+  min-height:65px;
+}
+
+.map{
+  display:inline-block;
+  margin-top:10px;
+  color:#006a4e;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.visit{
+  display:block;
+  margin-top:12px;
+  padding:11px;
+  border-radius:10px;
+  background:#f1f5f3;
+  cursor:pointer;
+}
+
+.visit input{
+  transform:scale(1.25);
+  margin-right:8px;
+}
+
+.empty{
+  text-align:center;
+  padding:30px 10px;
+  background:#f8fbfa;
+  border-radius:15px;
+  margin-top:20px;
+}
+
+footer{
+  text-align:center;
+  padding:25px 15px;
+  color:#666;
+  font-size:13px;
+}
+
+@media(max-width:800px){
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:550px){
+  header h1{
+    font-size:25px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .buttons{
+    flex-direction:column;
+  }
+
+  button{
+    width:100%;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <section class="hero">
-    <h1>🇧🇩 আমার জেলা সবার সেরা</h1>
-    <p>আপনার জেলার কতটা ঘুরেছেন?</p>
-  </section>
+<header>
+  <h1>🇧🇩 আমার জেলা সবার সেরা</h1>
+  <p>নিজের জেলা থেকে শুরু হোক বাংলাদেশের ৬৪ জেলা ঘোরার গল্প ❤️</p>
+</header>
 
-  <div class="container">
+<div class="container">
 
-    <div class="card">
+<div class="panel">
 
-      <h2>📍 আপনার জেলা নির্বাচন করুন</h2>
+<label for="district">📍 আপনার জেলা নির্বাচন করুন</label>
 
-      <select id="district">
+<select id="district">
 
-        <option value="">-- জেলা নির্বাচন করুন --</option>
+<option value="">— জেলা নির্বাচন করুন —</option>
 
-        <!-- ঢাকা বিভাগ -->
-        <option value="dhaka">ঢাকা</option>
-        <option value="faridpur">ফরিদপুর</option>
-        <option value="gazipur">গাজীপুর</option>
-        <option value="gopalganj">গোপালগঞ্জ</option>
-        <option value="kishoreganj">কিশোরগঞ্জ</option>
-        <option value="madaripur">মাদারীপুর</option>
-        <option value="manikganj">মানিকগঞ্জ</option>
-        <option value="munshiganj">মুন্সিগঞ্জ</option>
-        <option value="narayanganj">নারায়ণগঞ্জ</option>
-        <option value="narshingdi">নরসিংদী</option>
-        <option value="rajbari">রাজবাড়ী</option>
-        <option value="shariatpur">শরীয়তপুর</option>
-        <option value="tangail">টাঙ্গাইল</option>
+<optgroup label="ঢাকা বিভাগ">
+<option value="dhaka">ঢাকা</option>
+<option value="faridpur">ফরিদপুর</option>
+<option value="gazipur">গাজীপুর</option>
+<option value="gopalganj">গোপালগঞ্জ</option>
+<option value="kishoreganj">কিশোরগঞ্জ</option>
+<option value="madaripur">মাদারীপুর</option>
+<option value="manikganj">মানিকগঞ্জ</option>
+<option value="munshiganj">মুন্সীগঞ্জ</option>
+<option value="narayanganj">নারায়ণগঞ্জ</option>
+<option value="narsingdi">নরসিংদী</option>
+<option value="rajbari">রাজবাড়ী</option>
+<option value="shariatpur">শরীয়তপুর</option>
+<option value="tangail">টাঙ্গাইল</option>
+</optgroup>
 
-        <!-- চট্টগ্রাম বিভাগ -->
-        <option value="bandarban">বান্দরবান</option>
-        <option value="brahmanbaria">ব্রাহ্মণবাড়িয়া</option>
-        <option value="chandpur">চাঁদপুর</option>
-        <option value="chattogram">চট্টগ্রাম</option>
-        <option value="cumilla">কুমিল্লা</option>
-        <option value="coxsbazar">কক্সবাজার</option>
-        <option value="feni">ফেনী</option>
-        <option value="khagrachhari">খাগড়াছড়ি</option>
-        <option value="lakshmipur">লক্ষ্মীপুর</option>
-        <option value="noakhali">নোয়াখালী</option>
-        <option value="rangamati">রাঙ্গামাটি</option>
+<optgroup label="চট্টগ্রাম বিভাগ">
+<option value="bandarban">বান্দরবান</option>
+<option value="brahmanbaria">ব্রাহ্মণবাড়িয়া</option>
+<option value="chandpur">চাঁদপুর</option>
+<option value="chattogram">চট্টগ্রাম</option>
+<option value="cumilla">কুমিল্লা</option>
+<option value="coxsbazar">কক্সবাজার</option>
+<option value="feni">ফেনী</option>
+<option value="khagrachhari">খাগড়াছড়ি</option>
+<option value="lakshmipur">লক্ষ্মীপুর</option>
+<option value="noakhali">নোয়াখালী</option>
+<option value="rangamati">রাঙ্গামাটি</option>
+</optgroup>
 
-        <!-- রাজশাহী বিভাগ -->
-        <option value="bogura">বগুড়া</option>
-        <option value="joypurhat">জয়পুরহাট</option>
-        <option value="naogaon">নওগাঁ</option>
-        <option value="natore">নাটোর</option>
-        <option value="chapainawabganj">চাঁপাইনবাবগঞ্জ</option>
-        <option value="pabna">পাবনা</option>
-        <option value="rajshahi">রাজশাহী</option>
-        <option value="sirajganj">সিরাজগঞ্জ</option>
+<optgroup label="রাজশাহী বিভাগ">
+<option value="bogura">বগুড়া</option>
+<option value="joypurhat">জয়পুরহাট</option>
+<option value="naogaon">নওগাঁ</option>
+<option value="natore">নাটোর</option>
+<option value="chapainawabganj">চাঁপাইনবাবগঞ্জ</option>
+<option value="pabna">পাবনা</option>
+<option value="rajshahi">রাজশাহী</option>
+<option value="sirajganj">সিরাজগঞ্জ</option>
+</optgroup>
 
-        <!-- খুলনা বিভাগ -->
-        <option value="bagerhat">বাগেরহাট</option>
-        <option value="chuadanga">চুয়াডাঙ্গা</option>
-        <option value="jashore">যশোর</option>
-        <option value="jhenaidah">ঝিনাইদহ</option>
-        <option value="khulna">খুলনা</option>
-        <option value="kushtia">কুষ্টিয়া</option>
-        <option value="magura">মাগুরা</option>
-        <option value="meherpur">মেহেরপুর</option>
-        <option value="narail">নড়াইল</option>
-        <option value="satkhira">সাতক্ষীরা</option>
+<optgroup label="খুলনা বিভাগ">
+<option value="bagerhat">বাগেরহাট</option>
+<option value="chuadanga">চুয়াডাঙ্গা</option>
+<option value="jashore">যশোর</option>
+<option value="jhenaidah">ঝিনাইদহ</option>
+<option value="khulna">খুলনা</option>
+<option value="kushtia">কুষ্টিয়া</option>
+<option value="magura">মাগুরা</option>
+<option value="meherpur">মেহেরপুর</option>
+<option value="narail">নড়াইল</option>
+<option value="satkhira">সাতক্ষীরা</option>
+</optgroup>
 
-        <!-- বরিশাল বিভাগ -->
-        <option value="barguna">বরগুনা</option>
-        <option value="barishal">বরিশাল</option>
-        <option value="bhola">ভোলা</option>
-        <option value="jhalokathi">ঝালকাঠি</option>
-        <option value="patuakhali">পটুয়াখালী</option>
-        <option value="pirojpur">পিরোজপুর</option>
+<optgroup label="বরিশাল বিভাগ">
+<option value="barguna">বরগুনা</option>
+<option value="barishal">বরিশাল</option>
+<option value="bhola">ভোলা</option>
+<option value="jhalokathi">ঝালকাঠি</option>
+<option value="patuakhali">পটুয়াখালী</option>
+<option value="pirojpur">পিরোজপুর</option>
+</optgroup>
 
-        <!-- সিলেট বিভাগ -->
-        <option value="habiganj">হবিগঞ্জ</option>
-        <option value="moulvibazar">মৌলভীবাজার</option>
-        <option value="sunamganj">সুনামগঞ্জ</option>
-        <option value="sylhet">সিলেট</option>
+<optgroup label="সিলেট বিভাগ">
+<option value="habiganj">হবিগঞ্জ</option>
+<option value="moulvibazar">মৌলভীবাজার</option>
+<option value="sunamganj">সুনামগঞ্জ</option>
+<option value="sylhet">সিলেট</option>
+</optgroup>
 
-        <!-- রংপুর বিভাগ -->
-        <option value="dinajpur">দিনাজপুর</option>
-        <option value="gaibandha">গাইবান্ধা</option>
-        <option value="kurigram">কুড়িগ্রাম</option>
-        <option value="lalmonirhat">লালমনিরহাট</option>
-        <option value="nilphamari">নীলফামারী</option>
-        <option value="panchagarh">পঞ্চগড়</option>
-        <option value="rangpur">রংপুর</option>
-        <option value="thakurgaon">ঠাকুরগাঁও</option>
+<optgroup label="রংপুর বিভাগ">
+<option value="dinajpur">দিনাজপুর</option>
+<option value="gaibandha">গাইবান্ধা</option>
+<option value="kurigram">কুড়িগ্রাম</option>
+<option value="lalmonirhat">লালমনিরহাট</option>
+<option value="nilphamari">নীলফামারী</option>
+<option value="panchagarh">পঞ্চগড়</option>
+<option value="rangpur">রংপুর</option>
+<option value="thakurgaon">ঠাকুরগাঁও</option>
+</optgroup>
 
-        <!-- ময়মনসিংহ বিভাগ -->
-        <option value="jamalpur">জামালপুর</option>
-        <option value="mymensingh">ময়মনসিংহ</option>
-        <option value="netrokona">নেত্রকোণা</option>
-        <option value="sherpur">শেরপুর</option>
+<optgroup label="ময়মনসিংহ বিভাগ">
+<option value="jamalpur">জামালপুর</option>
+<option value="mymensingh">ময়মনসিংহ</option>
+<option value="netrokona">নেত্রকোণা</option>
+<option value="sherpur">শেরপুর</option>
+</optgroup>
 
-      </select>
+</select>
 
-    </div>
+<div id="progressBox" class="progress-box" style="display:none">
 
+<div class="progress-top">
+<span id="progressText">0/0 জায়গা ঘোরা হয়েছে</span>
+<span id="percent">0%</span>
+</div>
 
-    <div class="card" id="placesCard" style="display:none;">
+<div class="progress">
+<div id="progressBar" class="progress-bar"></div>
+</div>
 
-      <h2 id="districtName"></h2>
+</div>
 
-      <div id="places"></div>
+<div class="buttons">
 
-      <h3>🎯 আপনার ভ্রমণ অগ্রগতি</h3>
+<button class="share" onclick="shareResult()">
+📤 আমার অগ্রগতি শেয়ার করুন
+</button>
 
-      <div class="progress">
-        <div class="progress-bar" id="progressBar"></div>
-      </div>
+<button class="reset" onclick="resetDistrict()">
+🔄 এই জেলার হিসাব Reset
+</button>
 
-      <div class="result" id="result">
-        0 / 0 স্থান ঘুরেছেন
-      </div>
+</div>
 
-      <button class="share" onclick="shareResult()">
-        📤 আমার ভ্রমণ শেয়ার করুন
-      </button>
+</div>
 
-    </div>
+<div id="content"></div>
 
-  </div>
+</div>
 
-
-  <div class="footer">
-    © 2026 আমার জেলা সবার সেরা 🇧🇩
-  </div>
+<footer>
+🇧🇩 আমার জেলা সবার সেরা — বাংলাদেশের ৬৪ জেলার সৌন্দর্য আবিষ্কার করি
+<br><br>
+তথ্য সময়ের সাথে যাচাই ও উন্নত করা হবে।
+</footer>
 
 
 <script>
 
+/* =========================================================
+   জেলা ও দর্শনীয় স্থানের ডেটা
+   ========================================================= */
+
 const data = {
 
-  dinajpur: {
-    name: "📍 দিনাজপুর",
-    places: [
-      "কান্তজিউ মন্দির",
-      "রামসাগর",
-      "নয়াবাদ মসজিদ",
-      "সীতাকোট বিহার",
-      "স্বপ্নপুরী"
-    ]
-  },
-
-  dhaka: {
-    name: "📍 ঢাকা",
-    places: []
-  },
-
-  chattogram: {
-    name: "📍 চট্টগ্রাম",
-    places: []
-  },
-
-  rajshahi: {
-    name: "📍 রাজশাহী",
-    places: []
-  },
-
-  rangpur: {
-    name: "📍 রংপুর",
-    places: []
-  },
-
-  sylhet: {
-    name: "📍 সিলেট",
-    places: []
-  },
-
-  coxsbazar: {
-    name: "📍 কক্সবাজার",
-    places: []
-  }
-
-};
-
-
-const district = document.getElementById("district");
-
-
-district.addEventListener("change", function() {
-
-  const selected = this.value;
-
-  if (!selected) {
-
-    document.getElementById("placesCard").style.display = "none";
-
-    return;
-
-  }
-
-  const info = data[selected];
-
-  document.getElementById("placesCard").style.display = "block";
-
-  document.getElementById("districtName").innerText =
-    info ? info.name : "📍 " + this.options[this.selectedIndex].text;
-
-  const placesDiv = document.getElementById("places");
-
-  placesDiv.innerHTML = "";
-
-
-  if (!info || info.places.length === 0) {
-
-    placesDiv.innerHTML =
-      "<p>🚧 এই জেলার স্থানগুলোর তালিকা খুব শিগগিরই যোগ করা হবে।</p>";
-
-    document.getElementById("progressBar").style.width = "0%";
-
-    document.getElementById("result").innerText =
-      "0 / 0 স্থান ঘুরেছেন";
-
-    return;
-
-  }
-
-
-  info.places.forEach((place) => {
-
-    placesDiv.innerHTML += `
-
-      <label class="place">
-
-        <input
-          type="checkbox"
-          class="placeCheck"
-          onchange="updateProgress()"
-        >
-
-        <span>${place}</span>
-
-      </label>
-
-    `;
-
-  });
-
-  updateProgress();
-
-});
-
-
-function updateProgress() {
-
-  const checks =
-    document.querySelectorAll(".placeCheck");
-
-  const total = checks.length;
-
-  const visited =
-    document.querySelectorAll(".placeCheck:checked").length;
-
-  const percent =
-    total === 0
-      ? 0
-      : Math.round((visited / total) * 100);
-
-
-  document.getElementById("progressBar").style.width =
-    percent + "%";
-
-
-  document.getElementById("result").innerText =
-    `${visited} / ${total} স্থান ঘুরেছেন — ${percent}%`;
-
-}
-
-
-function shareResult() {
-
-  const result =
-    document.getElementById("result").innerText;
-
-  const districtName =
-    document.getElementById("districtName").innerText;
-
-
-  const text =
-    `🇧🇩 আমার জেলা সবার সেরা\n\n` +
-    `${districtName}\n` +
-    `আমি ${result}\n\n` +
-    `আপনি আপনার জেলার কতটা ঘুরেছেন?`;
-
-
-  if (navigator.share) {
-
-    navigator.share({
-
-      title: "আমার জেলা সবার সেরা",
-
-      text: text
-
-    });
-
-  } else {
-
-    alert(text);
-
-  }
-
-}
-
-</script>
-
-</body>
-      </html>
+dhaka:{
+name:"ঢাকা",
+places:[
+["লালবাগ কেল্লা","🏰","ঐতিহাসিক","মুঘল আমলের ঐতিহাসিক দুর্গ।"],
+["আহসান মঞ্জিল","🏛️","ঐতিহাসিক","ঢাকার ঐতিহ্যবাহী নবাববাড়ি ও জাদুঘর।"],
+["জাতীয় সংসদ ভবন","🏛️","স্থাপত্য","বাংলাদেশের অন্যতম বিখ্যাত আধুনিক স্থাপত্য।"]
+]},
+
+faridpur:{
+name:"ফরিদপুর",
+places:[
+["জসীম পল্লী","🌾","সংস্কৃতি","পল্লীকবি জসীমউদ্দীনের স্মৃতিবিজড়িত স্থান।"],
+["পদ্মা নদীর পাড়","🌊","প্রাকৃতিক","পদ্মার নদী ও তীরের মনোরম পরিবেশ।"],
+["সাতৈর মসজিদ","🕌","ঐতিহাসিক","ফরিদপুরের ঐতিহাসিক স্থাপনার একটি।"]
+]},
+
+gazipur:{
+name:"গাজীপুর",
+places:[
+["ভাওয়াল জাতীয় উদ্যান","🌳","প্রাকৃতিক","বন ও সবুজে ঘেরা জনপ্রিয় পর্যটন এলাকা।"],
+["ভাওয়াল রাজবাড়ি","🏛️","ঐতিহাসিক","ভাওয়াল অঞ্চলের ঐতিহাসিক রাজবাড়ি।"],
+["বঙ্গবন্ধু শেখ মুজিব সাফারি পার্ক","🦁","বিনোদন","বন্যপ্রাণী দেখার জনপ্রিয় স্থান।"]
+]},
+
+gopalganj:{
+name:"গোপালগঞ্জ",
+places:[
+["টুঙ্গিপাড়া","🇧🇩","ঐতিহাসিক","জাতীয় ইতিহাসের সঙ্গে গুরুত্বপূর্ণভাবে যুক্ত স্থান।"],
+["বঙ্গবন্ধুর সমাধিসৌধ","🏛️","ঐতিহাসিক","টুঙ্গিপাড়ায় অবস্থিত স্মৃতিসৌধ।"],
+["ওড়াকান্দি ঠাকুরবাড়ি","🛕","ঐতিহাসিক","ধর্মীয় ও ঐতিহাসিকভাবে গুরুত্বপূর্ণ স্থান।"]
+]},
+
+kishoreganj:{
+name:"কিশোরগঞ্জ",
+places:[
+["নিকলী হাওর","🌊","প্রাকৃতিক","হাওরের বিশাল জলরাশি ও প্রকৃতির সৌন্দর্য।"],
+["শোলাকিয়া ঈদগাহ","🕌","ঐতিহ্য","ঐতিহাসিক ঈদ জামাতের জন্য বিখ্যাত।"],
+["পাগলা মসজিদ","🕌","ধর্মীয়","কিশোরগঞ্জের পরিচিত ধর্মীয় স্থাপনা।"]
+]},
+
+madaripur:{
+name:"মাদারীপুর",
+places:[
+["শকুনী লেক","🌊","প্রাকৃতিক","শহরের পরিচিত বিনোদন ও প্রকৃতি উপভোগের স্থান।"],
+["আউলিয়াপুর নীলকুঠি","🏛️","ঐতিহাসিক","ঔপনিবেশিক সময়ের ঐতিহাসিক স্থাপনা।"],
+["রাজারাম মন্দির","🛕","ঐতিহাসিক","মাদারীপুরের পুরোনো স্থাপত্যের নিদর্শন।"]
+]},
+
+manikganj:{
+name:"মানিকগঞ্জ",
+places:[
+["বালিয়াটি জমিদার বাড়ি","🏛️","ঐতিহাসিক","বালিয়াটির বিখ্যাত জমিদারবাড়ি কমপ্লেক্স।"],
+["তেওতা জমিদার বাড়ি","🏛️","ঐতিহাসিক","ঐতিহ্যবাহী জমিদারবাড়ি।"],
+["আরিচা ঘাট","🌊","প্রাকৃতিক","যমুনা নদীর তীরের গুরুত্বপূর্ণ এলাকা।"]
+]},
+
+munshiganj:{
+name:"মুন্সীগঞ্জ",
+places:[
+["ইদ্রাকপুর কেল্লা","🏰","ঐতিহাসিক","মুঘল আমলের দুর্গ।"],
+["বিক্রমপুর","🏛️","ঐতিহাসিক","প্রাচীন বিক্রমপুরের ঐতিহাসিক অঞ্চল।"],
+["আড়িয়ল বিল","🌿","প্রাকৃতিক","বিল ও গ্রামীণ প্রকৃতির সুন্দর পরিবেশ।"]
+]},
+
+narayanganj:{
+name:"নারায়ণগঞ্জ",
+places:[
+["সোনারগাঁও","🏛️","ঐতিহাসিক","প্রাচীন বাংলার গুরুত্বপূর্ণ ঐতিহাসিক জনপদ।"],
+["পানাম নগর","🏚️","ঐতিহাসিক","ঐতিহাসিক ভবন ও পুরোনো নগরীর নিদর্শন।"],
+["লোক ও কারুশিল্প জাদুঘর","🎨","সংস্কৃতি","বাংলার লোকজ সংস্কৃতি ও কারুশিল্পের সংগ্রহশালা।"]
+]},
+
+narsingdi:{
+name:"নরসিংদী",
+places:[
+["উয়ারী-বটেশ্বর","🏺","প্রত্নতাত্ত্বিক","প্রাচীন প্রত্নতাত্ত্বিক নিদর্শনের জন্য গুরুত্বপূর্ণ।"],
+["ড্রিম হলিডে পার্ক","🎡","বিনোদন","বিভিন্ন বিনোদন সুবিধার পার্ক।"],
+["মেঘনা নদীর তীর","🌊","প্রাকৃতিক","নদী ও গ্রামীণ প্রকৃতির দৃশ্য।"]
+]},
+
+rajbari:{
+name:"রাজবাড়ী",
+places:[
+["গোয়ালন্দ ঘাট","🌊","প্রাকৃতিক","পদ্মা নদী ও নৌযাত্রার ঐতিহ্যবাহী স্থান।"],
+["রাজবাড়ী জমিদার বাড়ি","🏛️","ঐতিহাসিক","জেলার ঐতিহাসিক জমিদারি ঐতিহ্যের নিদর্শন।"],
+["পদ্মা নদী","🌊","প্রাকৃতিক","বিশাল পদ্মা নদীর মনোরম দৃশ্য।"]
+]},
+
+shariatpur:{
+name:"শরীয়তপুর",
+places:[
+["সুরেশ্বর দরবার শরীফ","🕌","ধর্মীয়","জেলার পরিচিত ধর্মীয় ও ঐতিহ্যবাহী স্থান।"],
+["পদ্মা নদীর তীর","🌊","প্রাকৃতিক","পদ্মার বিস্তৃত নদী ও তীরবর্তী দৃশ্য।"],
+["মেঘনা নদী","🌊","প্রাকৃতিক","নদীকেন্দ্রিক প্রকৃতি উপভোগের স্থান।"]
+]},
+
+tangail:{
+name:"টাঙ্গাইল",
+places:[
+["মহেড়া জমিদার বাড়ি","🏛️","ঐতিহাসিক","ঐতিহ্যবাহী জমিদারবাড়ি ও স্থাপত্য।"],
+["আতিয়া মসজিদ","🕌","ঐতিহাসিক","টাঙ্গাইলের বিখ্যাত প্রাচীন মসজিদ।"],
+["মধুপুর জাতীয় উদ্যান","🌳","প্রাকৃতিক","শালবন ও সবুজ প্রকৃতির জন্য পরিচিত।"]
+]},
+
+bandarban:{
+name:"বান্দরবান",
+places:[
+["নীলগিরি","⛰️","পাহাড়","পাহাড়ের চূড়া থেকে মনোরম প্রাকৃতিক দৃশ্য।"],
+["বুদ্ধ ধাতু জাদি","🛕","ধর্মীয়","বান্দরবানের বিখ্যাত বৌদ্ধ স্থাপনা।"],
+["নাফাখুম","💧","প্রাকৃতিক","পাহাড়ি ঝরনা ও জলপ্রপাতের জন্য বিখ্যাত।"]
+]},
+
+brahmanbaria:{
+name:"ব্রাহ্মণবাড়িয়া",
+places:[
+["হারিপুর জমিদার বাড়ি","🏛️","ঐতিহাসিক","ঐতিহ্যবাহী জমিদারবাড়ি।"],
+["উলচাপাড়া মসজিদ","🕌","ঐতিহাসিক","পুরোনো স্থাপত্যের নিদর্শন।"],
+["তিতাস নদী","🌊","প্রাকৃতিক","তিতাস নদীকে ঘিরে জেলার প্রকৃতি।"]
+]},
+
+chandpur:{
+name:"চাঁদপুর",
+places:[
+["তিন নদীর মোহনা","🌊","প্রাকৃতিক","পদ্মা-মেঘনা-ডাকাতিয়া নদীর মিলনস্থল।"],
+["মোলহেড","🌊","প্রাকৃতিক","নদীর মিলনস্থলের জনপ্রিয় দর্শনীয় স্থান।"],
+["চাঁদপুর বড় স্টেশন","🚤","প্রাকৃতিক","নদীকেন্দ্রিক মনোরম পরিবেশ।"]
+]},
+
+chattogram:{
+name:"চট্টগ্রাম",
+places:[
+["পতেঙ্গা সমুদ্র সৈকত","🌊","সমুদ্র","সমুদ্রের তীরের জনপ্রিয় পর্যটন স্থান।"],
+["চট্টগ্রাম চিড়িয়াখানা","🦁","বিনোদন","বিভিন্ন প্রাণী দেখার জনপ্রিয় স্থান।"],
+["ফয়েজ লেক","🌊","বিনোদন","পাহাড় ও লেক ঘেরা জনপ্রিয় বিনোদন এলাকা।"]
+]},
+
+cumilla:{
+name:"কুমিল্লা",
+places:[
+["ময়নামতি শালবন বিহার","🏺","প্রত্নতাত্ত্বিক","প্রাচীন বৌদ্ধ সভ্যতার গুরুত্বপূর্ণ নিদর্শন।"],
+["ময়নামতি জাদুঘর","🏺","জাদুঘর","প্রত্নতাত্ত্বিক নিদর্শনের সংগ্রহশালা।"],
+["ধর্মসাগর","🌊","প্রাকৃতিক","কুমিল্লা শহরের ঐতিহাসিক জলাশয়।"]
+]},
+
+coxsbazar:{
+name:"কক্সবাজার",
+places:[
+["কক্সবাজার সমুদ্র সৈকত","🏖️","সমুদ্র","বিশ্বের দীর্ঘতম প্রাকৃতিক বালুকাময় সমুদ্রসৈকতগুলোর একটি।"],
+["হিমছড়ি","⛰️","প্রাকৃতিক","পাহাড়, ঝরনা ও সমুদ্রের অপূর্ব সমন্বয়।"],
+["ইনানী সমুদ্র সৈকত","🏖️","সমুদ্র","পাথুরে সৈকত ও নীল সমুদ্রের জন্য জনপ্রিয়।"]
+]},
+
+feni:{
+name:"ফেনী",
+places:[
+["শর্শদি জমিদার বাড়ি","🏛️","ঐতিহাসিক","ঐতিহ্যবাহী জমিদারি স্থাপনা।"],
+["রাজাঝির দীঘি","🌊","ঐতিহাসিক","ফেনী শহরের পরিচিত ঐতিহাসিক জলাশয়।"],
+["মুহুরী প্রজেক্ট","🌿","প্রাকৃতিক","নদী ও গ্রামীণ পরিবেশের সুন্দর এলাকা।"]
+]},
+
+khagrachhari:{
+name:"খাগড়াছড়ি",
+places:[
+["আলুটিলা গুহা","⛰️","প্রাকৃতিক","পাহাড়ের ভেতরের বিখ্যাত গুহা।"],
+["রিছাং ঝরনা","💧","প্রাকৃতিক","পাহাড়ি ঝরনার সুন্দর পরিবেশ।"],
+["দেবতাখুম","💧","প্রাকৃতিক","পাহাড় ও জলধারার মনোরম স্থান।"]
+]},
+
+lakshmipur:{
+name:"লক্ষ্মীপুর",
+places:[
+["রায়পুরের প্রাচীন স্থাপনা","🏛️","ঐতিহাসিক","জেলার পুরোনো ঐতিহ্যের বিভিন্ন নিদর্শন।"],
+["মেঘনা নদীর তীর","🌊","প্রাকৃতিক","নদী ও চরাঞ্চলের প্রাকৃতিক সৌন্দর্য।"],
+["রামগতি উপকূল","🌊","প্রাকৃতিক","মেঘনা উপকূলের বিস্তৃত প্রাকৃতিক দৃশ্য।"]
+]},
+
+noakhali:{
+name:"নোয়াখালী",
+places:[
+["নিঝুম দ্বীপ","🏝️","প্রাকৃতিক","দ্বীপ, ম্যানগ্রোভ ও হরিণের জন্য পরিচিত।"],
+["বজরা শাহী মসজিদ","🕌","ঐতিহাসিক","নোয়াখালীর ঐতিহাসিক মসজিদ।"],
+["নোয়াখালী জিলা জামে মসজিদ","🕌","ঐতিহাসিক","জেলার পরিচিত ধর্মীয় স্থাপনা।"]
+]},
+
+rangamati:{
+name:"রাঙ্গামাটি",
+places:[
+["কাপ্তাই লেক","🌊","প্রাকৃতিক","পাহাড়ঘেরা বিশাল কৃত্রিম হ্রদ।"],
+["ঝুলন্ত সেতু","🌉","পর্যটন","রাঙ্গামাটির অন্যতম পরিচিত প্রতীক।"],
+["শুভলং ঝরনা","💧","প্রাকৃতিক","কাপ্তাই লেকের পাশে পাহাড়ি ঝরনা।"]
+]},
+
+bogura:{
+name:"বগুড়া",
+places:[
+["মহাস্থানগড়","🏺","প্রত্নতাত্ত্বিক","প্রাচীন পুন্ড্রনগরের প্রত্নতাত্ত্বিক নিদর্শন।"],
+["গোকুল মেধ","🏺","প্রত্নতাত্ত্বিক","প্রাচীন স্থাপত্যের গুরুত্বপূর্ণ নিদর্শন।"],
+["ভাসু বিহার","🏺","প্রত্নতাত্ত্বিক","প্রাচীন বৌদ্ধ প্রত্নস্থল।"]
+]},
+
+joypurhat:{
+name:"জয়পুরহাট",
+places:[
+["বারশিবালয় মন্দির","🛕","ঐতিহাসিক","জেলার ঐতিহাসিক ধর্মীয় স্থাপনা।"],
+["নয়ানগর দিঘি","🌊","ঐতিহাসিক","পুরোনো জলাশয় ও স্থানীয় ঐতিহ্য।"],
+["পাহাড়পুরের নিকটবর্তী প্রত্নাঞ্চল","🏺","প্রত্নতাত্ত্বিক","উত্তরবঙ্গের প্রত্নঐতিহ্যের অংশ।"]
+]},
+
+naogaon:{
+name:"নওগাঁ",
+places:[
+["পাহাড়পুর বৌদ্ধ বিহার","🏺","বিশ্ব ঐতিহ্য","বাংলাদেশের অন্যতম গুরুত্বপূর্ণ প্রাচীন বৌদ্ধ বিহার।"],
+["কুসুম্বা মসজিদ","🕌","ঐতিহাসিক","সুলতানি আমলের বিখ্যাত মসজিদ।"],
+["আলতাদিঘী জাতীয় উদ্যান","🌳","প্রাকৃতিক","বন ও বিশাল দিঘিকে ঘিরে প্রাকৃতিক এলাকা।"]
+]},
+
+natore:{
+name:"নাটোর",
+places:[
+["উত্তরা গণভবন","🏛️","ঐতিহাসিক","নাটোরের বিখ্যাত ঐতিহাসিক রাজবাড়ি।"],
+["রাণী ভবানীর রাজবাড়ি","🏛️","ঐতিহাসিক","নাটোরের ঐতিহাসিক রাজবাড়ি কমপ্লেক্স।"],
+["চলন বিল","🌊","প্রাকৃতিক","বাংলাদেশের বড় জলাভূমিগুলোর একটি।"]
+]},
+
+chapainawabganj:{
+name:"চাঁপাইনবাবগঞ্জ",
+places:[
+["ছোট সোনা মসজিদ","🕌","ঐতিহাসিক","সুলতানি আমলের বিখ্যাত স্থাপনা।"],
+["দারাসবাড়ি মসজিদ","🕌","ঐতিহাসিক","প্রাচীন সুলতানি স্থাপত্যের নিদর্শন।"],
+["কানসাট আমবাগান","🥭","প্রাকৃতিক","আমের জন্য বিখ্যাত অঞ্চলের বাগান।"]
+]},
+
+pabna:{
+name:"পাবনা",
+places:[
+["হার্ডিঞ্জ ব্রিজ","🌉","স্থাপত্য","ঐতিহাসিক রেলসেতু ও নদীর দৃশ্য।"],
+["পাকশী রেলওয়ে কলোনি","🚂","ঐতিহাসিক","ঐতিহাসিক রেল স্থাপনা ও পরিবেশ।"],
+["জোড় বাংলা মন্দির","🛕","ঐতিহাসিক","পাবনার ঐতিহ্যবাহী স্থাপনা।"]
+]},
+
+rajshahi:{
+name:"রাজশাহী",
+places:[
+["পুঠিয়া রাজবাড়ি","🏛️","ঐতিহাসিক","মন্দির ও রাজবাড়ির অসাধারণ স্থাপত্যসমৃদ্ধ এলাকা।"],
+["বরেন্দ্র গবেষণা জাদুঘর","🏺","জাদুঘর","বাংলাদেশের প্রাচীনতম জাদুঘরগুলোর একটি।"],
+["পদ্মার পাড়","🌊","প্রাকৃতিক","রাজশাহী শহরের জনপ্রিয় নদীতীর।"]
+]},
+
+sirajganj:{
+name:"সিরাজগঞ্জ",
+places:[
+["রবীন্দ্র কাচারিবাড়ি","🏛️","ঐতিহাসিক","শাহজাদপুরে রবীন্দ্রনাথের স্মৃতিবিজড়িত স্থান।"],
+["যমুনা নদীর তীর","🌊","প্রাকৃতিক","বিশাল যমুনা নদীর মনোরম দৃশ্য।"],
+["বঙ্গবন্ধু সেতু","🌉","স্থাপত্য","যমুনার ওপর দেশের গুরুত্বপূর্ণ সেতু।"]
+]},
+
+bagerhat:{
+name:"বাগেরহাট",
+places:[
+["ষাট গম্বুজ মসজিদ","🕌","বিশ্ব ঐতিহ্য","ঐতিহাসিক মসজিদ নগরীর অন্যতম প্রধান নিদর্শন।"],
+["খান জাহান আলীর মাজার","🕌","ঐতিহাসিক","বাগেরহাটের গুরুত্বপূর্ণ ঐতিহাসিক স্থান।"],
+["সিংগাইর মসজিদ","🕌","ঐতিহাসিক","প্রাচীন স্থাপত্যের নিদর্শন।"]
+]},
+
+chuadanga:{
+name:"চুয়াডাঙ্গা",
+places:[
+["দর্শনা","🌿","ঐতিহ্য","জেলার গুরুত্বপূর্ণ ঐতিহাসিক ও বাণিজ্যিক এলাকা।"],
+["ভালাইপুর নীলকুঠি","🏛️","ঐতিহাসিক","নীলচাষের সময়কার ঐতিহাসিক স্থাপনা।"],
+["মাথাভাঙ্গা নদী","🌊","প্রাকৃতিক","জেলার নদীকেন্দ্রিক প্রকৃতি।"]
+]},
+
+jashore:{
+name:"যশোর",
+places:[
+["মাইকেল মধুসূদন দত্তের বাড়ি","🏛️","ঐতিহাসিক","সাগরদাঁড়িতে কবির জন্মভিটা।"],
+["ভরত ভায়না","🏺","প্রত্নতাত্ত্বিক","প্রাচীন প্রত্নস্থল।"],
+["সাগরদাঁড়ি","🌿","ঐতিহাসিক","মধুসূদনের স্মৃতিবিজড়িত এলাকা।"]
+]},
+
+jhenaidah:{
+name:"ঝিনাইদহ",
+places:[
+["শৈলকুপা মন্দির","🛕","ঐতিহাসিক","প্রাচীন ধর্মীয় স্থাপনার ঐতিহ্য।"],
+["নলডাঙ্গা মন্দির","🛕","ঐতিহাসিক","ঐতিহ্যবাহী মন্দিরসমূহের এলাকা।"],
+["কপোতাক্ষ নদ","🌊","প্রাকৃতিক","নদীকেন্দ্রিক গ্রামীণ প্রকৃতি।"]
+]},
+
+khulna:{
+name:"খুলনা",
+places:[
+["সুন্দরবন","🌳","বিশ্ব ঐতিহ্য","বিশ্বের বৃহত্তম ম্যানগ্রোভ বনাঞ্চলের অংশ।"],
+["রূপসা নদী","🌊","প্রাকৃতিক","খুলনা শহরের পরিচিত নদী।"],
+["খান জাহান আলী সেতু","🌉","স্থাপত্য","রূপসা নদীর ওপর গুরুত্বপূর্ণ সেতু।"]
+]},
+
+kushtia:{
+name:"কুষ্টিয়া",
+places:[
+["শিলাইদহ কুঠিবাড়ি","🏛️","ঐতিহাসিক","রবীন্দ্রনাথ ঠাকুরের স্মৃতিবিজড়িত স্থান।"],
+["লালন শাহের আখড়া","🎵","সংস্কৃতি","বাউল সাধক লালনের স্মৃতিবিজড়িত স্থান।"],
+["হার্ডিঞ্জ ব্রিজের নদীতীর","🌊","প্রাকৃতিক","পদ্মা নদীর মনোরম পরিবেশ।"]
+]},
+
+magura:{
+name:"মাগুরা",
+places:[
+["রাজা সীতারাম রায়ের বাড়ি","🏛️","ঐতিহাসিক","ঐতিহাসিক জমিদারি স্থাপনার নিদর্শন।"],
+["শ্রীপুর জমিদারবাড়ি","🏛️","ঐতিহাসিক","পুরোনো জমিদারি ঐতিহ্যের অংশ।"],
+["নবগঙ্গা নদী","🌊","প্রাকৃতিক","নদী ও গ্রামীণ প্রকৃতির পরিবেশ।"]
+]},
+
+meherpur:{
+name:"মেহেরপুর",
+places:[
+["মুজিবনগর স্মৃতিসৌধ","🇧🇩","ঐতিহাসিক","মুক্তিযুদ্ধের ইতিহাসের গুরুত্বপূর্ণ স্থান।"],
+["আম্রকানন","🌳","ঐতিহাসিক","ঐতিহাসিক মুজিবনগর এলাকার অংশ।"],
+["মেহেরপুর পৌর পার্ক","🌳","বিনোদন","শহরের বিনোদন ও সবুজ পরিবেশ।"]
+]},
+
+narail:{
+name:"নড়াইল",
+places:[
+["সুলতান কমপ্লেক্স","🎨","সংস্কৃতি","শিল্পী এস এম সুলতানের স্মৃতিবিজড়িত স্থান।"],
+["এস এম সুলতান স্মৃতি সংগ্রহশালা","🎨","জাদুঘর","খ্যাতিমান শিল্পীর শিল্প ও স্মৃতি।"],
+["চিত্রা নদী","🌊","প্রাকৃতিক","নড়াইলের পরিচিত নদী।"]
+]},
+
+satkhira:{
+name:"সাতক্ষীরা",
+places:[
+["সুন্দরবন","🌳","বিশ্ব ঐতিহ্য","সুন্দরবনের পশ্চিমাঞ্চলের প্রবেশপথগুলোর একটি।"],
+["যশোরেশ্বরী কালী মন্দির","🛕","ধর্মীয়","ঐতিহাসিক ধর্মীয় স্থাপনা।"],
+["বেতনা নদী","🌊","প্রাকৃতিক","জেলার নদী ও প্রকৃতির অংশ।"]
+]},
+
+barguna:{
+name:"বরগুনা",
+places:[
+["ফাতরার চর","🌳","প্রাকৃতিক","সুন্দরবনসংলগ্ন প্রাকৃতিক এলাকা।"],
+["পাথরঘাটা","🌊","সমুদ্র","উপকূলীয় প্রকৃতি ও নদীর জন্য পরিচিত।"],
+["বিবিচিনি শাহী মসজিদ","🕌","ঐতিহাসিক","বরগুনার ঐতিহাসিক মসজিদ।"]
+]},
+
+barishal:{
+name:"বরিশাল",
+places:[
+["দুর্গাসাগর দিঘি","🌊","ঐতিহাসিক","বরিশালের বিখ্যাত ঐতিহাসিক দিঘি।"],
+["গুঠিয়া মসজিদ","🕌","ধর্মীয়","সুন্দর স্থাপত্যের জন্য পরিচিত মসজিদ কমপ্লেক্স।"],
+["কীর্তনখোলা নদী","🌊","প্রাকৃতিক","বরিশাল শহরের পাশ দিয়ে প্রবাহিত নদী।"]
+]},
+
+bhola:{
+name:"ভোলা",
+places:[
+["মনপুরা","🏝️","প্রাকৃতিক","দ্বীপ ও উপকূলীয় প্রকৃতির জন্য পরিচিত।"],
+["চর কুকরি-মুকরি","🌳","প্রাকৃতিক","উপকূলীয় বন ও বন্যপ্রাণীর এলাকা।"],
+["মেঘনা নদী","🌊","প্রাকৃতিক","ভোলার চারপাশের বিশাল নদী।"]
+]},
+
+jhalokathi:{
+name:"ঝালকাঠি",
+places:[
+["কীর্তিপাশা জমিদার বাড়ি","🏛️","ঐতিহাসিক","পুরোনো জমিদারবাড়ি।"],
+["ভিমরুলী পেয়ারা বাগান","🍐","প্রাকৃতিক","পেয়ারার বাগান ও খালের জন্য বিখ্যাত।"],
+["সুগন্ধা নদী","🌊","প্রাকৃতিক","জেলার গুরুত্বপূর্ণ নদী।"]
+]},
+
+patuakhali:{
+name:"পটুয়াখালী",
+places:[
+["কুয়াকাটা সমুদ্র সৈকত","🏖️","সমুদ্র","সূর্যোদয় ও সূর্যাস্ত দেখার জন্য বিখ্যাত।"],
+["ফাতরার বন","🌳","প্রাকৃতিক","উপকূলীয় বনাঞ্চল।"],
+["শুঁটকি পল্লী","🐟","সংস্কৃতি","উপকূলীয় মানুষের ঐতিহ্যবাহী শুঁটকি প্রক্রিয়াজাত এলাকা।"]
+]},
+
+pirojpur:{
+name:"পিরোজপুর",
+places:[
+["স্বরূপকাঠির পেয়ারা বাগান","🍐","প্রাকৃতিক","নদী ও পেয়ারা 
