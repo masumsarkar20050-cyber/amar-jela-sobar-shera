@@ -1,58 +1,60 @@
 <!DOCTYPE html>
 <html lang="bn">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>🇧🇩 আমার জেলা সবার সেরা</title>
 
 <style>
 
-/* =========================
-   BASIC
-========================= */
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+:root{
+  --green:#006a4e;
+  --green-dark:#003d2e;
+  --green-light:#00a86b;
+  --mint:#eafff6;
+  --bg:#f5fbf8;
+  --card:#ffffff;
+  --text:#12372d;
+  --muted:#71847d;
+  --border:#dceee7;
+  --shadow:0 15px 45px rgba(0,70,50,.10);
+  --radius:24px;
 }
 
-:root{
-    --green:#006a4e;
-    --green2:#00a477;
-    --bg:#f1f7f4;
-    --card:#ffffff;
-    --text:#17251f;
-    --muted:#68756f;
-    --border:#e2ebe7;
-    --shadow:0 10px 30px #00000012;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
-    margin:0;
-    font-family:Arial,"Noto Sans Bengali",sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    transition:.3s;
-}
+  font-family:
+    "Noto Sans Bengali",
+    "Hind Siliguri",
+    Arial,
+    sans-serif;
 
+  color:var(--text);
 
-/* =========================
-   DARK MODE
-========================= */
+  background:
+    radial-gradient(
+      circle at 0% 0%,
+      #ddfff0 0,
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 100% 20%,
+      #e5f4ff 0,
+      transparent 30%
+    ),
+    var(--bg);
 
-body.dark{
-    --bg:#0d1512;
-    --card:#17211e;
-    --text:#f1f7f4;
-    --muted:#aab8b2;
-    --border:#293832;
-    --shadow:0 10px 30px #00000045;
+  min-height:100vh;
 }
 
 
@@ -61,483 +63,437 @@ body.dark{
 ========================= */
 
 .hero{
-    position:relative;
-    overflow:hidden;
+  position:relative;
+  overflow:hidden;
 
-    background:
-    radial-gradient(
-        circle at 15% 20%,
-        #00c98b55,
-        transparent 28%
-    ),
+  min-height:470px;
 
-    radial-gradient(
-        circle at 85% 80%,
-        #00d99d33,
-        transparent 32%
-    ),
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
+  text-align:center;
+
+  color:white;
+
+  padding:
+    70px 20px
+    120px;
+
+  background:
     linear-gradient(
-        135deg,
-        #004d39,
-        #008f68
+      135deg,
+      #003b2c 0%,
+      #006a4e 48%,
+      #00a86b 100%
     );
-
-    color:white;
-
-    text-align:center;
-
-    padding:42px 18px 80px;
 }
-
 
 .hero::before{
-    content:"🇧🇩";
+  content:"";
 
-    position:absolute;
+  position:absolute;
 
-    font-size:180px;
+  width:520px;
+  height:520px;
 
-    opacity:.05;
+  left:-190px;
+  top:-300px;
 
-    left:50%;
-    top:50%;
+  border-radius:50%;
 
-    transform:
-    translate(-50%,-50%);
+  background:
+    rgba(255,255,255,.07);
 }
 
+.hero::after{
+  content:"";
 
-.hero-content{
-    position:relative;
-    z-index:2;
+  position:absolute;
 
-    max-width:850px;
+  width:480px;
+  height:480px;
 
-    margin:auto;
+  right:-190px;
+  bottom:-330px;
+
+  border-radius:50%;
+
+  background:
+    rgba(255,255,255,.07);
 }
 
+.heroContent{
+  position:relative;
+  z-index:2;
 
-.hero-badge{
-    display:inline-block;
+  width:min(900px,100%);
 
-    padding:8px 15px;
-
-    border:1px solid #ffffff40;
-
-    background:#ffffff15;
-
-    border-radius:30px;
-
-    font-size:12px;
-
-    margin-bottom:18px;
+  margin:auto;
 }
 
+.flag{
+  font-size:58px;
+
+  margin-bottom:15px;
+
+  filter:
+    drop-shadow(
+      0 8px 12px
+      rgba(0,0,0,.18)
+    );
+}
 
 .hero h1{
-    font-size:
-    clamp(30px,6vw,55px);
+  font-size:
+    clamp(
+      35px,
+      7vw,
+      68px
+    );
 
-    line-height:1.2;
+  font-weight:900;
 
-    margin-bottom:15px;
+  line-height:1.15;
 
-    font-weight:900;
+  letter-spacing:-1px;
+
+  text-shadow:
+    0 7px 25px
+    rgba(0,0,0,.16);
 }
 
+.heroSubtitle{
+  max-width:720px;
 
-.hero p{
-    font-size:
-    clamp(15px,2vw,19px);
+  margin:
+    20px auto 0;
 
-    line-height:1.7;
+  font-size:
+    clamp(
+      15px,
+      2vw,
+      20px
+    );
 
-    opacity:.92;
+  line-height:1.8;
+
+  opacity:.95;
 }
 
+.heroBadge{
+  display:inline-flex;
 
-.hero-quote{
-    margin-top:18px;
+  align-items:center;
 
-    font-size:14px;
+  gap:8px;
 
-    opacity:.75;
+  margin-top:28px;
 
-    line-height:1.7;
+  padding:
+    12px 20px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.25);
+
+  background:
+    rgba(255,255,255,.12);
+
+  backdrop-filter:
+    blur(12px);
+
+  border-radius:50px;
+
+  font-size:14px;
+
+  font-weight:800;
 }
 
 
 /* =========================
-   DARK BUTTON
-========================= */
-
-.top-actions{
-    position:absolute;
-
-    right:18px;
-    top:18px;
-
-    z-index:5;
-}
-
-
-.icon-btn{
-    width:43px;
-    height:43px;
-
-    border:1px solid #ffffff40;
-
-    background:#ffffff18;
-
-    color:white;
-
-    border-radius:50%;
-
-    cursor:pointer;
-
-    font-size:18px;
-}
-
-
-/* =========================
-   CONTAINER
+   MAIN
 ========================= */
 
 .container{
-    width:94%;
+  width:min(1150px,92%);
 
-    max-width:1100px;
+  margin:
+    -65px auto
+    0;
 
-    margin:-40px auto 50px;
+  position:relative;
 
-    position:relative;
-
-    z-index:3;
+  z-index:10;
 }
 
 
 /* =========================
-   DASHBOARD
+   SELECTOR
 ========================= */
 
-.dashboard{
-    display:grid;
+.selectorBox{
 
-    grid-template-columns:
-    repeat(3,1fr);
+  background:
+    rgba(255,255,255,.98);
 
-    gap:12px;
+  border:
+    1px solid
+    var(--border);
 
-    margin-bottom:18px;
+  border-radius:
+    var(--radius);
+
+  padding:30px;
+
+  box-shadow:
+    var(--shadow);
 }
 
+.selectorHeading{
 
-.stat{
-    background:var(--card);
+  display:flex;
 
-    border:1px solid var(--border);
+  align-items:center;
 
-    border-radius:19px;
+  gap:14px;
 
-    padding:18px;
-
-    text-align:center;
-
-    box-shadow:var(--shadow);
+  margin-bottom:20px;
 }
 
+.selectorIcon{
 
-.stat-icon{
-    font-size:27px;
+  width:50px;
+  height:50px;
 
-    margin-bottom:7px;
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  border-radius:16px;
+
+  background:
+    var(--mint);
+
+  font-size:25px;
 }
 
+.selectorHeading h2{
 
-.stat-number{
-    font-size:25px;
+  font-size:21px;
 
-    font-weight:900;
+  font-weight:900;
 }
 
+.selectorHeading p{
 
-.stat-label{
-    color:var(--muted);
+  color:var(--muted);
 
-    font-size:13px;
+  font-size:13px;
 
-    margin-top:4px;
+  margin-top:3px;
 }
-
-
-/* =========================
-   MAIN BOX
-========================= */
-
-.box{
-    background:var(--card);
-
-    border:1px solid var(--border);
-
-    border-radius:24px;
-
-    padding:22px;
-
-    box-shadow:var(--shadow);
-}
-
-
-label.title{
-    display:block;
-
-    font-weight:800;
-
-    margin-bottom:9px;
-}
-
-
-/* =========================
-   SELECT
-========================= */
 
 select{
-    width:100%;
 
-    padding:15px;
+  width:100%;
 
-    border:1px solid var(--border);
+  padding:
+    17px 18px;
 
-    border-radius:14px;
+  border:
+    2px solid
+    #cfe9df;
 
-    font-size:16px;
+  border-radius:16px;
 
-    background:var(--card);
+  background:white;
 
-    color:var(--text);
+  color:var(--text);
 
-    outline:none;
+  font-size:16px;
+
+  outline:none;
+
+  cursor:pointer;
+
+  transition:.25s;
+}
+
+select:hover,
+select:focus{
+
+  border-color:
+    var(--green-light);
+
+  box-shadow:
+    0 0 0 5px
+    rgba(0,168,107,.08);
 }
 
 
 /* =========================
-   PASSPORT
+   BASIC STATS
 ========================= */
 
-.passport{
-    margin-top:20px;
+.stats{
 
-    padding:20px;
+  display:grid;
 
-    border-radius:21px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #00563f,
-        #008f68
-    );
-
-    color:white;
-
-    position:relative;
-
-    overflow:hidden;
-}
-
-
-.passport::after{
-    content:"🇧🇩";
-
-    position:absolute;
-
-    right:-10px;
-    bottom:-35px;
-
-    font-size:130px;
-
-    opacity:.08;
-}
-
-
-.passport-title{
-    font-size:11px;
-
-    letter-spacing:2px;
-
-    opacity:.7;
-}
-
-
-.passport h2{
-    margin:8px 0 16px;
-
-    font-size:27px;
-}
-
-
-.passport-info{
-    display:flex;
-
-    justify-content:space-between;
-
-    gap:15px;
-
-    flex-wrap:wrap;
-}
-
-
-.passport-item{
-    font-size:13px;
-}
-
-
-.passport-item strong{
-    display:block;
-
-    font-size:19px;
-
-    margin-top:3px;
-}
-
-
-/* =========================
-   PROGRESS
-========================= */
-
-.progressBox{
-    display:none;
-
-    margin-top:18px;
-
-    background:#eef8f4;
-
-    padding:17px;
-
-    border-radius:16px;
-}
-
-
-body.dark .progressBox{
-    background:#1e3029;
-}
-
-
-.progressTop{
-    display:flex;
-
-    justify-content:space-between;
-
-    font-weight:bold;
-
-    margin-bottom:9px;
-}
-
-
-.progress{
-    height:14px;
-
-    background:#dce8e3;
-
-    border-radius:20px;
-
-    overflow:hidden;
-}
-
-
-.progressBar{
-    height:100%;
-
-    width:0%;
-
-    background:
-    linear-gradient(
-        90deg,
-        #006a4e,
-        #00c98b
-    );
-
-    transition:.5s;
-}
-
-
-/* =========================
-   BUTTONS
-========================= */
-
-.buttons{
-    display:grid;
-
-    grid-template-columns:
+  grid-template-columns:
     repeat(3,1fr);
 
-    gap:10px;
+  gap:14px;
 
-    margin-top:16px;
+  margin-top:17px;
 }
 
+.stat{
 
-button{
-    border:0;
+  padding:18px;
 
-    border-radius:13px;
+  text-align:center;
 
-    padding:13px 16px;
+  border:
+    1px solid
+    var(--border);
 
-    font-size:14px;
+  border-radius:18px;
 
-    font-weight:700;
-
-    cursor:pointer;
+  background:#fbfffd;
 }
 
+.statIcon{
 
-.share{
-    background:#006a4e;
-    color:white;
+  font-size:25px;
 }
 
+.statNumber{
 
-.challenge{
-    background:#fff1c8;
-    color:#765300;
+  display:block;
+
+  margin-top:5px;
+
+  font-size:21px;
+
+  font-weight:900;
+
+  color:var(--green);
 }
 
+.statText{
 
-.reset{
-    background:#e9eeec;
-    color:#33443d;
+  display:block;
+
+  margin-top:3px;
+
+  color:var(--muted);
+
+  font-size:12px;
 }
 
 
 /* =========================
-   CHALLENGE
+   WELCOME
 ========================= */
 
-.challengeBox{
-    display:none;
+.welcome{
 
-    margin-top:18px;
+  margin-top:22px;
 
-    padding:20px;
+  padding:
+    42px 25px;
 
-    border-radius:18px;
+  background:white;
 
-    background:#fff6dd;
+  border:
+    1px solid
+    var(--border);
 
-    border:1px solid #f2d991;
+  border-radius:
+    var(--radius);
+
+  text-align:center;
+
+  box-shadow:
+    var(--shadow);
+}
+
+.welcomeIcon{
+
+  font-size:60px;
+
+  margin-bottom:13px;
+}
+
+.welcome h2{
+
+  font-size:26px;
+
+  font-weight:900;
+
+  margin-bottom:8px;
+}
+
+.welcome p{
+
+  max-width:600px;
+
+  margin:auto;
+
+  color:var(--muted);
+
+  line-height:1.8;
+
+  font-size:14px;
 }
 
 
-.challengeBox h3{
-    margin-bottom:8px;
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+  margin-top:80px;
+
+  padding:
+    45px 20px;
+
+  background:
+    #052c22;
+
+  color:white;
+
+  text-align:center;
 }
 
+.footerFlag{
 
-.challengeBox p{
-    color:#67582d;
+  font-size:32px;
 
-    line-height:1.6;
+  margin-bottom:8px;
+}
+
+footer h3{
+
+  font-size:21px;
+
+  margin-bottom:8px;
+}
+
+footer p{
+
+  max-width:600px;
+
+  margin:auto;
+
+  color:#b9d8cf;
+
+  font-size:13px;
+
+  line-height:1.8;
 }
 
 
@@ -545,1786 +501,6807 @@ button{
    MOBILE
 ========================= */
 
-@media(max-width:800px){
+@media(max-width:700px){
 
-    .buttons{
-        grid-template-columns:1fr;
+  .hero{
+
+    min-height:420px;
+
+    padding:
+      55px 15px
+      105px;
+  }
+
+  .flag{
+
+    font-size:45px;
+  }
+
+  .hero h1{
+
+    font-size:34px;
+  }
+
+  .heroSubtitle{
+
+    font-size:14px;
+  }
+
+  .container{
+
+    width:94%;
+  }
+
+  .selectorBox{
+
+    padding:20px;
+  }
+
+  .stats{
+
+    grid-template-columns:1fr;
+  }
+
+  .welcome{
+
+    padding:
+      45px 20px;
+  }
+
+  .welcome h2{
+
+    font-size:22px;
+  }
+
+}
+
+@media(max-width:380px){
+
+  .hero h1{
+
+    font-size:29px;
+  }
+
+  .heroBadge{
+
+    font-size:12px;
+  }
+
+  select{
+
+    font-size:14px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+  <div class="heroContent">
+
+    <div class="flag">
+      🇧🇩
+    </div>
+
+    <h1>
+      আমার জেলা সবার সেরা
+    </h1>
+
+    <p class="heroSubtitle">
+      বাংলাদেশ শুধু একটি দেশ নয়—
+      এটা ৬৪টি জেলার ৬৪ রকম গল্প। ❤️
+    </p>
+
+    <div class="heroBadge">
+      🗺️ ৬৪ জেলা
+      <span>•</span>
+      হাজারো গল্প
+      <span>•</span>
+      এক বাংলাদেশ
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- MAIN -->
+
+<main class="container">
+
+
+  <!-- DISTRICT SELECTOR -->
+
+  <section class="selectorBox">
+
+    <div class="selectorHeading">
+
+      <div class="selectorIcon">
+        📍
+      </div>
+
+      <div>
+
+        <h2>
+          তোমার জেলা নির্বাচন করো
+        </h2>
+
+        <p>
+          নিজের জেলা দিয়ে শুরু হোক
+          তোমার বাংলাদেশের গল্প
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <select id="district">
+
+      <option value="">
+        🇧🇩 -- একটি জেলা নির্বাচন করুন --
+      </option>
+
+      <optgroup label="ঢাকা বিভাগ">
+
+        <option>ঢাকা</option>
+        <option>ফরিদপুর</option>
+        <option>গাজীপুর</option>
+        <option>গোপালগঞ্জ</option>
+        <option>কিশোরগঞ্জ</option>
+        <option>মাদারীপুর</option>
+        <option>মানিকগঞ্জ</option>
+        <option>মুন্সিগঞ্জ</option>
+        <option>নারায়ণগঞ্জ</option>
+        <option>নরসিংদী</option>
+        <option>রাজবাড়ী</option>
+        <option>শরীয়তপুর</option>
+        <option>টাঙ্গাইল</option>
+
+      </optgroup>
+
+
+      <optgroup label="চট্টগ্রাম বিভাগ">
+
+        <option>বান্দরবান</option>
+        <option>ব্রাহ্মণবাড়িয়া</option>
+        <option>চাঁদপুর</option>
+        <option>চট্টগ্রাম</option>
+        <option>কুমিল্লা</option>
+        <option>কক্সবাজার</option>
+        <option>ফেনী</option>
+        <option>খাগড়াছড়ি</option>
+        <option>লক্ষ্মীপুর</option>
+        <option>নোয়াখালী</option>
+        <option>রাঙ্গামাটি</option>
+
+      </optgroup>
+
+
+      <optgroup label="রাজশাহী বিভাগ">
+
+        <option>বগুড়া</option>
+        <option>জয়পুরহাট</option>
+        <option>নওগাঁ</option>
+        <option>নাটোর</option>
+        <option>চাঁপাইনবাবগঞ্জ</option>
+        <option>পাবনা</option>
+        <option>রাজশাহী</option>
+        <option>সিরাজগঞ্জ</option>
+
+      </optgroup>
+
+
+      <optgroup label="খুলনা বিভাগ">
+
+        <option>বাগেরহাট</option>
+        <option>চুয়াডাঙ্গা</option>
+        <option>যশোর</option>
+        <option>ঝিনাইদহ</option>
+        <option>খুলনা</option>
+        <option>কুষ্টিয়া</option>
+        <option>মাগুরা</option>
+        <option>মেহেরপুর</option>
+        <option>নড়াইল</option>
+        <option>সাতক্ষীরা</option>
+
+      </optgroup>
+
+
+      <optgroup label="বরিশাল বিভাগ">
+
+        <option>বরগুনা</option>
+        <option>বরিশাল</option>
+        <option>ভোলা</option>
+        <option>ঝালকাঠি</option>
+        <option>পটুয়াখালী</option>
+        <option>পিরোজপুর</option>
+
+      </optgroup>
+
+
+      <optgroup label="সিলেট বিভাগ">
+
+        <option>হবিগঞ্জ</option>
+        <option>মৌলভীবাজার</option>
+        <option>সুনামগঞ্জ</option>
+        <option>সিলেট</option>
+
+      </optgroup>
+
+
+      <optgroup label="রংপুর বিভাগ">
+
+        <option>গাইবান্ধা</option>
+        <option>কুড়িগ্রাম</option>
+        <option>লালমনিরহাট</option>
+        <option>নীলফামারী</option>
+        <option>পঞ্চগড়</option>
+        <option>রংপুর</option>
+        <option>ঠাকুরগাঁও</option>
+        <option>দিনাজপুর</option>
+
+      </optgroup>
+
+
+      <optgroup label="ময়মনসিংহ বিভাগ">
+
+        <option>জামালপুর</option>
+        <option>ময়মনসিংহ</option>
+        <option>নেত্রকোনা</option>
+        <option>শেরপুর</option>
+
+      </optgroup>
+
+    </select>
+
+
+    <!-- STATS -->
+
+    <div class="stats">
+
+      <div class="stat">
+
+        <div class="statIcon">
+          🗺️
+        </div>
+
+        <span class="statNumber">
+          ৬৪
+        </span>
+
+        <span class="statText">
+          জেলা
+        </span>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="statIcon">
+          ❤️
+        </div>
+
+        <span class="statNumber">
+          ১
+        </span>
+
+        <span class="statText">
+          বাংলাদেশ
+        </span>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="statIcon">
+          📖
+        </div>
+
+        <span class="statNumber">
+          ∞
+        </span>
+
+        <span class="statText">
+          গল্প ও স্মৃতি
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- WELCOME -->
+
+  <section class="welcome">
+
+    <div class="welcomeIcon">
+      🧭
+    </div>
+
+    <h2>
+      তোমার ভ্রমণের গল্প এখান থেকেই শুরু
+    </h2>
+
+    <p>
+      একটি জেলা নির্বাচন করো।
+      পরবর্তী ধাপে সেই জেলার
+      দর্শনীয় স্থান, খাবার, সংস্কৃতি,
+      ইতিহাস এবং নিজের ভ্রমণ-স্মৃতি
+      যোগ করার ব্যবস্থা থাকবে।
+    </p>
+
+  </section>
+
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="footerFlag">
+    🇧🇩
+  </div>
+
+  <h3>
+    আমার জেলা সবার সেরা
+  </h3>
+
+  <p>
+    নিজের জেলা থেকে শুরু হোক
+    বাংলাদেশের ৬৪ জেলা ঘোরার গল্প।
+  </p>
+
+</footer>
+
+
+<script>
+
+/*
+  প্রথম অংশের ভিত্তি।
+  পরবর্তী অংশগুলোতে এই district selector
+  ব্যবহার করে পুরো interactive system
+  যুক্ত হবে।
+*/
+
+const districtSelect =
+  document.getElementById(
+    "district"
+  );
+
+districtSelect.addEventListener(
+  "change",
+  function(){
+
+    if(this.value){
+
+      console.log(
+        "Selected district:",
+        this.value
+      );
+
     }
+
+  }
+);
+
+</script>
+
+
+</body>
+           </html>
+
+<!-- 2A: 64 DISTRICT DATABASE + DISTRICT PROFILE SYSTEM -->
+
+<script>
+
+/* =========================================================
+   ৬৪ জেলার মূল ডাটাবেস
+========================================================= */
+
+const districts = {
+
+  "ঢাকা":{
+    division:"ঢাকা",
+    emoji:"🏙️",
+    color:"city",
+    tagline:"রাজধানী, ইতিহাস ও আধুনিক বাংলাদেশের প্রাণকেন্দ্র।",
+    famous:"লালবাগ কেল্লা • আহসান মঞ্জিল • সংসদ ভবন",
+    food:"বিরিয়ানি • বাখরখানি • কাচ্চি",
+    specialty:"রাজধানীর ইতিহাস, সংস্কৃতি ও আধুনিক নগরজীবন।"
+  },
+
+  "ফরিদপুর":{
+    division:"ঢাকা",
+    emoji:"🌿",
+    color:"nature",
+    tagline:"নদী, কৃষি ও গ্রামীণ সৌন্দর্যে ভরা একটি জেলা।",
+    famous:"জসীমউদ্দীনের বাড়ি • মধুমতি নদী",
+    food:"খেজুরের গুড় • দেশি মাছ",
+    specialty:"পল্লীকবি জসীমউদ্দীনের স্মৃতি ও গ্রামীণ ঐতিহ্য।"
+  },
+
+  "গাজীপুর":{
+    division:"ঢাকা",
+    emoji:"🌳",
+    color:"nature",
+    tagline:"ঢাকার কাছেই সবুজ বন আর প্রকৃতির এক অন্যরকম জগৎ।",
+    famous:"ভাওয়াল জাতীয় উদ্যান • সাফারি পার্ক • নুহাশ পল্লী",
+    food:"দেশি মাছ • ভর্তা • গ্রামীণ খাবার",
+    specialty:"বন, বন্যপ্রাণী ও বিনোদন।"
+  },
+
+  "গোপালগঞ্জ":{
+    division:"ঢাকা",
+    emoji:"🇧🇩",
+    color:"history",
+    tagline:"ইতিহাস, নদী ও সবুজ প্রকৃতির জেলা।",
+    famous:"টুঙ্গিপাড়া • বঙ্গবন্ধু সমাধিসৌধ",
+    food:"দেশি মাছ • ভাত • ভর্তা",
+    specialty:"বাংলাদেশের রাজনৈতিক ইতিহাসের গুরুত্বপূর্ণ স্মৃতি।"
+  },
+
+  "কিশোরগঞ্জ":{
+    division:"ঢাকা",
+    emoji:"🌊",
+    color:"water",
+    tagline:"হাওর, নদী ও লোকঐতিহ্যের অসাধারণ মিলন।",
+    famous:"নিকলী হাওর • শোলাকিয়া • এগারসিন্দুর",
+    food:"হাওরের মাছ • দেশি খাবার",
+    specialty:"হাওর ও ঐতিহ্যবাহী সংস্কৃতি।"
+  },
+
+  "মাদারীপুর":{
+    division:"ঢাকা",
+    emoji:"🌊",
+    color:"water",
+    tagline:"নদীমাতৃক প্রকৃতি ও শান্ত গ্রামীণ পরিবেশের জেলা।",
+    famous:"শকুনি লেক • আউলিয়াপুর নীলকুঠি",
+    food:"ইলিশ • দেশি মাছ",
+    specialty:"নদী ও গ্রামীণ ঐতিহ্য।"
+  },
+
+  "মানিকগঞ্জ":{
+    division:"ঢাকা",
+    emoji:"🏛️",
+    color:"history",
+    tagline:"জমিদারবাড়ি, নদী ও পুরনো স্থাপত্যের জেলা।",
+    famous:"বালিয়াটি জমিদার বাড়ি • তেওতা",
+    food:"দেশি মাছ • খেজুরের গুড়",
+    specialty:"ঐতিহাসিক জমিদারবাড়ি ও নদী।"
+  },
+
+  "মুন্সিগঞ্জ":{
+    division:"ঢাকা",
+    emoji:"🏛️",
+    color:"history",
+    tagline:"প্রাচীন বিক্রমপুরের ঐতিহ্য বহন করে চলেছে।",
+    famous:"ইদ্রাকপুর কেল্লা • বিক্রমপুর",
+    food:"ইলিশ • দেশি মাছ",
+    specialty:"প্রাচীন বিক্রমপুরের ইতিহাস।"
+  },
+
+  "নারায়ণগঞ্জ":{
+    division:"ঢাকা",
+    emoji:"🏘️",
+    color:"history",
+    tagline:"সোনারগাঁও, পানাম নগর ও শিল্পঐতিহ্যের জেলা।",
+    famous:"সোনারগাঁও • পানাম নগর • লোক ও কারুশিল্প জাদুঘর",
+    food:"বিরিয়ানি • দেশি খাবার",
+    specialty:"বাংলার প্রাচীন রাজধানীর স্মৃতি।"
+  },
+
+  "নরসিংদী":{
+    division:"ঢাকা",
+    emoji:"🏺",
+    color:"history",
+    tagline:"প্রাচীন সভ্যতা, নদী ও কৃষির জেলা।",
+    famous:"উয়ারী-বটেশ্বর • মেঘনা নদী",
+    food:"দেশি মাছ • ভর্তা",
+    specialty:"প্রাচীন প্রত্নতাত্ত্বিক নিদর্শন।"
+  },
+
+  "রাজবাড়ী":{
+    division:"ঢাকা",
+    emoji:"🚂",
+    color:"travel",
+    tagline:"পদ্মার তীর ও রেল ঐতিহ্যের সুন্দর জেলা।",
+    famous:"গোয়ালন্দ ঘাট • পদ্মা নদী",
+    food:"ইলিশ • দেশি মাছ",
+    specialty:"নদী ও রেলপথের ঐতিহ্য।"
+  },
+
+  "শরীয়তপুর":{
+    division:"ঢাকা",
+    emoji:"🌊",
+    color:"water",
+    tagline:"পদ্মা-মেঘনার স্রোত আর মানুষের সরলতায় ভরা।",
+    famous:"জাজিরা • পদ্মা নদী • সুরেশ্বর",
+    food:"ইলিশ • দেশি মাছ",
+    specialty:"নদী ও চরাঞ্চলের জীবন।"
+  },
+
+  "টাঙ্গাইল":{
+    division:"ঢাকা",
+    emoji:"🧣",
+    color:"culture",
+    tagline:"তাঁতের শাড়ি, মধুপুর বন ও ঐতিহ্যের জেলা।",
+    famous:"মধুপুর জাতীয় উদ্যান • আতিয়া মসজিদ",
+    food:"চমচম • তাঁতের শাড়ি",
+    specialty:"টাঙ্গাইল শাড়ি ও তাঁতশিল্প।"
+  },
+
+
+  /* =========================
+     চট্টগ্রাম বিভাগ
+  ========================= */
+
+  "বান্দরবান":{
+    division:"চট্টগ্রাম",
+    emoji:"⛰️",
+    color:"hill",
+    tagline:"পাহাড়, মেঘ, ঝরনা আর আদিবাসী সংস্কৃতির রাজ্য।",
+    famous:"নীলগিরি • বগালেক • চিম্বুক",
+    food:"পাহাড়ি খাবার • বাঁশকোড়ল",
+    specialty:"পাহাড়ি প্রকৃতি ও বৈচিত্র্যময় সংস্কৃতি।"
+  },
+
+  "ব্রাহ্মণবাড়িয়া":{
+    division:"চট্টগ্রাম",
+    emoji:"🎵",
+    color:"culture",
+    tagline:"সংগীত, নদী ও লোকসংস্কৃতির জেলা।",
+    famous:"তিতাস নদী • হারিপুর জমিদার বাড়ি",
+    food:"ছানামুখী • দেশি মাছ",
+    specialty:"সংগীত ও লোকঐতিহ্য।"
+  },
+
+  "চাঁদপুর":{
+    division:"চট্টগ্রাম",
+    emoji:"🐟",
+    color:"water",
+    tagline:"ইলিশের স্বাদ আর তিন নদীর মিলনের জেলা।",
+    famous:"মোলহেড • বড় স্টেশন • নদীর মিলনস্থল",
+    food:"ইলিশ",
+    specialty:"ইলিশ ও নদীমাতৃক জীবন।"
+  },
+
+  "চট্টগ্রাম":{
+    division:"চট্টগ্রাম",
+    emoji:"🌊",
+    color:"sea",
+    tagline:"পাহাড়, সমুদ্র ও বন্দরনগরীর অসাধারণ মিলন।",
+    famous:"পতেঙ্গা • ফয়েজ লেক • বাটালী হিল",
+    food:"মেজবান • কালাভুনা",
+    specialty:"বন্দর, পাহাড় ও সমুদ্র।"
+  },
+
+  "কুমিল্লা":{
+    division:"চট্টগ্রাম",
+    emoji:"🏺",
+    color:"history",
+    tagline:"প্রাচীন সভ্যতা ও প্রত্নতাত্ত্বিক ঐতিহ্যের জেলা।",
+    famous:"ময়নামতি • শালবন বিহার • ময়নামতি জাদুঘর",
+    food:"রসমালাই • মাতৃভাণ্ডারের মিষ্টি",
+    specialty:"প্রাচীন বৌদ্ধ সভ্যতা।"
+  },
+
+  "কক্সবাজার":{
+    division:"চট্টগ্রাম",
+    emoji:"🏖️",
+    color:"sea",
+    tagline:"সমুদ্র, পাহাড় ও সূর্যের আলোয় ভরা বাংলাদেশের পর্যটন নগরী।",
+    famous:"সমুদ্র সৈকত • হিমছড়ি • ইনানী • মেরিন ড্রাইভ",
+    food:"শুঁটকি • সামুদ্রিক মাছ",
+    specialty:"দীর্ঘ সমুদ্র সৈকত ও পর্যটন।"
+  },
+
+  "ফেনী":{
+    division:"চট্টগ্রাম",
+    emoji:"🌿",
+    color:"nature",
+    tagline:"নদী, সবুজ প্রকৃতি ও ইতিহাসের জেলা।",
+    famous:"মুহুরী প্রজেক্ট • রাজাঝীর দীঘি",
+    food:"দেশি মাছ • মিষ্টি",
+    specialty:"নদী ও গ্রামীণ প্রকৃতি।"
+  },
+
+  "খাগড়াছড়ি":{
+    division:"চট্টগ্রাম",
+    emoji:"⛰️",
+    color:"hill",
+    tagline:"পাহাড়ি সবুজ, মেঘ ও ঝরনার অপরূপ সৌন্দর্য।",
+    famous:"আলুটিলা • রিছাং ঝরনা • দীঘিনালা",
+    food:"পাহাড়ি খাবার • বাঁশকোড়ল",
+    specialty:"পাহাড় ও বৈচিত্র্যময় সংস্কৃতি।"
+  },
+
+  "লক্ষ্মীপুর":{
+    division:"চট্টগ্রাম",
+    emoji:"🌊",
+    color:"water",
+    tagline:"মেঘনার তীরের সবুজ ও শান্ত জেলা।",
+    famous:"মেঘনা নদী • দালাল বাজার জমিদার বাড়ি",
+    food:"ইলিশ • দেশি মাছ",
+    specialty:"নদী ও উপকূলীয় জীবন।"
+  },
+
+  "নোয়াখালী":{
+    division:"চট্টগ্রাম",
+    emoji:"🏝️",
+    color:"sea",
+    tagline:"চর, দ্বীপ ও সমুদ্রের কাছাকাছি এক বৈচিত্র্যময় জেলা।",
+    famous:"নিঝুম দ্বীপ • বজরা শাহী মসজিদ",
+    food:"সামুদ্রিক মাছ • দেশি খাবার",
+    specialty:"নিঝুম দ্বীপ ও উপকূলীয় প্রকৃতি।"
+  },
+
+  "রাঙ্গামাটি":{
+    division:"চট্টগ্রাম",
+    emoji:"🏞️",
+    color:"hill",
+    tagline:"কাপ্তাই হ্রদ আর পাহাড়ের স্বর্গ।",
+    famous:"কাপ্তাই হ্রদ • শুভলং • ঝুলন্ত সেতু",
+    food:"পাহাড়ি খাবার • বাঁশকোড়ল",
+    specialty:"হ্রদ ও পাহাড়।"
+  },
+
+
+  /* =========================
+     রাজশাহী বিভাগ
+  ========================= */
+
+  "বগুড়া":{
+    division:"রাজশাহী",
+    emoji:"🏺",
+    color:"history",
+    tagline:"মহাস্থানগড়ের প্রাচীন ইতিহাসে সমৃদ্ধ।",
+    famous:"মহাস্থানগড় • গোকুল মেধ",
+    food:"দই • দেশি খাবার",
+    specialty:"প্রাচীন নগর সভ্যতা।"
+  },
+
+  "জয়পুরহাট":{
+    division:"রাজশাহী",
+    emoji:"🌾",
+    color:"nature",
+    tagline:"সবুজ মাঠ আর প্রাচীন ঐতিহ্যের জেলা।",
+    famous:"আলতাদিঘী • হিন্দা-কসবা মসজিদ",
+    food:"দেশি খাবার • মিষ্টি",
+    specialty:"প্রকৃতি ও ঐতিহাসিক স্থাপনা।"
+  },
+
+  "নওগাঁ":{
+    division:"রাজশাহী",
+    emoji:"🏺",
+    color:"history",
+    tagline:"পাহাড়পুরের বিশ্বখ্যাত ইতিহাসের জেলা।",
+    famous:"পাহাড়পুর বৌদ্ধ বিহার • কুসুম্বা মসজিদ",
+    food:"দেশি খাবার • আম",
+    specialty:"প্রত্নতত্ত্ব ও প্রাচীন সভ্যতা।"
+  },
+
+  "নাটোর":{
+    division:"রাজশাহী",
+    emoji:"🏰",
+    color:"history",
+    tagline:"রাজবাড়ি, দীঘি ও ইতিহাসে ভরা রাজকীয় জেলা।",
+    famous:"উত্তরা গণভবন • রাণী ভবানীর রাজবাড়ি • চলন বিল",
+    food:"কাঁচাগোল্লা • দই",
+    specialty:"রাজপরিবার ও ঐতিহাসিক স্থাপনা।"
+  },
+
+  "চাঁপাইনবাবগঞ্জ":{
+    division:"রাজশাহী",
+    emoji:"🥭",
+    color:"food",
+    tagline:"আমের রাজধানী ও গৌড়ের ঐতিহাসিক ভূমি।",
+    famous:"ছোট সোনা মসজিদ • কানসাট • গৌড়",
+    food:"ফজলি আম • ল্যাংড়া আম",
+    specialty:"আম ও প্রাচীন গৌড়।"
+  },
+
+  "পাবনা":{
+    division:"রাজশাহী",
+    emoji:"🌉",
+    color:"history",
+    tagline:"নদী, রেল ঐতিহ্য ও সংস্কৃতির জেলা।",
+    famous:"হার্ডিঞ্জ ব্রিজ • পাকশী • চাটমোহর",
+    food:"পোড়া মিষ্টি • দেশি মাছ",
+    specialty:"পাকশী ও রেল ঐতিহ্য।"
+  },
+
+  "রাজশাহী":{
+    division:"রাজশাহী",
+    emoji:"🥭",
+    color:"food",
+    tagline:"আম, পদ্মা ও শিক্ষানগরীর অপূর্ব সমন্বয়।",
+    famous:"পুঠিয়া • বরেন্দ্র জাদুঘর • পদ্মা নদী",
+    food:"আম • ফজলি • কালাই রুটি",
+    specialty:"আম ও বরেন্দ্র ঐতিহ্য।"
+  },
+
+  "সিরাজগঞ্জ":{
+    division:"রাজশাহী",
+    emoji:"🌊",
+    color:"water",
+    tagline:"যমুনার তীর ও তাঁতশিল্পের জেলা।",
+    famous:"যমুনা নদী • এনায়েতপুর • নবরত্ন মন্দির",
+    food:"দেশি মাছ • দই",
+    specialty:"তাঁতশিল্প ও নদী।"
+  },
+
+
+  /* =========================
+     খুলনা বিভাগ
+  ========================= */
+
+  "বাগেরহাট":{
+    division:"খুলনা",
+    emoji:"🕌",
+    color:"history",
+    tagline:"ষাট গম্বুজ মসজিদ ও সুন্দরবনের ঐতিহাসিক জেলা।",
+    famous:"ষাট গম্বুজ মসজিদ • খান জাহান আলীর মাজার",
+    food:"চিংড়ি • সামুদ্রিক মাছ",
+    specialty:"ইসলামী স্থাপত্য ও সুন্দরবন।"
+  },
+
+  "চুয়াডাঙ্গা":{
+    division:"খুলনা",
+    emoji:"🌾",
+    color:"nature",
+    tagline:"সবুজ মাঠ ও শান্ত গ্রামীণ প্রকৃতির জেলা।",
+    famous:"দর্শনা • আলমডাঙ্গা",
+    food:"দেশি খাবার • খেজুরের গুড়",
+    specialty:"গ্রামীণ প্রকৃতি।"
+  },
+
+  "যশোর":{
+    division:"খুলনা",
+    emoji:"🌸",
+    color:"culture",
+    tagline:"ফুল, সাহিত্য ও খেজুরের গুড়ের জেলা।",
+    famous:"সাগরদাঁড়ি • গদখালী • মাইকেল মধুসূদনের বাড়ি",
+    food:"খেজুরের গুড় • মিষ্টি",
+    specialty:"ফুলচাষ ও সাহিত্য।"
+  },
+
+  "ঝিনাইদহ":{
+    division:"খুলনা",
+    emoji:"🌿",
+    color:"nature",
+    tagline:"সবুজ প্রকৃতি ও লোকঐতিহ্যের জেলা।",
+    famous:"শৈলকূপা • নলডাঙ্গা",
+    food:"দেশি খাবার",
+    specialty:"গ্রামীণ সংস্কৃতি।"
+  },
+
+  "খুলনা":{
+    division:"খুলনা",
+    emoji:"🌳",
+    color:"nature",
+    tagline:"সুন্দরবনের প্রবেশদ্বার ও শিল্পনগরী।",
+    famous:"সুন্দরবন • রূপসা নদী",
+    food:"চিংড়ি • কাঁকড়া",
+    specialty:"সুন্দরবন ও নদী।"
+  },
+
+  "কুষ্টিয়া":{
+    division:"খুলনা",
+    emoji:"🎵",
+    color:"culture",
+    tagline:"লালন ও রবীন্দ্রনাথের স্মৃতিতে সমৃদ্ধ সাংস্কৃতিক জেলা।",
+    famous:"শিলাইদহ কুঠিবাড়ি • লালন আখড়া",
+    food:"কুলফি • মিষ্টি",
+    specialty:"বাউল ও সাহিত্য।"
+  },
+
+  "মাগুরা":{
+    division:"খুলনা",
+    emoji:"🌾",
+    color:"nature",
+    tagline:"সবুজ মাঠ ও নদীর শান্ত জেলা।",
+    famous:"নবগঙ্গা নদী • শ্রীপুর",
+    food:"দেশি মাছ • ভর্তা",
+    specialty:"গ্রামীণ প্রকৃতি।"
+  },
+
+  "মেহেরপুর":{
+    division:"খুলনা",
+    emoji:"🇧🇩",
+    color:"history",
+    tagline:"মুজিবনগরের ঐতিহাসিক স্মৃতিবিজড়িত জেলা।",
+    famous:"মুজিবনগর • আমঝুপি নীলকুঠি",
+    food:"দেশি খাবার • মিষ্টি",
+    specialty:"স্বাধীনতার ইতিহাস।"
+  },
+
+  "নড়াইল":{
+    division:"খুলনা",
+    emoji:"🎨",
+    color:"culture",
+    tagline:"শিল্প, নদী ও সংস্কৃতির সুন্দর জেলা।",
+    famous:"এস এম সুলতান কমপ্লেক্স • চিত্রা নদী",
+    food:"দেশি খাবার",
+    specialty:"চিত্রশিল্প।"
+  },
+
+  "সাতক্ষীরা":{
+    division:"খুলনা",
+    emoji:"🌳",
+    color:"nature",
+    tagline:"সুন্দরবন ও উপকূলীয় প্রকৃতির জেলা।",
+    famous:"সুন্দরবন • যশোরেশ্বরী মন্দির",
+    food:"চিংড়ি • কাঁকড়া",
+    specialty:"সুন্দরবন ও উপকূল।"
+  },
+
+
+  /* =========================
+     বরিশাল বিভাগ
+  ========================= */
+
+  "বরগুনা":{
+    division:"বরিশাল",
+    emoji:"🌊",
+    color:"sea",
+    tagline:"সমুদ্র, নদী ও উপকূলীয় প্রকৃতির জেলা।",
+    famous:"ফাতরার বন • পাথরঘাটা",
+    food:"ইলিশ • সামুদ্রিক মাছ",
+    specialty:"উপকূলীয় জীবন।"
+  },
+
+  "বরিশাল":{
+    division:"বরিশাল",
+    emoji:"🚤",
+    color:"water",
+    tagline:"নদী, খাল ও ভাসমান বাজারের জন্য বিখ্যাত।",
+    famous:"দুর্গাসাগর • গুঠিয়া মসজিদ • পেয়ারা বাজার",
+    food:"ইলিশ • পেয়ারা",
+    specialty:"নদী ও ভাসমান বাজার।"
+  },
+
+  "ভোলা":{
+    division:"বরিশাল",
+    emoji:"🏝️",
+    color:"sea",
+    tagline:"দ্বীপ, চর ও নদীর উপকূলীয় সৌন্দর্যের জেলা।",
+    famous:"মনপুরা • চর কুকরি-মুকরি",
+    food:"ইলিশ • সামুদ্রিক মাছ",
+    specialty:"দ্বীপ ও চর।"
+  },
+
+  "ঝালকাঠি":{
+    division:"বরিশাল",
+    emoji:"🍐",
+    color:"food",
+    tagline:"পেয়ারা বাগান ও নদীর সুন্দর জেলা।",
+    famous:"ভাসমান পেয়ারা বাজার • কীর্তিপাশা",
+    food:"পেয়ারা • পেয়ারা দিয়ে তৈরি খাবার",
+    specialty:"পেয়ারা চাষ।"
+  },
+
+  "পটুয়াখালী":{
+    division:"বরিশাল",
+    emoji:"🌅",
+    color:"sea",
+    tagline:"সূর্যোদয় ও সূর্যাস্তের সমুদ্রসৈকতের জেলা।",
+    famous:"কুয়াকাটা • লেবুর চর • ফাতরার বন",
+    food:"ইলিশ • সামুদ্রিক মাছ",
+    specialty:"কুয়াকাটা সমুদ্র সৈকত।"
+  },
+
+  "পিরোজপুর":{
+    division:"বরিশাল",
+    emoji:"🌿",
+    color:"nature",
+    tagline:"নদী, খাল ও পেয়ারা বাগানের সবুজ জেলা।",
+    famous:"স্বরূপকাঠি • কুড়িয়ানা পেয়ারা বাগান",
+    food:"পেয়ারা • দেশি মাছ",
+    specialty:"পেয়ারার বাগান ও নদী।"
+  },
+
+
+  /* =========================
+     সিলেট বিভাগ
+  ========================= */
+
+  "হবিগঞ্জ":{
+    division:"সিলেট",
+    emoji:"🍃",
+    color:"nature",
+    tagline:"চা-বাগান, বন ও পাহাড়ের সবুজ জেলা।",
+    famous:"সাতছড়ি • রেমা-কালেঙ্গা",
+    food:"চা • দেশি খাবার",
+    specialty:"বন ও চা-বাগান।"
+  },
+
+  "মৌলভীবাজার":{
+    division:"সিলেট",
+    emoji:"🍃",
+    color:"nature",
+    tagline:"চা-বাগান ও ঝরনার স্বর্গ।",
+    famous:"লাউয়াছড়া • মাধবকুণ্ড • শ্রীমঙ্গল",
+    food:"চা • সাতকরা",
+    specialty:"চা শিল্প ও বন।"
+  },
+
+  "সুনামগঞ্জ":{
+    division:"সিলেট",
+    emoji:"🌊",
+    color:"water",
+    tagline:"হাওর, বাউল আর বর্ষার অনন্য সৌন্দর্যের জেলা।",
+    famous:"টাঙ্গুয়ার হাওর • শিমুল বাগান • হাছন রাজার বাড়ি",
+    food:"হাওরের মাছ • সাতকরা",
+    specialty:"হাওর ও লোকসংগীত।"
+  },
+
+  "সিলেট":{
+    division:"সিলেট",
+    emoji:"🍃",
+    color:"nature",
+    tagline:"পাহাড়, চা-বাগান, ঝরনা ও আধ্যাত্মিকতার শহর।",
+    famous:"জাফলং • বিছানাকান্দি • রাতারগুল",
+    food:"সাতকরা • চা",
+    specialty:"প্রাকৃতিক সৌন্দর্য।"
+  },
+
+
+  /* =========================
+     রংপুর বিভাগ
+  ========================= */
+
+  "গাইবান্ধা":{
+    division:"রংপুর",
+    emoji:"🌾",
+    color:"nature",
+    tagline:"নদী ও কৃষির সুন্দর গ্রামীণ জেলা।",
+    famous:"বালাসী ঘাট • ফুলছড়ি",
+    food:"দেশি মাছ • ভর্তা",
+    specialty:"নদী ও কৃষি।"
+  },
+
+  "কুড়িগ্রাম":{
+    division:"রংপুর",
+    emoji:"🌊",
+    color:"water",
+    tagline:"নদী, চর ও সীমান্তের প্রকৃতিতে ভরা।",
+    famous:"ধরলা নদী • চিলমারী",
+    food:"দেশি মাছ • ভর্তা",
+    specialty:"চরাঞ্চল।"
+  },
+
+  "লালমনিরহাট":{
+    division:"রংপুর",
+    emoji:"🚂",
+    color:"travel",
+    tagline:"রেল ঐতিহ্য ও উত্তরের প্রকৃতির জেলা।",
+    famous:"তিস্তা ব্যারেজ • তিনবিঘা করিডোর",
+    food:"দেশি খাবার",
+    specialty:"রেল ও সীমান্ত।"
+  },
+
+  "নীলফামারী":{
+    division:"রংপুর",
+    emoji:"🌊",
+    color:"water",
+    tagline:"নীলসাগর, মাঠ ও উত্তরের ঐতিহ্যের জেলা।",
+    famous:"নীলসাগর • চিনি মসজিদ",
+    food:"দেশি খাবার",
+    specialty:"প্রকৃতি ও ঐতিহ্য।"
+  },
+
+  "পঞ্চগড়":{
+    division:"রংপুর",
+    emoji:"🏔️",
+    color:"hill",
+    tagline:"বাংলাবান্ধা ও হিমালয়ের কাছাকাছি উত্তরের জেলা।",
+    famous:"তেঁতুলিয়া • বাংলাবান্ধা • ভিতরগড়",
+    food:"দেশি খাবার • চা",
+    specialty:"উত্তরের সীমান্ত ও পাহাড়ের দৃশ্য।"
+  },
+
+  "রংপুর":{
+    division:"রংপুর",
+    emoji:"🏛️",
+    color:"history",
+    tagline:"রাজবাড়ি, শিক্ষা ও উত্তরের ঐতিহ্যে সমৃদ্ধ।",
+    famous:"তাজহাট জমিদার বাড়ি • কারমাইকেল কলেজ",
+    food:"আলু ভর্তা • দেশি খাবার",
+    specialty:"তাজহাট রাজবাড়ি।"
+  },
+
+  "ঠাকুরগাঁও":{
+    division:"রংপুর",
+    emoji:"🌾",
+    color:"nature",
+    tagline:"মাঠ, নদী ও গ্রামবাংলার শান্ত সৌন্দর্যের জেলা।",
+    famous:"রাজা টংকনাথের রাজবাড়ি • সূর্যপুরী আমগাছ",
+    food:"দেশি খাবার • আম",
+    specialty:"গ্রামীণ প্রকৃতি।"
+  },
+
+  "দিনাজপুর":{
+    division:"রংপুর",
+    emoji:"🛕",
+    color:"history",
+    tagline:"কান্তজিউ, রামসাগর ও ইতিহাসের গর্ব।",
+    famous:"কান্তজিউ মন্দির • রামসাগর • নয়াবাদ মসজিদ",
+    food:"লিচু • চমচম • দেশি খাবার",
+    specialty:"টেরাকোটা মন্দির ও ঐতিহাসিক স্থাপনা।"
+  },
+
+
+  /* =========================
+     ময়মনসিংহ বিভাগ
+  ========================= */
+
+  "জামালপুর":{
+    division:"ময়মনসিংহ",
+    emoji:"🌾",
+    color:"nature",
+    tagline:"নদী, কৃষি ও গ্রামীণ ঐতিহ্যের জেলা।",
+    famous:"লাউচাপড়া • যমুনা নদী",
+    food:"দেশি মাছ • ভর্তা",
+    specialty:"গ্রামীণ প্রকৃতি।"
+  },
+
+  "ময়মনসিংহ":{
+    division:"ময়মনসিংহ",
+    emoji:"🎨",
+    color:"culture",
+    tagline:"ব্রহ্মপুত্র, শিল্প ও লোকসংস্কৃতির জেলা।",
+    famous:"জয়নুল আবেদিন সংগ্রহশালা • ব্রহ্মপুত্র নদ",
+    food:"মুক্তাগাছার মণ্ডা • দেশি খাবার",
+    specialty:"শিল্প ও সংস্কৃতি।"
+  },
+
+  "নেত্রকোনা":{
+    division:"ময়মনসিংহ",
+    emoji:"⛰️",
+    color:"hill",
+    tagline:"হাওর, পাহাড় ও সোমেশ্বরীর সৌন্দর্যের জেলা।",
+    famous:"বিরিশিরি • সোমেশ্বরী নদী • দুর্গাপুর",
+    food:"হাওরের মাছ • দেশি খাবার",
+    specialty:"পাহাড় ও নদী।"
+  },
+
+  "শেরপুর":{
+    division:"ময়মনসিংহ",
+    emoji:"🌳",
+    color:"nature",
+    tagline:"গারো পাহাড় ও সবুজ বনভূমির জেলা।",
+    famous:"গজনী • মধুটিলা ইকোপার্ক • গারো পাহাড়",
+    food:"দেশি খাবার • পাহাড়ি খাবার",
+    specialty:"গারো পাহাড় ও বন।"
+  }
+
+};
+
+
+/* =========================================================
+   ৬৪ জেলার সংখ্যা যাচাই
+========================================================= */
+
+const districtCount =
+  Object.keys(districts).length;
+
+
+/* =========================================================
+   DISTRICT SELECTOR
+   ১ম ধাপের #district থাকলে সেটার সাথে যুক্ত হবে
+========================================================= */
+
+const districtSelector =
+  document.getElementById("district");
+
+
+/* =========================================================
+   PROFILE CONTAINER
+   না থাকলে নিজে তৈরি করবে
+========================================================= */
+
+let districtProfile =
+  document.getElementById(
+    "districtProfile"
+  );
+
+
+if(!districtProfile){
+
+  districtProfile =
+    document.createElement("section");
+
+  districtProfile.id =
+    "districtProfile";
+
+  districtProfile.style.marginTop =
+    "22px";
+
+  const container =
+    document.querySelector(".container");
+
+  if(container){
+
+    container.appendChild(
+      districtProfile
+    );
+
+  }
 
 }
 
 
-@media(max-width:550px){
+/* =========================================================
+   PROFILE CSS
+========================================================= */
 
-    .hero{
-        padding:40px 15px 70px;
+const profileStyle =
+document.createElement("style");
+
+profileStyle.innerHTML = `
+
+#districtProfile{
+  display:none;
+}
+
+.districtProfileBox{
+  position:relative;
+  overflow:hidden;
+  background:#ffffff;
+  border:1px solid #dceee7;
+  border-radius:26px;
+  box-shadow:0 18px 50px rgba(0,70,50,.11);
+}
+
+.districtProfileHero{
+  position:relative;
+  padding:32px 28px;
+  color:white;
+  overflow:hidden;
+  background:
+    linear-gradient(
+      135deg,
+      #003d2e,
+      #006a4e 55%,
+      #00a86b
+    );
+}
+
+.districtProfileHero::after{
+  content:"";
+  position:absolute;
+  width:230px;
+  height:230px;
+  right:-90px;
+  top:-120px;
+  border-radius:50%;
+  background:rgba(255,255,255,.09);
+}
+
+.districtEmoji{
+  font-size:48px;
+  margin-bottom:8px;
+  position:relative;
+  z-index:2;
+}
+
+.districtProfileHero h2{
+  font-size:32px;
+  font-weight:900;
+  position:relative;
+  z-index:2;
+}
+
+.districtDivision{
+  display:inline-block;
+  margin-top:7px;
+  padding:6px 12px;
+  border-radius:30px;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.18);
+  font-size:12px;
+  position:relative;
+  z-index:2;
+}
+
+.districtTagline{
+  margin-top:16px;
+  max-width:700px;
+  line-height:1.8;
+  font-size:14px;
+  opacity:.94;
+  position:relative;
+  z-index:2;
+}
+
+.districtInfoGrid{
+  display:grid;
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+  gap:14px;
+  padding:22px;
+}
+
+.districtInfo{
+  padding:18px;
+  border-radius:18px;
+  background:#f7fcfa;
+  border:1px solid #e1f0ea;
+}
+
+.districtInfoIcon{
+  font-size:25px;
+  margin-bottom:8px;
+}
+
+.districtInfoTitle{
+  font-size:12px;
+  font-weight:900;
+  color:#006a4e;
+  margin-bottom:6px;
+}
+
+.districtInfoText{
+  color:#536c63;
+  font-size:13px;
+  line-height:1.7;
+}
+
+.districtProfileBottom{
+  padding:0 22px 22px;
+}
+
+.districtSpecialty{
+  padding:18px;
+  border-radius:18px;
+  background:#eafff6;
+  border:1px solid #d5f3e6;
+}
+
+.districtSpecialty strong{
+  display:block;
+  color:#006a4e;
+  margin-bottom:5px;
+}
+
+.districtSpecialty span{
+  color:#536c63;
+
+ <!-- =========================================================
+     2B — দর্শনীয় স্থান + Google Maps + Visited Checklist
+     + District Progress
+     
+     এই কোডটি 2A-এর district database-এর পরে বসাবে।
+========================================================= -->
+
+<script>
+
+/* =========================================================
+   ১. ৬৪ জেলার দর্শনীয় স্থান
+========================================================= */
+
+const districtPlaces = {
+
+  "ঢাকা":[
+    ["লালবাগ কেল্লা","🏰","ঐতিহাসিক"],
+    ["আহসান মঞ্জিল","🏛️","ঐতিহাসিক"],
+    ["জাতীয় সংসদ ভবন","🏢","স্থাপত্য"],
+    ["হাতিরঝিল","🌊","বিনোদন"],
+    ["বাংলাদেশ জাতীয় জাদুঘর","🏛️","সংস্কৃতি"]
+  ],
+
+  "ফরিদপুর":[
+    ["পল্লীকবি জসীমউদ্দীনের বাড়ি","🏡","ঐতিহ্য"],
+    ["মধুমতি নদী","🌊","প্রকৃতি"],
+    ["ফরিদপুর রাজবাড়ি","🏛️","ঐতিহাসিক"]
+  ],
+
+  "গাজীপুর":[
+    ["ভাওয়াল জাতীয় উদ্যান","🌳","প্রকৃতি"],
+    ["বঙ্গবন্ধু শেখ মুজিব সাফারি পার্ক","🦁","বন্যপ্রাণী"],
+    ["নুহাশ পল্লী","🌿","বিনোদন"]
+  ],
+
+  "গোপালগঞ্জ":[
+    ["টুঙ্গিপাড়া","🇧🇩","ঐতিহাসিক"],
+    ["বঙ্গবন্ধু সমাধিসৌধ","🏛️","ঐতিহাসিক"],
+    ["ওড়াকান্দি","🛕","ধর্মীয়"]
+  ],
+
+  "কিশোরগঞ্জ":[
+    ["নিকলী হাওর","🌊","প্রকৃতি"],
+    ["শোলাকিয়া ঈদগাহ","🕌","ধর্মীয়"],
+    ["এগারসিন্দুর","🏛️","ঐতিহাসিক"]
+  ],
+
+  "মাদারীপুর":[
+    ["শকুনি লেক","🌊","প্রকৃতি"],
+    ["আউলিয়াপুর নীলকুঠি","🏛️","ঐতিহাসিক"]
+  ],
+
+  "মানিকগঞ্জ":[
+    ["বালিয়াটি জমিদার বাড়ি","🏛️","ঐতিহাসিক"],
+    ["তেওতা জমিদার বাড়ি","🏛️","ঐতিহাসিক"],
+    ["যমুনা নদী","🌊","প্রকৃতি"]
+  ],
+
+  "মুন্সিগঞ্জ":[
+    ["ইদ্রাকপুর কেল্লা","🏰","ঐতিহাসিক"],
+    ["বিক্রমপুর","🏛️","ঐতিহ্য"],
+    ["পদ্মা নদী","🌊","প্রকৃতি"]
+  ],
+
+  "নারায়ণগঞ্জ":[
+    ["সোনারগাঁও","🏛️","ঐতিহাসিক"],
+    ["পানাম নগর","🏘️","ঐতিহাসিক"],
+    ["লোক ও কারুশিল্প জাদুঘর","🏛️","সংস্কৃতি"]
+  ],
+
+  "নরসিংদী":[
+    ["উয়ারী-বটেশ্বর","🏺","প্রত্নতত্ত্ব"],
+    ["মেঘনা নদী","🌊","প্রকৃতি"]
+  ],
+
+  "রাজবাড়ী":[
+    ["গোয়ালন্দ ঘাট","🚢","নদী"],
+    ["পদ্মা নদী","🌊","প্রকৃতি"],
+    ["রাজবাড়ী রেল ঐতিহ্য","🚂","ঐতিহ্য"]
+  ],
+
+  "শরীয়তপুর":[
+    ["পদ্মা নদী","🌊","প্রকৃতি"],
+    ["সুরেশ্বর দরবার শরীফ","🕌","ধর্মীয়"],
+    ["জাজিরা","🌿","প্রকৃতি"]
+  ],
+
+  "টাঙ্গাইল":[
+    ["মধুপুর জাতীয় উদ্যান","🌳","প্রকৃতি"],
+    ["আতিয়া মসজিদ","🕌","ঐতিহাসিক"],
+    ["টাঙ্গাইল শাড়ি পল্লী","🧣","ঐতিহ্য"]
+  ],
+
+  "বান্দরবান":[
+    ["নীলগিরি","⛰️","পাহাড়"],
+    ["বগালেক","🌊","প্রকৃতি"],
+    ["চিম্বুক পাহাড়","⛰️","পাহাড়"],
+    ["বুদ্ধ ধাতু জাদি","🛕","ধর্মীয়"]
+  ],
+
+  "ব্রাহ্মণবাড়িয়া":[
+    ["হারিপুর জমিদার বাড়ি","🏛️","ঐতিহাসিক"],
+    ["তিতাস নদী","🌊","প্রকৃতি"],
+    ["আখাউড়া","🚂","ঐতিহ্য"]
+  ],
+
+  "চাঁদপুর":[
+    ["মোলহেড","🌊","প্রকৃতি"],
+    ["বড় স্টেশন","🚢","নদী"],
+    ["পদ্মা-মেঘনা-ডাকাতিয়ার মিলনস্থল","🌊","প্রকৃতি"]
+  ],
+
+  "চট্টগ্রাম":[
+    ["পতেঙ্গা সমুদ্র সৈকত","🏖️","সমুদ্র"],
+    ["ফয়েজ লেক","🌊","বিনোদন"],
+    ["বাটালী হিল","⛰️","পাহাড়"],
+    ["চট্টগ্রাম চিড়িয়াখানা","🦁","বিনোদন"]
+  ],
+
+  "কুমিল্লা":[
+    ["ময়নামতি","🏺","প্রত্নতত্ত্ব"],
+    ["শালবন বিহার","🏛️","ঐতিহাসিক"],
+    ["ময়নামতি জাদুঘর","🏛️","সংস্কৃতি"]
+  ],
+
+  "কক্সবাজার":[
+    ["কক্সবাজার সমুদ্র সৈকত","🏖️","সমুদ্র"],
+    ["হিমছড়ি","⛰️","প্রকৃতি"],
+    ["ইনানী সমুদ্র সৈকত","🏖️","সমুদ্র"],
+    ["মেরিন ড্রাইভ","🛣️","ভ্রমণ"]
+  ],
+
+  "ফেনী":[
+    ["মুহুরী প্রজেক্ট","🌊","প্রকৃতি"],
+    ["রাজাঝীর দীঘি","🌊","ঐতিহ্য"],
+    ["শমসের গাজীর বাঁশের কেল্লা","🏰","ঐতিহাসিক"]
+  ],
+
+  "খাগড়াছড়ি":[
+    ["আলুটিলা","⛰️","পাহাড়"],
+    ["রিছাং ঝরনা","💧","ঝরনা"],
+    ["দীঘিনালা","🌿","প্রকৃতি"]
+  ],
+
+  "লক্ষ্মীপুর":[
+    ["মেঘনা নদী","🌊","প্রকৃতি"],
+    ["রায়পুর","🌿","প্রকৃতি"],
+    ["দালাল বাজার জমিদার বাড়ি","🏛️","ঐতিহাসিক"]
+  ],
+
+  "নোয়াখালী":[
+    ["নিঝুম দ্বীপ","🏝️","প্রকৃতি"],
+    ["বজরা শাহী মসজিদ","🕌","ঐতিহাসিক"],
+    ["মাইজদী","🏙️","শহর"]
+  ],
+
+  "রাঙ্গামাটি":[
+    ["কাপ্তাই হ্রদ","🌊","প্রকৃতি"],
+    ["শুভলং ঝরনা","💧","ঝরনা"],
+    ["ঝুলন্ত সেতু","🌉","ভ্রমণ"]
+  ],
+
+  "বগুড়া":[
+    ["মহাস্থানগড়","🏺","প্রত্নতত্ত্ব"],
+    ["গোকুল মেধ","🏺","প্রত্নতত্ত্ব"],
+    ["বেহুলার বাসর ঘর","🏛️","ঐতিহাসিক"]
+  ],
+
+  "জয়পুরহাট":[
+    ["হিন্দা-কসবা শাহী মসজিদ","🕌","ঐতিহাসিক"],
+    ["নান্দাইল দীঘি","🌊","ঐতিহ্য"],
+    ["আলতাদিঘী","🌳","প্রকৃতি"]
+  ],
+
+  "নওগাঁ":[
+    ["পাহাড়পুর বৌদ্ধ বিহার","🏛️","প্রত্নতত্ত্ব"],
+    ["কুসুম্বা মসজিদ","🕌","ঐতিহাসিক"],
+    ["আলতাদিঘী","🌳","প্রকৃতি"]
+  ],
+
+  "নাটোর":[
+    ["উত্তরা গণভবন","🏰","ঐতিহাসিক"],
+    ["রাণী ভবানীর রাজবাড়ি","🏛️","ঐতিহাসিক"],
+    ["চলন বিল","🌊","প্রকৃতি"]
+  ],
+
+  "চাঁপাইনবাবগঞ্জ":[
+    ["ছোট সোনা মসজিদ","🕌","ঐতিহাসিক"],
+    ["কানসাট আম বাজার","🥭","কৃষি"],
+    ["দারসবাড়ি মসজিদ","🕌","ঐতিহাসিক"]
+  ],
+
+  "পাবনা":[
+    ["হার্ডিঞ্জ ব্রিজ","🌉","স্থাপত্য"],
+    ["পাকশী","🚂","ঐতিহ্য"],
+    ["চাটমোহর শাহী মসজিদ","🕌","ঐতিহাসিক"]
+  ],
+
+  "রাজশাহী":[
+    ["পুঠিয়া রাজবাড়ি","🏛️","ঐতিহাসিক"],
+    ["বরেন্দ্র গবেষণা জাদুঘর","🏛️","সংস্কৃতি"],
+    ["পদ্মা নদীর তীর","🌊","প্রকৃতি"],
+    ["বাঘা মসজিদ","🕌","ঐতিহাসিক"]
+  ],
+
+  "সিরাজগঞ্জ":[
+    ["যমুনা নদী","🌊","প্রকৃতি"],
+    ["এনায়েতপুর","🧣","তাঁতশিল্প"],
+    ["নবরত্ন মন্দির","🛕","ঐতিহাসিক"]
+  ],
+
+  "বাগেরহাট":[
+    ["ষাট গম্বুজ মসজিদ","🕌","ঐতিহাসিক"],
+    ["খান জাহান আলীর মাজার","🕌","ধর্মীয়"],
+    ["সুন্দরবন","🌳","প্রকৃতি"]
+  ],
+
+  "চুয়াডাঙ্গা":[
+    ["দর্শনা","🌿","প্রকৃতি"],
+    ["আলমডাঙ্গা","🏛️","ঐতিহ্য"],
+    ["ভালাইপুর","🌾","গ্রামবাংলা"]
+  ],
+
+  "যশোর":[
+    ["সাগরদাঁড়ি","🏡","ঐতিহ্য"],
+    ["মাইকেল মধুসূদন দত্তের বাড়ি","🏡","সাহিত্য"],
+    ["গদখালী ফুলের বাজার","🌸","কৃষি"]
+  ],
+
+  "ঝিনাইদহ":[
+    ["শৈলকূপা","🌿","প্রকৃতি"],
+    ["নলডাঙ্গা মন্দির","🛕","ঐতিহাসিক"],
+    ["জামালতা","🌾","গ্রামবাংলা"]
+  ],
+
+  "খুলনা":[
+    ["সুন্দরবন","🌳","প্রকৃতি"],
+    ["রূপসা নদী","🌊","প্রকৃতি"],
+    ["খান জাহান আলীর মাজার","🕌","ঐতিহাসিক"]
+  ],
+
+  "কুষ্টিয়া":[
+    ["শিলাইদহ কুঠিবাড়ি","🏡","সাহিত্য"],
+    ["লালন শাহের আখড়া","🎵","সংস্কৃতি"],
+    ["পদ্মা নদী","🌊","প্রকৃতি"]
+  ],
+
+  "মাগুরা":[
+    ["শ্রীপুর","🌿","প্রকৃতি"],
+    ["নবগঙ্গা নদী","🌊","প্রকৃতি"],
+    ["মহম্মদপুর","🏛️","ঐতিহ্য"]
+  ],
+
+  "মেহেরপুর":[
+    ["মুজিবনগর স্মৃতিসৌধ","🇧🇩","ঐতিহাসিক"],
+    ["আমঝুপি নীলকুঠি","🏛️","ঐতিহাসিক"],
+    ["মুজিবনগর","🇧🇩","স্বাধীনতা"]
+  ],
+
+  "নড়াইল":[
+    ["এস এম সুলতান কমপ্লেক্স","🎨","শিল্প"],
+    ["চিত্রা নদী","🌊","প্রকৃতি"],
+    ["নড়াইল জমিদার বাড়ি","🏛️","ঐতিহাসিক"]
+  ],
+
+  "সাতক্ষীরা":[
+    ["সুন্দরবন","🌳","প্রকৃতি"],
+    ["যশোরেশ্বরী কালী মন্দির","🛕","ধর্মীয়"],
+    ["কপোতাক্ষ নদ","🌊","প্রকৃতি"]
+  ],
+
+  "বরগুনা":[
+    ["ফাতরার বন","🌳","প্রকৃতি"],
+    ["বিবিচিনি শাহী মসজিদ","🕌","ঐতিহাসিক"],
+    ["পাথরঘাটা","🌊","উপকূল"]
+  ],
+
+  "বরিশাল":[
+    ["দুর্গাসাগর","🌊","প্রকৃতি"],
+    ["গুঠিয়া মসজিদ","🕌","স্থাপত্য"],
+    ["ভাসমান পেয়ারা বাজার","🍐","ঐতিহ্য"]
+  ],
+
+  "ভোলা":[
+    ["মনপুরা","🏝️","প্রকৃতি"],
+    ["চর কুকরি-মুকরি","🌳","প্রকৃতি"],
+    ["দেউলা","🌊","উপকূল"]
+  ],
+
+  "ঝালকাঠি":[
+    ["ভাসমান পেয়ারা বাজার","🍐","ঐতিহ্য"],
+    ["সুগন্ধা নদী","🌊","প্রকৃতি"],
+    ["কীর্তিপাশা জমিদার বাড়ি","🏛️","ঐতিহাসিক"]
+  ],
+
+  "পটুয়াখালী":[
+    ["কুয়াকাটা সমুদ্র সৈকত","🏖️","সমুদ্র"],
+    ["লেবুর চর","🌳","প্রকৃতি"],
+    ["ফাতরার বন","🌳","প্রকৃতি"]
+  ],
+
+  "পিরোজপুর":[
+    ["স্বরূপকাঠি","🌳","প্রকৃতি"],
+    ["কুড়িয়ানা পেয়ারা বাগান","🍐","কৃষি"],
+    ["বলেশ্বর নদী","🌊","প্রকৃতি"]
+  ],
+
+  "হবিগঞ্জ":[
+    ["সাতছড়ি জাতীয় উদ্যান","🌳","প্রকৃতি"],
+    ["রেমা-কালেঙ্গা","🌳","বন"],
+    ["চুনারুঘাট","⛰️","প্রকৃতি"]
+  ],
+
+  "মৌলভীবাজার":[
+    ["লাউয়াছড়া জাতীয় উদ্যান","🌳","বন"],
+    ["শ্রীমঙ্গল চা-বাগান","🍃","চা"],
+    ["মাধবকুণ্ড জলপ্রপাত","💧","ঝরনা"]
+  ],
+
+  "সুনামগঞ্জ":[
+    ["টাঙ্গুয়ার হাওর","🌊","হাওর"],
+    ["শিমুল বাগান","🌸","প্রকৃতি"],
+    ["হাছন রাজার বাড়ি","🎵","সংস্কৃতি"]
+  ],
+
+  "সিলেট":[
+    ["জাফলং","⛰️","প্রকৃতি"],
+    ["বিছানাকান্দি","🌊","প্রকৃতি"],
+    ["রাতারগুল","🌳","জলাবন"],
+    ["শাহজালাল মাজার","🕌","ধর্মীয়"]
+  ],
+
+  "গাইবান্ধা":[
+    ["বালাসী ঘাট","🌊","নদী"],
+    ["ফুলছড়ি","🌿","প্রকৃতি"],
+    ["ঘাঘট নদী","🌊","প্রকৃতি"]
+  ],
+
+  "কুড়িগ্রাম":[
+    ["ধরলা নদী","🌊","প্রকৃতি"],
+    ["চিলমারী বন্দর","🚢","নদী"],
+    ["রৌমারী","🌿","প্রকৃতি"]
+  ],
+
+  "লালমনিরহাট":[
+    ["তিস্তা ব্যারেজ","🌊","প্রকৃতি"],
+    ["তিনবিঘা করিডোর","🇧🇩","ঐতিহাসিক"],
+    ["বুড়িমারী","🚂","ভ্রমণ"]
+  ],
+
+  "নীলফামারী":[
+    ["নীলসাগর","🌊","প্রকৃতি"],
+    ["চিনি মসজিদ","🕌","ঐতিহাসিক"],
+    ["ডোমার","🌿","প্রকৃতি"]
+  ],
+
+  "পঞ্চগড়":[
+    ["তেঁতুলিয়া","🏔️","প্রকৃতি"],
+    ["ভিতরগড়","🏺","প্রত্নতত্ত্ব"],
+    ["বাংলাবান্ধা","🇧🇩","সীমান্ত"]
+  ],
+
+  "রংপুর":[
+    ["তাজহাট জমিদার বাড়ি","🏛️","ঐতিহাসিক"],
+    ["কারমাইকেল কলেজ","🏛️","স্থাপত্য"],
+    ["চিকলী বিল","🌊","প্রকৃতি"]
+  ],
+
+  "ঠাকুরগাঁও":[
+    ["রাজা টংকনাথের রাজবাড়ি","🏛️","ঐতিহাসিক"],
+    ["সূর্যপুরী আমগাছ","🌳","প্রকৃতি"],
+    ["লোকায়ন জীবনচিত্র জাদুঘর","🏛️","সংস্কৃতি"]
+  ],
+
+  "দিনাজপুর":[
+    ["কান্তজিউ মন্দির","🛕","ঐতিহাসিক"],
+    ["রামসাগর","🌊","প্রকৃতি"],
+    ["নয়াবাদ মসজিদ","🕌","ঐতিহাসিক"],
+    ["দিনাজপুর রাজবাড়ি","🏛️","ঐতিহাসিক"],
+    ["স্বপ্নপুরী","🎡","বিনোদন"]
+  ],
+
+  "জামালপুর":[
+    ["লাউচাপড়া","⛰️","প্রকৃতি"],
+    ["যমুনা নদী","🌊","প্রকৃতি"],
+    ["হজরত শাহ জামাল মাজার","🕌","ধর্মীয়"]
+  ],
+
+  "ময়মনসিংহ":[
+    ["জয়নুল আবেদিন সংগ্রহশালা","🎨","শিল্প"],
+    ["ব্রহ্মপুত্র নদ","🌊","প্রকৃতি"],
+    ["ময়মনসিংহ রাজবাড়ি","🏛️","ঐতিহাসিক"]
+  ],
+
+  "নেত্রকোনা":[
+    ["বিরিশিরি","⛰️","প্রকৃতি"],
+    ["সোমেশ্বরী নদী","🌊","প্রকৃতি"],
+    ["দুর্গাপুর","🌿","প্রকৃতি"]
+  ],
+
+  "শেরপুর":[
+    ["গজনী অবকাশ কেন্দ্র","🌳","প্রকৃতি"],
+    ["মধুটিলা ইকোপার্ক","🌳","বন"],
+    ["গারো পাহাড়","⛰️","পাহাড়"]
+  ]
+
+};
+
+
+/* =========================================================
+   ২. LOCAL STORAGE
+========================================================= */
+
+const VISITED_KEY =
+  "amarJelaVisitedPlaces_v1";
+
+
+function getVisitedPlaces(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(VISITED_KEY)
+    ) || {};
+
+  }catch(error){
+
+    return {};
+
+  }
+
+}
+
+
+function saveVisitedPlaces(data){
+
+  localStorage.setItem(
+    VISITED_KEY,
+    JSON.stringify(data)
+  );
+
+}
+
+
+/* =========================================================
+   ৩. GOOGLE MAPS SEARCH
+========================================================= */
+
+function openGoogleMaps(
+  placeName,
+  districtName
+){
+
+  const query =
+    encodeURIComponent(
+      placeName + " " + districtName + " Bangladesh"
+    );
+
+  window.open(
+    "https://www.google.com/maps/search/?api=1&query=" + query,
+    "_blank"
+  );
+
+}
+
+
+/* =========================================================
+   ৪. PLACE CARD
+========================================================= */
+
+function createPlaceCard(
+  districtName,
+  place,
+  index
+){
+
+  const placeName = place[0];
+  const emoji = place[1];
+  const category = place[2];
+
+  const visited =
+    getVisitedPlaces();
+
+  const key =
+    districtName + "::" + placeName;
+
+  const isVisited =
+    visited[key] === true;
+
+
+  const card =
+    document.createElement("div");
+
+  card.className =
+    "placeCard" +
+    (isVisited ? " visited" : "");
+
+
+  card.innerHTML = `
+
+    <div class="placeNumber">
+      ${String(index + 1).padStart(2,"0")}
+    </div>
+
+    <div class="placeEmoji">
+      ${emoji}
+    </div>
+
+    <div class="placeInfo">
+
+      <h4>
+        ${placeName}
+      </h4>
+
+      <span class="placeCategory">
+        ${category}
+      </span>
+
+    </div>
+
+    <div class="placeActions">
+
+      <button
+        class="mapBtn"
+        type="button"
+        title="Google Maps-এ দেখুন"
+      >
+        📍
+      </button>
+
+      <button
+        class="visitBtn"
+        type="button"
+      >
+        ${isVisited ? "✓" : "○"}
+      </button>
+
+    </div>
+
+  `;
+
+
+  card
+    .querySelector(".mapBtn")
+    .addEventListener(
+      "click",
+      function(){
+
+        openGoogleMaps(
+          placeName,
+          districtName
+        );
+
+      }
+    );
+
+
+  card
+    .querySelector(".visitBtn")
+    .addEventListener(
+      "click",
+      function(){
+
+        const data =
+          getVisitedPlaces();
+
+        data[key] =
+          !data[key];
+
+        saveVisitedPlaces(data);
+
+        renderDistrictPlaces(
+          districtName
+        );
+
+        updateOverallProgress();
+
+      }
+    );
+
+
+  return card;
+
+}
+
+
+/* =========================================================
+   ৫. DISTRICT PLACES SECTION
+========================================================= */
+
+let placesSection =
+  document.getElementById(
+    "districtPlaces"
+  );
+
+
+if(!placesSection){
+
+  placesSection =
+    document.createElement("section");
+
+  placesSection.id =
+    "districtPlaces";
+
+  const container =
+    document.querySelector(".container");
+
+  if(container){
+
+    container.appendChild(
+      placesSection
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   ৬. 2B CSS
+========================================================= */
+
+const placesStyle =
+document.createElement("style");
+
+placesStyle.innerHTML = `
+
+#districtPlaces{
+  display:none;
+  margin-top:22px;
+}
+
+.placesBox{
+  background:#fff;
+  border:1px solid #dceee7;
+  border-radius:26px;
+  box-shadow:0 18px 50px rgba(0,70,50,.09);
+  padding:24px;
+}
+
+.placesHeader{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:20px;
+}
+
+.placesHeader h3{
+  margin:0;
+  color:#063f31;
+  font-size:25px;
+  font-weight:900;
+}
+
+.placesHeader p{
+  margin:7px 0 0;
+  color:#6a7d76;
+  font-size:13px;
+}
+
+.placeProgress{
+  min-width:145px;
+  padding:13px;
+  border-radius:16px;
+  background:#effaf5;
+  border:1px solid #d7eee4;
+  text-align:center;
+}
+
+.placeProgress strong{
+  display:block;
+  font-size:21px;
+  color:#006a4e;
+}
+
+.placeProgress span{
+  color:#6a7d76;
+  font-size:11px;
+}
+
+.placesGrid{
+  display:grid;
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+  gap:13px;
+}
+
+.placeCard{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-height:82px;
+  padding:13px;
+  border-radius:18px;
+  background:#f9fcfb;
+  border:1px solid #e3eee9;
+  transition:.2s ease;
+}
+
+.placeCard:hover{
+  transform:translateY(-2px);
+  border-color:#b7ded0;
+  box-shadow:0 8px 25px rgba(0,90,65,.08);
+}
+
+.placeCard.visited{
+  background:#effaf5;
+  border-color:#9ed6c1;
+}
+
+.placeNumber{
+  font-size:11px;
+  font-weight:900;
+  color:#8ca49b;
+  min-width:23px;
+}
+
+.placeEmoji{
+  width:43px;
+  height:43px;
+  display:grid;
+  place-items:center;
+  flex:none;
+  border-radius:14px;
+  background:#eaf7f2;
+  font-size:23px;
+}
+
+.placeInfo{
+  flex:1;
+  min-width:0;
+}
+
+.placeInfo h4{
+  margin:0;
+  color:#173e34;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.placeCategory{
+  display:inline-block;
+  margin-top:5px;
+  color:#168263;
+  font-size:10px;
+  font-weight:800;
+}
+
+.placeActions{
+  display:flex;
+  gap:7px;
+}
+
+.mapBtn,
+.visitBtn{
+  width:36px;
+  height:36px;
+  border:0;
+  border-radius:11px;
+  cursor:pointer;
+  font-size:16px;
+  transition:.2s ease;
+}
+
+.mapBtn{
+  background:#e8f4ff;
+}
+
+.visitBtn{
+  background:#eaf7f2;
+  color:#007453;
+  font-weight:900;
+}
+
+.mapBtn:hover,
+.visitBtn:hover{
+  transform:scale(1.07);
+}
+
+.placeCard.visited .visitBtn{
+  background:#007f5b;
+  color:#fff;
+}
+
+.overallProgress{
+  margin-top:18px;
+  padding:20px;
+  border-radius:20px;
+  background:
+    linear-gradient(
+      135deg,
+      #003d2e,
+      #006a4e
+    );
+  color:white;
+}
+
+.overallProgressTop{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.overallProgressTitle{
+  font-weight:900;
+  font-size:17px;
+}
+
+.overallProgressNumber{
+  font-weight:900;
+  font-size:23px;
+}
+
+.progressBar{
+  height:9px;
+  margin-top:13px;
+  overflow:hidden;
+  border-radius:20px;
+  background:rgba(255,255,255,.18);
+}
+
+.progressFill{
+  width:0%;
+  height:100%;
+  border-radius:20px;
+  background:#fff;
+  transition:width .4s ease;
+}
+
+@media(max-width:700px){
+
+  .placesBox{
+    padding:17px;
+  }
+
+  .placesHeader{
+    flex-direction:column;
+  }
+
+  .placeProgress{
+    width:100%;
+  }
+
+  .placesGrid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+`;
+
+document.head.appendChild(
+  placesStyle
+);
+
+
+/* =========================================================
+   ৭. PLACE SECTION RENDER
+========================================================= */
+
+function renderDistrictPlaces(
+  districtName
+){
+
+  const places =
+    districtPlaces[districtName] || [];
+
+  const visited =
+    getVisitedPlaces();
+
+  let visitedCount = 0;
+
+
+  places.forEach(function(place){
+
+    const key =
+      districtName + "::" + place[0];
+
+    if(visited[key]){
+      visitedCount++;
     }
 
-    .hero h1{
-        font-size:29px;
+  });
+
+
+  const percentage =
+    places.length
+      ? Math.round(
+          visitedCount / places.length * 100
+        )
+      : 0;
+
+
+  placesSection.innerHTML = `
+
+    <div class="placesBox">
+
+      <div class="placesHeader">
+
+        <div>
+
+          <h3>
+            🗺️ ${districtName} ঘুরে দেখি
+          </h3>
+
+          <p>
+            দর্শনীয় স্থানগুলো দেখুন,
+            Google Maps-এ খুঁজুন এবং
+            যেগুলো ঘুরেছেন সেগুলো ✓ করে রাখুন।
+          </p>
+
+        </div>
+
+        <div class="placeProgress">
+
+          <strong>
+            ${visitedCount}/${places.length}
+          </strong>
+
+          <span>
+            ঘোরা হয়েছে
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="placesGrid"></div>
+
+
+      <div class="overallProgress">
+
+        <div class="overallProgressTop">
+
+          <span class="overallProgressTitle">
+            🎒 ${districtName} Explorer Progress
+          </span>
+
+          <span class="overallProgressNumber">
+            ${percentage}%
+          </span>
+
+        </div>
+
+        <div class="progressBar">
+
+          <div
+            class="progressFill"
+            style="width:${percentage}%"
+          ></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  `;
+
+
+  const grid =
+    placesSection.querySelector(
+      ".placesGrid"
+    );
+
+
+  places.forEach(
+    function(place,index){
+
+      grid.appendChild(
+        createPlaceCard(
+          districtName,
+          place,
+          index
+        )
+      );
+
+    }
+  );
+
+
+  placesSection.style.display =
+    "block";
+
+}
+
+
+/* =========================================================
+   ৮. 2A-এর showDistrictProfile-এর সাথে 2B যুক্ত
+========================================================= */
+
+const oldShowDistrictProfile =
+  window.showDistrictProfile;
+
+
+window.showDistrictProfile =
+function(districtName){
+
+  if(typeof oldShowDistrictProfile === "function"){
+
+    oldShowDistrictProfile(
+      districtName
+    );
+
+  }
+
+  setTimeout(function(){
+
+    renderDistrictPlaces(
+      districtName
+    );
+
+  },50);
+
+};
+
+
+/* =========================================================
+   ৯. SELECTOR-এ আবার নতুন listener
+========================================================= */
+
+const districtSelector2B =
+  document.getElementById(
+    "district"
+  );
+
+
+if(districtSelector2B){
+
+  districtSelector2B.addEventListener(
+    "change",
+    function(){
+
+      window.showDistrictProfile(
+        this.value
+      );
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   ১০. মোট VISITED PROGRESS
+========================================================= */
+
+function updateOverallProgress(){
+
+  let totalPlaces = 0;
+  let visitedPlaces = 0;
+
+  Object.keys(
+    districtPlaces
+  ).forEach(function(districtName){
+
+    const places =
+      districtPlaces[districtName] || [];
+
+    totalPlaces += places.length;
+
+    places.forEach(function(place){
+
+      const key =
+        districtName + "::" + place[0];
+
+      if(
+        getVisitedPlaces()[key] === true
+      ){
+
+        visitedPlaces++;
+
+      }
+
+    });
+
+  });
+
+
+  const percent =
+    totalPlaces
+      ? Math.round(
+          visitedPlaces / totalPlaces * 100
+        )
+      : 0;
+
+
+  console.log(
+    "Explorer Progress:",
+    visitedPlaces +
+    "/" +
+    totalPlaces,
+    percent + "%"
+  );
+
+
+  return {
+    totalPlaces,
+    visitedPlaces,
+    percent
+  };
+
+}
+
+
+/* =========================================================
+   ১১. GLOBAL ACCESS
+========================================================= */
+
+window.districtPlaces =
+  districtPlaces;
+
+window.renderDistrictPlaces =
+  renderDistrictPlaces;
+
+window.updateOverallProgress =
+  updateOverallProgress;
+
+
+/* =========================================================
+   ১২. STARTUP CHECK
+========================================================= */
+
+console.log(
+  "2B loaded:",
+  Object.keys
+
+<!-- =========================================================
+     STEP 3 — INTERACTIVE 64 DISTRICT EXPLORER
+     Features:
+     • 64 District Cards
+     • Search District
+     • Division Filter
+     • Random District
+     • Favorite District
+     • Explorer Level
+     • District Completion
+     • Personal Explorer Stats
+========================================================= -->
+
+<script>
+
+/* =========================================================
+   1. STEP 3 STORAGE
+========================================================= */
+
+const FAVORITE_KEY =
+  "amarJelaFavoriteDistrict_v1";
+
+
+function getFavoriteDistrict(){
+
+  return localStorage.getItem(
+    FAVORITE_KEY
+  ) || "";
+
+}
+
+
+function saveFavoriteDistrict(
+  districtName
+){
+
+  localStorage.setItem(
+    FAVORITE_KEY,
+    districtName
+  );
+
+}
+
+
+/* =========================================================
+   2. STEP 3 CONTAINER
+========================================================= */
+
+let explorerSection =
+  document.getElementById(
+    "districtExplorer"
+  );
+
+
+if(!explorerSection){
+
+  explorerSection =
+    document.createElement("section");
+
+  explorerSection.id =
+    "districtExplorer";
+
+  const container =
+    document.querySelector(".container");
+
+  if(container){
+
+    container.appendChild(
+      explorerSection
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   3. STEP 3 CSS
+========================================================= */
+
+const explorerStyle =
+document.createElement("style");
+
+explorerStyle.innerHTML = `
+
+#districtExplorer{
+  margin-top:24px;
+}
+
+.explorerBox{
+  background:#fff;
+  border:1px solid #dceee7;
+  border-radius:28px;
+  padding:24px;
+  box-shadow:0 18px 50px rgba(0,70,50,.09);
+}
+
+.explorerHeading{
+  text-align:center;
+  margin-bottom:22px;
+}
+
+.explorerHeading .mini{
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:30px;
+  background:#eaf8f2;
+  color:#007453;
+  font-size:11px;
+  font-weight:900;
+  margin-bottom:8px;
+}
+
+.explorerHeading h2{
+  margin:0;
+  color:#073f31;
+  font-size:29px;
+  font-weight:900;
+}
+
+.explorerHeading p{
+  margin:8px auto 0;
+  max-width:650px;
+  color:#70827c;
+  font-size:13px;
+  line-height:1.7;
+}
+
+
+/* SEARCH */
+
+.explorerTools{
+  display:grid;
+  grid-template-columns:
+    1fr 180px auto;
+  gap:10px;
+  margin-bottom:18px;
+}
+
+.explorerSearch,
+.divisionFilter,
+.randomBtn{
+  height:46px;
+  border-radius:13px;
+  border:1px solid #d8e9e2;
+  outline:none;
+  font-size:13px;
+}
+
+.explorerSearch{
+  padding:0 15px;
+  background:#f9fcfb;
+}
+
+.divisionFilter{
+  padding:0 12px;
+  background:#f9fcfb;
+  color:#29483f;
+}
+
+.randomBtn{
+  padding:0 17px;
+  cursor:pointer;
+  background:#006a4e;
+  color:#fff;
+  border-color:#006a4e;
+  font-weight:800;
+  transition:.2s ease;
+}
+
+.randomBtn:hover{
+  transform:translateY(-2px);
+}
+
+
+/* STATS */
+
+.explorerStats{
+  display:grid;
+  grid-template-columns:
+    repeat(4,1fr);
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.explorerStat{
+  padding:15px;
+  text-align:center;
+  border-radius:16px;
+  background:#f6fbf9;
+  border:1px solid #e0eee9;
+}
+
+.explorerStat strong{
+  display:block;
+  color:#006a4e;
+  font-size:22px;
+  font-weight:900;
+}
+
+.explorerStat span{
+  color:#71827c;
+  font-size:10px;
+}
+
+
+/* CARDS */
+
+.districtExplorerGrid{
+  display:grid;
+  grid-template-columns:
+    repeat(4,minmax(0,1fr));
+  gap:12px;
+}
+
+.explorerCard{
+  position:relative;
+  overflow:hidden;
+  min-height:160px;
+  padding:17px;
+  border-radius:19px;
+  background:#fbfdfc;
+  border:1px solid #e0ece7;
+  cursor:pointer;
+  transition:.22s ease;
+}
+
+.explorerCard:hover{
+  transform:translateY(-4px);
+  border-color:#9dd2bf;
+  box-shadow:
+    0 12px 28px rgba(0,90,65,.11);
+}
+
+.explorerCard.active{
+  border:2px solid #007f5b;
+  background:#f1fbf7;
+}
+
+.explorerCardEmoji{
+  font-size:31px;
+  margin-bottom:8px;
+}
+
+.explorerCard h4{
+  margin:0;
+  color:#143e33;
+  font-size:15px;
+  font-weight:900;
+}
+
+.explorerCardDivision{
+  margin-top:5px;
+  color:#7a8c86;
+  font-size:10px;
+}
+
+.explorerCardTagline{
+  margin-top:9px;
+  color:#657a72;
+  font-size:10px;
+  line-height:1.55;
+}
+
+.favoriteDistrict{
+  position:absolute;
+  right:12px;
+  top:12px;
+  width:31px;
+  height:31px;
+  display:grid;
+  place-items:center;
+  border:0;
+  border-radius:50%;
+  background:#eef6f2;
+  cursor:pointer;
+  font-size:15px;
+}
+
+.favoriteDistrict.active{
+  background:#fff1b8;
+}
+
+
+/* LEVEL */
+
+.explorerLevel{
+  margin-top:20px;
+  padding:20px;
+  border-radius:20px;
+  background:
+    linear-gradient(
+      135deg,
+      #003d2e,
+      #007453
+    );
+  color:#fff;
+}
+
+.levelTop{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.levelName{
+  font-size:17px;
+  font-weight:900;
+}
+
+.levelCount{
+  font-size:13px;
+  opacity:.9;
+}
+
+.levelBar{
+  height:9px;
+  margin-top:13px;
+  background:rgba(255,255,255,.18);
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.levelFill{
+  width:0%;
+  height:100%;
+  background:#fff;
+  border-radius:20px;
+  transition:.5s ease;
+}
+
+.levelMessage{
+  margin-top:10px;
+  font-size:11px;
+  opacity:.88;
+}
+
+
+/* EMPTY */
+
+.explorerEmpty{
+  padding:35px 20px;
+  text-align:center;
+  color:#72837d;
+  border:1px dashed #cbded6;
+  border-radius:18px;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+  .districtExplorerGrid{
+    grid-template-columns:
+      repeat(3,minmax(0,1fr));
+  }
+
+}
+
+@media(max-width:650px){
+
+  .explorerBox{
+    padding:17px;
+  }
+
+  .explorerBox{
+    padding:17px;
+  }
+
+  .explorerTitle{
+    font-size:24px;
+  }
+
+  .explorerSubtitle{
+    font-size:13px;
+    line-height:1.6;
+  }
+
+  .explorerControls{
+    flex-direction:column;
+  }
+
+  .explorerSearch,
+  .explorerFilter,
+  .randomDistrictBtn{
+    width:100%;
+  }
+
+  .explorerStats{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+
+  .explorerStat{
+    padding:14px 10px;
+    border-radius:15px;
+  }
+
+  .explorerStat strong{
+    font-size:20px;
+  }
+
+  .explorerStat span{
+    font-size:11px;
+  }
+
+  .levelBox{
+    padding:17px;
+  }
+
+  .levelTop{
+    gap:10px;
+  }
+
+  .levelTitle{
+    font-size:17px;
+  }
+
+  .levelNumber{
+    font-size:25px;
+  }
+
+  .levelProgress{
+    height:8px;
+  }
+
+  .districtGrid{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+  .districtCard{
+    padding:16px;
+  }
+
+  .districtCardTitle{
+    font-size:18px;
+  }
+
+  .districtCardDescription{
+    font-size:12px;
+  }
+
+  .favoriteBox{
+    padding:15px;
+  }
+
+  .favoriteBox h3{
+    font-size:15px;
+  }
+
+  .favoriteBox button{
+    padding:8px 11px;
+    font-size:11px;
+  }
+
+}
+
+@media(max-width:400px){
+
+  .explorerBox{
+    padding:14px;
+  }
+
+  .explorerStats{
+    gap:8px;
+  }
+
+  .explorerStat{
+    padding:12px 7px;
+  }
+
+  .explorerStat strong{
+    font-size:18px;
+  }
+
+  .explorerTitle{
+    font-size:22px;
+  }
+
+  .districtCard{
+    padding:14px;
+  }
+
+}
+
+.explorerCard{
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease;
+}
+
+.explorerCard:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 35px rgba(0,0,0,.10);
+
+</style>
+
+<script>
+/* =========================================================
+   STEP 3 — INTERACTIVE 64 DISTRICT EXPLORER
+   JAVASCRIPT
+   ========================================================= */
+
+(function(){
+
+  const favoriteKey = "amarJelaFavoriteDistrict_v1";
+
+  const grid = document.getElementById("districtGrid");
+  const searchInput = document.getElementById("districtSearch");
+  const divisionFilter = document.getElementById("divisionFilter");
+  const randomBtn = document.getElementById("randomDistrictBtn");
+
+  if(!grid || !window.districts){
+    console.warn("District Explorer could not start.");
+    return;
+  }
+
+
+  /* =========================
+     VISITED DATA
+     ========================= */
+
+  function getVisitedData(){
+
+    try{
+      return JSON.parse(
+        localStorage.getItem("amarJelaVisitedPlaces_v1")
+      ) || {};
+    }catch(e){
+      return {};
     }
 
-    .container{
-        width:95%;
+  }
+
+
+  /* =========================
+     FAVORITE
+     ========================= */
+
+  function getFavoriteDistrict(){
+    return localStorage.getItem(favoriteKey) || "";
+  }
+
+
+  function setFavoriteDistrict(name){
+
+    if(!name) return;
+
+    localStorage.setItem(
+      favoriteKey,
+      name
+    );
+
+    updateFavoriteDisplay();
+    renderExplorerCards();
+
+  }
+
+
+  function removeFavoriteDistrict(){
+
+    localStorage.removeItem(favoriteKey);
+
+    updateFavoriteDisplay();
+    renderExplorerCards();
+
+  }
+
+
+  function updateFavoriteDisplay(){
+
+    const favorite =
+      getFavoriteDistrict();
+
+    const favoriteName =
+      document.getElementById(
+        "favoriteDistrictName"
+      );
+
+    const favoriteStat =
+      document.getElementById(
+        "favoriteDistrictStat"
+      );
+
+    const removeBtn =
+      document.getElementById(
+        "removeFavoriteBtn"
+      );
+
+
+    if(favoriteName){
+
+      favoriteName.textContent =
+        favorite || "কোনো জেলা নির্বাচন করা হয়নি";
+
     }
 
-    .dashboard{
-        gap:7px;
+
+    if(favoriteStat){
+
+      favoriteStat.textContent =
+        favorite || "—";
+
     }
 
-    .stat{
-        padding:12px 5px;
+
+    if(removeBtn){
+
+      removeBtn.style.display =
+        favorite ? "inline-flex" : "none";
+
     }
 
-    .stat-icon{
-        font-size:21px;
+  }
+
+
+  /* =========================
+     DISTRICT PROGRESS
+     ========================= */
+
+  function getDistrictProgress(name){
+
+    const places =
+      window.districtPlaces &&
+      window.districtPlaces[name]
+        ? window.districtPlaces[name]
+        : [];
+
+    const visited =
+      getVisitedData();
+
+    if(!places.length){
+
+      return {
+        visited:0,
+        total:0,
+        percent:0,
+        complete:false
+      };
+
     }
 
-    .stat-number{
-        font-size:18px;
+
+    let count = 0;
+
+
+    places.forEach(function(place,index){
+
+      const key =
+        name + "::" + index;
+
+      if(
+        visited[key] === true ||
+        (
+          visited[name] &&
+          visited[name][index] === true
+        )
+      ){
+
+        count++;
+
+      }
+
+    });
+
+
+    const percent =
+      Math.round(
+        (count / places.length) * 100
+      );
+
+
+    return {
+
+      visited:count,
+
+      total:places.length,
+
+      percent:percent,
+
+      complete:
+        count === places.length
+
+    };
+
+  }
+
+
+  /* =========================
+     EXPLORER STATS
+     ========================= */
+
+  function updateExplorerStats(){
+
+    let completed = 0;
+    let visitedPlaces = 0;
+
+
+    Object.keys(window.districts)
+      .forEach(function(name){
+
+        const progress =
+          getDistrictProgress(name);
+
+        visitedPlaces +=
+          progress.visited;
+
+        if(progress.complete){
+          completed++;
+        }
+
+      });
+
+
+    const totalEl =
+      document.getElementById(
+        "totalDistrictStat"
+      );
+
+    const completedEl =
+      document.getElementById(
+        "completedDistrictStat"
+      );
+
+    const visitedEl =
+      document.getElementById(
+        "visitedPlacesStat"
+      );
+
+
+    if(totalEl){
+      totalEl.textContent = "64";
     }
 
-    .stat-label{
-        font-size:10px;
+    if(completedEl){
+      completedEl.textContent = completed;
     }
 
-    .passport h2{
-        font-size:23px;
+    if(visitedEl){
+      visitedEl.textContent = visitedPlaces;
     }
+
+
+    updateExplorerLevel(completed);
+
+  }
+
+
+  /* =========================
+     LEVEL SYSTEM
+     ========================= */
+
+  function updateExplorerLevel(completed){
+
+    let level = "🌱 New Explorer";
+    let message = "তোমার Explorer Journey শুরু করো।";
+
+
+    if(completed >= 1){
+      level = "🥉 District Explorer";
+      message = "দারুণ! তুমি প্রথম জেলা সম্পূর্ণ করেছো।";
+    }
+
+    if(completed >= 5){
+      level = "🥉 Travel Explorer";
+      message = "৫টি জেলা সম্পূর্ণ! এবার আরও দূরে যাও।";
+    }
+
+    if(completed >= 15){
+      level = "🥈 Bangladesh Explorer";
+      message = "তুমি বাংলাদেশের অনেকটা পথ ঘুরে ফেলেছো।";
+    }
+
+    if(completed >= 30){
+      level = "🥇 Senior Explorer";
+      message = "অসাধারণ! তুমি সত্যিকারের Bangladesh Explorer।";
+    }
+
+    if(completed >= 50){
+      level = "🏆 Master Explorer";
+      message = "৬৪ জেলার স্বপ্ন এখন খুব কাছাকাছি।";
+    }
+
+    if(completed >= 64){
+      level = "👑 64/64 Bangladesh Explorer";
+      message = "বাংলাদেশের ৬৪ জেলা সম্পূর্ণ! 🇧🇩";
+    }
+
+
+    const levelName =
+      document.getElementById(
+        "explorerLevelName"
+      );
+
+    const levelText =
+      document.getElementById(
+        "explorerLevelText"
+      );
+
+    const levelNumber =
+      document.getElementById(
+        "explorerLevelNumber"
+      );
+
+    const levelBar =
+      document.getElementById(
+        "explorerLevelBar"
+      );
+
+
+    if(levelName){
+      levelName.textContent = level;
+    }
+
+    if(levelText){
+      levelText.textContent = message;
+    }
+
+    if(levelNumber){
+      levelNumber.textContent = completed;
+    }
+
+    if(levelBar){
+
+      levelBar.style.width =
+        ((completed / 64) * 100) + "%";
+
+    }
+
+  }
+
+
+  /* =========================
+     CREATE DISTRICT CARD
+     ========================= */
+
+  function createDistrictCard(name){
+
+    const data =
+      window.districts[name];
+
+    if(!data) return null;
+
+
+    const progress =
+      getDistrictProgress(name);
+
+    const favorite =
+      getFavoriteDistrict();
+
+    const card =
+      document.createElement("article");
+
+    card.className =
+      "explorerCard";
+
+
+    if(favorite === name){
+      card.classList.add("favorite");
+    }
+
+
+    card.innerHTML = `
+
+      <div class="explorerCardTop">
+
+        <div class="explorerEmoji">
+          ${data.emoji || "📍"}
+        </div>
+
+        <button
+          class="favoriteBtn ${favorite === name ? "active" : ""}"
+          title="Favorite"
+          aria-label="Favorite ${name}"
+        >
+          ${favorite === name ? "❤️" : "♡"}
+        </button>
+
+      </div>
+
+
+      <h3 class="explorerCardTitle">
+        ${name}
+      </h3>
+
+
+      <div class="explorerDivision">
+        ${data.division} বিভাগ
+      </div>
+
+
+      <p class="explorerCardDescription">
+        ${data.tagline || "বাংলাদেশের একটি সুন্দর জেলা।"}
+      </p>
+
+
+      <div class="explorerProgressInfo">
+
+        <span>
+          📍 ${progress.visited}/${progress.total}
+        </span>
+
+        <strong>
+          ${progress.percent}%
+        </strong>
+
+      </div>
+
+
+      <div class="explorerMiniProgress">
+        <span
+          style="width:${progress.percent}%"
+        ></span>
+      </div>
+
+
+      ${
+        progress.complete
+        ?
+        `<div class="districtComplete">
+          🏆 জেলা সম্পূর্ণ
+        </div>`
+        :
+        ""
+      }
+
+
+      <button
+        class="explorerOpenBtn"
+        type="button"
+      >
+        Explore ${name} →
+      </button>
+
+    `;
+
+
+    /* Favorite button */
+
+    const favoriteBtn =
+      card.querySelector(
+        ".favoriteBtn"
+      );
+
+
+    favoriteBtn.addEventListener(
+      "click",
+      function(event){
+
+        event.stopPropagation();
+
+        if(
+          getFavoriteDistrict() === name
+        ){
+
+          removeFavoriteDistrict();
+
+        }else{
+
+          setFavoriteDistrict(name);
+
+        }
+
+      }
+    );
+
+
+    /* Card click */
+
+    card.addEventListener(
+      "click",
+      function(){
+
+        openDistrict(name);
+
+      }
+    );
+
+
+    return card;
+
+  }
+
+
+  /* =========================
+     OPEN DISTRICT
+     ========================= */
+
+  function openDistrict(name){
+
+    const selector =
+      document.getElementById("district") ||
+      document.getElementById("districtSelect");
+
+
+    if(selector){
+
+      selector.value = name;
+
+      selector.dispatchEvent(
+        new Event("change",{
+          bubbles:true
+        })
+      );
+
+    }
+
+
+    if(
+      typeof window.showDistrictProfile ===
+      "function"
+    ){
+
+      window.showDistrictProfile(name);
+
+    }
+
+
+    if(
+      typeof window.renderDistrictPlaces ===
+      "function"
+    ){
+
+      window.renderDistrictPlaces(name);
+
+    }
+
+
+    setTimeout(function(){
+
+      const profile =
+        document.getElementById(
+          "districtProfile"
+        );
+
+      if(profile){
+
+        profile.scrollIntoView({
+          behavior:"smooth",
+          block:"start"
+        });
+
+      }
+
+    },100);
+
+  }
+
+
+  /* =========================
+     RENDER CARDS
+     ========================= */
+
+  function renderExplorerCards(){
+
+    const search =
+      searchInput
+      ? searchInput.value
+          .trim()
+          .toLowerCase()
+      : "";
+
+
+    const division =
+      divisionFilter
+      ? divisionFilter.value
+      : "all";
+
+
+    grid.innerHTML = "";
+
+
+    let found = 0;
+
+
+    Object.keys(window.districts)
+      .forEach(function(name){
+
+        const data =
+          window.districts[name];
+
+
+        const matchesSearch =
+          !search ||
+          name
+            .toLowerCase()
+            .includes(search);
+
+
+        const matchesDivision =
+          division === "all" ||
+          data.division === division;
+
+
+        if(
+          matchesSearch &&
+          matchesDivision
+        ){
+
+          const card =
+            createDistrictCard(name);
+
+          if(card){
+
+            grid.appendChild(card);
+
+            found++;
+
+          }
+
+        }
+
+      });
+
+
+    if(emptyBox){
+
+      emptyBox.style.display =
+        found === 0
+          ? "block"
+          : "none";
+
+    }
+
+
+    updateExplorerStats();
+
+  }
+
+
+  /* =========================
+     SEARCH
+     ========================= */
+
+  if(searchInput){
+
+    searchInput.addEventListener(
+      "input",
+      renderExplorerCards
+    );
+
+  }
+
+
+  /* =========================
+     DIVISION FILTER
+     ========================= */
+
+  if(divisionFilter){
+
+    divisionFilter.addEventListener(
+      "change",
+      renderExplorerCards
+    );
+
+  }
+
+
+  /* =========================
+     RANDOM DISTRICT
+     ========================= */
+
+  if(randomBtn){
+
+    randomBtn.addEventListener(
+      "click",
+      function(){
+
+        const names =
+          Object.keys(window.districts);
+
+        if(!names.length) return;
+
+
+        const randomName =
+          names[
+            Math.floor(
+              Math.random() * names.length
+            )
+          ];
+
+
+        openDistrict(randomName);
+
+      }
+    );
+
+  }
+
+
+  /* =========================
+     REMOVE FAVORITE
+     ========================= */
+
+  const removeFavoriteBtn =
+    document.getElementById(
+      "removeFavoriteBtn"
+    );
+
+
+  if(removeFavoriteBtn){
+
+    removeFavoriteBtn.addEventListener(
+      "click",
+      removeFavoriteDistrict
+    );
+
+  }
+
+
+  /* =========================
+     INITIALIZE
+     ========================= */
+
+  updateFavoriteDisplay();
+
+  renderExplorerCards();
+
+
+  /* =========================
+     GLOBAL FUNCTIONS
+     ========================= */
+
+  window.renderExplorerCards =
+    renderExplorerCards;
+
+  window.updateExplorerStats =
+    updateExplorerStats;
+
+  window.updateExplorerLevel =
+    updateExplorerLevel;
+
+  window.openExplorerDistrict =
+    openDistrict;
+
+
+})();
+
+</script>
+
+<!-- =========================================================
+     STEP 4 — DIGITAL DISTRICT PASSPORT
+     ========================================================= -->
+
+<section id="districtPassport" class="passportSection">
+
+  <div class="passportHeader">
+    <span class="passportKicker">🎫 YOUR BANGLADESH PASSPORT</span>
+
+    <h2>🛂 Digital District Passport</h2>
+
+    <p>
+      তুমি যে জেলাগুলো ঘুরেছো, সেগুলো এখন তোমার নিজের
+      Digital Passport-এ জমা হবে।
+    </p>
+  </div>
+
+
+  <div class="passportCard">
+
+    <div class="passportTop">
+
+      <div class="passportEmblem">
+        🇧🇩
+      </div>
+
+      <div>
+        <span>DISTRICT EXPLORER</span>
+        <h3>বাংলাদেশ ভ্রমণ পাসপোর্ট</h3>
+      </div>
+
+      <div class="passportId">
+        <small>EXPLORER ID</small>
+        <strong id="passportExplorerId">BD-0000</strong>
+      </div>
+
+    </div>
+
+
+    <div class="passportDivider"></div>
+
+
+    <div class="passportIdentity">
+
+      <div class="passportPhoto">
+        🧭
+      </div>
+
+      <div class="passportInfo">
+
+        <small>EXPLORER NAME</small>
+        <h3 id="passportName">বাংলাদেশ Explorer</h3>
+
+        <small>HOME DISTRICT</small>
+        <p id="passportHomeDistrict">
+          এখনো নির্বাচন করা হয়নি
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="passportStats">
+
+      <div>
+        <strong id="passportDistrictCount">0</strong>
+        <span>জেলা</span>
+      </div>
+
+      <div>
+        <strong id="passportPlaceCount">0</strong>
+        <span>স্থান</span>
+      </div>
+
+      <div>
+        <strong id="passportPercent">0%</strong>
+        <span>অগ্রগতি</span>
+      </div>
+
+    </div>
+
+
+    <div class="passportProgress">
+
+      <div class="passportProgressTop">
+        <span>🇧🇩 Bangladesh Journey</span>
+        <strong id="passportProgressText">
+          0 / 64
+        </strong>
+      </div>
+
+      <div class="passportProgressBar">
+        <span id="passportProgressBar"></span>
+      </div>
+
+    </div>
+
+
+    <div class="passportStampArea">
+
+      <h4>🎟️ District Stamps</h4>
+
+      <div
+        id="passportStamps"
+        class="passportStamps"
+      ></div>
+
+    </div>
+
+
+    <div
+      id="passportMessage"
+      class="passportMessage"
+    >
+      তোমার প্রথম District Stamp-এর অপেক্ষায় 🇧🇩
+    </div>
+
+  </div>
+
+
+  <div class="passportActions">
+
+    <button
+      type="button"
+      id="passportRandomBtn"
+    >
+      🎲 Random District
+    </button>
+
+    <button
+      type="button"
+      id="passportResetBtn"
+    >
+      🔄 Passport Reset
+    </button>
+
+  </div>
+
+</section>
+
+
+<style>
+
+/* =========================================================
+   DIGITAL DISTRICT PASSPORT
+   ========================================================= */
+
+.passportSection{
+  width:100%;
+  max-width:1050px;
+  margin:80px auto;
+  padding:0 18px;
+  box-sizing:border-box;
+}
+
+.passportHeader{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.passportKicker{
+  display:inline-block;
+  padding:7px 14px;
+  border-radius:50px;
+  background:#eff6ff;
+  color:#2563eb;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.passportHeader h2{
+  margin:12px 0 8px;
+  font-size:clamp(28px,5vw,
+44px);
+  color:#102a43;
+  font-weight:900;
+  line-height:1.15;
+}
+
+.passportHeader p{
+  max-width:650px;
+  margin:auto;
+  color:#64748b;
+  font-size:14px;
+  line-height:1.7;
+}
+
+
+/* =========================
+   PASSPORT CARD
+   ========================= */
+
+.passportCard{
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(
+      135deg,
+      #fffdf5,
+      #f8fafc
+    );
+  border:1px solid #dbe3ec;
+  border-radius:30px;
+  padding:30px;
+  box-shadow:
+    0 25px 60px rgba(15,23,42,.12);
+}
+
+.passportCard::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.28;
+  background-image:
+    radial-gradient(
+      circle at 20% 20%,
+      #cbd5e1 1px,
+      transparent 1px
+    );
+  background-size:25px 25px;
+}
+
+
+/* =========================
+   PASSPORT TOP
+   ========================= */
+
+.passportTop{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.passportEmblem{
+  width:65px;
+  height:65px;
+  display:grid;
+  place-items:center;
+  border-radius:18px;
+  background:#fff;
+  font-size:36px;
+  box-shadow:0 8px 20px rgba(15,23,42,.08);
+}
+
+.passportTop span{
+  display:block;
+  color:#64748b;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1.5px;
+}
+
+.passportTop h3{
+  margin:5px 0 0;
+  color:#102a43;
+  font-size:21px;
+  font-weight:900;
+}
+
+.passportId{
+  margin-left:auto;
+  text-align:right;
+}
+
+.passportId small{
+  display:block;
+  color:#94a3b8;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.passportId strong{
+  display:block;
+  margin-top:3px;
+  color:#102a43;
+  font-size:17px;
+  letter-spacing:2px;
+}
+
+.passportDivider{
+  height:1px;
+  background:#dbe3ec;
+  margin:25px 0;
+}
+
+
+/* =========================
+   IDENTITY
+   ========================= */
+
+.passportIdentity{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.passportPhoto{
+  width:90px;
+  height:90px;
+  flex-shrink:0;
+  display:grid;
+  place-items:center;
+  border-radius:20px;
+  background:#e0f2fe;
+  font-size:45px;
+}
+
+.passportInfo small{
+  display:block;
+  color:#94a3b8;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1px;
+  margin-top:7px;
+}
+
+.passportInfo h3{
+  margin:3px 0 4px;
+  color:#102a43;
+  font-size:21px;
+}
+
+.passportInfo p{
+  margin:3px 0;
+  color:#475569;
+  font-size:13px;
+  font-weight:700;
+}
+
+
+/* =========================
+   PASSPORT STATS
+   ========================= */
+
+.passportStats{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:25px;
+}
+
+.passportStats div{
+  padding:16px;
+  text-align:center;
+  border:1px solid #e2e8f0;
+  background:rgba(255,255,255,.75);
+  border-radius:16px;
+}
+
+.passportStats strong{
+  display:block;
+  color:#102a43;
+  font-size:25px;
+  font-weight:900;
+}
+
+.passportStats span{
+  display:block;
+  color:#64748b;
+  font-size:10px;
+  font-weight:800;
+  margin-top:3px;
+}
+
+
+/* =========================
+   PASSPORT PROGRESS
+   ========================= */
+
+.passportProgress{
+  position:relative;
+  margin-top:25px;
+}
+
+.passportProgressTop{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-bottom:8px;
+  color:#475569;
+  font-size:12px;
+  font-weight:800;
+}
+
+.passportProgressBar{
+  height:9px;
+  background:#e2e8f0;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.passportProgressBar span{
+  display:block;
+  height:100%;
+  width:0%;
+  border-radius:20px;
+  background:
+    linear-gradient(
+      90deg,
+      #10b981,
+      #22c55e,
+      #facc15
+    );
+  transition:width .5s ease;
+}
+
+
+/* =========================
+   DISTRICT STAMPS
+   ========================= */
+
+.passportStampArea{
+  position:relative;
+  margin-top:28px;
+}
+
+.passportStampArea h4{
+  margin:0 0 13px;
+  color:#102a43;
+  font-size:14px;
+}
+
+.passportStamps{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  max-height:170px;
+  overflow-y:auto;
+  padding:4px;
+}
+
+.passportStamp{
+  min-width:75px;
+  padding:9px 8px;
+  text-align:center;
+  border:1px dashed #cbd5e1;
+  border-radius:12px;
+  background:#fff;
+  transition:.2s ease;
+}
+
+.passportStamp:hover{
+  transform:translateY(-2px);
+}
+
+.passportStamp .stampEmoji{
+  display:block;
+  font-size:21px;
+}
+
+.passportStamp strong{
+  display:block;
+  margin-top:4px;
+  color:#334155;
+  font-size:9px;
+}
+
+.passportStamp.locked{
+  opacity:.38;
+  filter:grayscale(1);
+}
+
+
+/* =========================
+   PASSPORT MESSAGE
+   ========================= */
+
+.passportMessage{
+  position:relative;
+  margin-top:20px;
+  padding:13px 15px;
+  text-align:center;
+  border-radius:14px;
+  background:#ecfdf5;
+  color:#047857;
+  font-size:12px;
+  font-weight:800;
+}
+
+
+/* =========================
+   ACTION BUTTONS
+   ========================= */
+
+.passportActions{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-top:18px;
+}
+
+.passportActions button{
+  border:0;
+  border-radius:13px;
+  padding:12px 18px;
+  cursor:pointer;
+  font-weight:800;
+  font-size:12px;
+  transition:.2s ease;
+}
+
+#passportRandomBtn{
+  background:#102a43;
+  color:#fff;
+}
+
+#passportResetBtn{
+  background:#f1f5f9;
+  color:#475569;
+}
+
+.passportActions button:hover{
+  transform:translateY(-2px);
+}
+
+.passportActions button:active{
+  transform:scale(.97);
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media(max-width:650px){
+
+  .passportSection{
+    padding:0 12px;
+    margin:55px auto;
+  }
+
+  .passportHeader h2{
+    font-size:28px;
+  }
+
+  .passportHeader p{
+    font-size:13px;
+  }
+
+  .passportCard{
+    padding:18px;
+    border-radius:22px;
+  }
+
+  .passportTop{
+    gap:10px;
+  }
+
+  .passportEmblem{
+    width:52px;
+    height:52px;
+    font-size:28px;
+    border-radius:14px;
+  }
+
+  .passportTop h3{
+    font-size:16px;
+  }
+
+  .passportId{
+    display:none;
+  }
+
+  .passportIdentity{
+    gap:13px;
+  }
+
+  .passportPhoto{
+    width:65px;
+    height:65px;
+    font-size:32px;
+    border-radius:15px;
+  }
+
+  .passportInfo h3{
+    font-size:17px;
+  }
+
+  .passportStats{
+    gap:7px;
+  }
+
+  .passportStats div{
+    padding:12px 6px;
+  }
+
+  .passportStats strong{
+    font-size:20px;
+  }
+
+  .passportStats span{
+    font-size:9px;
+  }
+
+  .passportStamp{
+    min-width:65px;
+  }
+
+  .passportActions{
+    flex-direction:column;
+  }
+
+  .passportActions button{
+    width:100%;
+  }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+   ========================= */
+
+@media(max-width:380px){
+
+  .passportSection{
+    padding:0 10px;
+  }
+
+  .passportCard{
+    padding:15px;
+  }
+
+  .passportStats{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .passportStats strong{
+    font-size:18px;
+  }
+
+  .passportInfo h3{
+    font-size:15px;
+  }
+
+  .passportStamp{
+    min-width:60px;
+    padding:8px 5px;
+  }
 
 }
 
 </style>
 
-</head>
+<script>
 
-<body>
+/* =========================================================
+   STEP 4 — DIGITAL DISTRICT PASSPORT LOGIC
+   ========================================================= */
 
-<!-- ================= HERO ================= -->
+(function(){
 
-<section class="hero">
+  const visitedKey =
+    "amarJelaVisitedPlaces_v1";
 
-    <div class="top-actions">
-        <button class="icon-btn"
-                onclick="toggleDarkMode()"
-                title="Dark Mode">
-            🌙
-        </button>
+  const passportIdKey =
+    "amarJelaExplorerId_v1";
+
+  function getVisitedData(){
+    try{
+      return JSON.parse(
+        localStorage.getItem(visitedKey)
+      ) || {};
+    }catch(error){
+      return {};
+    }
+  }
+
+  function getExplorerId(){
+    let id =
+      localStorage.getItem(passportIdKey);
+
+    if(!id){
+      id =
+        "BD-" +
+        Math.floor(
+          1000 +
+          Math.random() * 9000
+        );
+
+      localStorage.setItem(
+        passportIdKey,
+        id
+      );
+    }
+
+    return id;
+  }
+
+  function getProgress(){
+
+    let districts = 0;
+    let places = 0;
+
+    if(!window.districts){
+      return {
+        districts:0,
+        places:0,
+        percent:0
+      };
+    }
+
+    Object.keys(window.districts)
+      .forEach(function(name){
+
+        const list =
+          window.districtPlaces &&
+          window.districtPlaces[name]
+            ? window.districtPlaces[name]
+            : [];
+
+        const visited =
+          getVisitedData();
+
+        let districtVisited = 0;
+
+        list.forEach(function(place,index){
+
+          const key =
+            name + "::" + index;
+
+          if(
+            visited[key] === true ||
+            (
+              visited[name] &&
+              visited[name][index] === true
+            )
+          ){
+            places++;
+            districtVisited++;
+          }
+
+        });
+
+        if(
+          list.length &&
+          districtVisited === list.length
+        ){
+          districts++;
+        }
+
+      });
+
+    return {
+      districts:districts,
+      places:places,
+      percent:
+        Math.round(
+          (districts / 64) * 100
+        )
+    };
+
+  }
+
+  function updatePassport(){
+
+    const progress =
+      getProgress();
+
+    const id =
+      document.getElementById(
+        "passportExplorerId"
+      );
+
+    const districtCount =
+      document.getElementById(
+        "passportDistrictCount"
+      );
+
+    const placeCount =
+      document.getElementById(
+        "passportPlaceCount"
+      );
+
+    const percent =
+      document.getElementById(
+        "passportPercent"
+      );
+
+    const progressText =
+      document.getElementById(
+        "passportProgressText"
+      );
+
+    const progressBar =
+      document.getElementById(
+        "passportProgressBar"
+      );
+
+    const message =
+      document.getElementById(
+        "passportMessage"
+      );
+
+    if(id){
+      id.textContent =
+        getExplorerId();
+    }
+
+    if(districtCount){
+      districtCount.textContent =
+        progress.districts;
+    }
+
+    if(placeCount){
+      placeCount.textContent =
+        progress.places;
+    }
+
+    if(percent){
+      percent.textContent =
+        progress.percent + "%";
+    }
+
+    if(progressText){
+      progressText.textContent =
+        progress.districts + " / 64";
+    }
+
+    if(progressBar){
+      progressBar.style.width =
+        progress.percent + "%";
+    }
+
+    if(message){
+
+      if(progress.districts === 0){
+
+        message.textContent =
+          "তোমার প্রথম District Stamp-এর অপেক্ষায় 🇧🇩";
+
+      }else if(progress.districts < 10){
+
+        message.textContent =
+          "দারুণ শুরু! তোমার Bangladesh Journey এগিয়ে যাচ্ছে। 🧭";
+
+      }else if(progress.districts < 30){
+
+        message.textContent =
+          "তুমি এখন সত্যিকারের District Explorer! 🗺️";
+
+      }else if(progress.districts < 64){
+
+        message.textContent =
+          "অসাধারণ! ৬৪ জেলার স্বপ্ন এখন অনেক কাছে। 🏆";
+
+      }else{
+
+        message.textContent =
+          "🇧🇩 ৬৪/৬৪ — তুমি পুরো বাংলাদেশ ঘুরে ফেলেছো!";
+
+      }
+
+    }
+
+    renderPassportStamps();
+  }
+
+  function renderPassportStamps(){
+
+    const container =
+      document.getElementById(
+        "passportStamps"
+      );
+
+    if(!container || !window.districts){
+      return;
+    }
+
+    const visited =
+      getVisitedData();
+
+    container.innerHTML = "";
+
+    Object.keys(window.districts)
+      .forEach(function(name,index){
+
+        const places =
+          window.districtPlaces &&
+          window.districtPlaces[name]
+            ? window.districtPlaces[name]
+            : [];
+
+        let count = 0;
+
+        places.forEach(function(place,i){
+
+          const key =
+            name + "::" + i;
+
+          if(
+            visited[key] === true ||
+            (
+              visited[name] &&
+              visited[name][i] === true
+            )
+          ){
+            count++;
+          }
+
+        });
+
+        const complete =
+          places.length &&
+          count === places.length;
+
+        const data =
+          window.districts[name];
+
+        const stamp =
+          document.createElement("div");
+
+        stamp.className =
+          "passportStamp" +
+          (
+            complete
+              ? ""
+              : " locked"
+          );
+
+        stamp.innerHTML = `
+          <span class="stampEmoji">
+            ${complete ? (data.emoji || "📍") : "🔒"}
+          </span>
+          <strong>
+            ${name}
+          </strong>
+        `;
+
+        container.appendChild(stamp);
+
+      });
+
+  }
+
+  const randomBtn =
+    document.getElementById(
+      "passportRandomBtn"
+    );
+
+  if(randomBtn){
+
+    randomBtn.addEventListener(
+      "click",
+      function(){
+
+        if(!window.districts){
+          return;
+        }
+
+        const names =
+          Object.keys(
+            window.districts
+          );
+
+        const randomName =
+          names[
+            Math.floor(
+              Math.random() * names.length
+            )
+          ];
+
+        const selector =
+          document.getElementById("district") ||
+          document.getElementById("districtSelect");
+
+        if(selector){
+
+          selector.value =
+            randomName;
+
+          selector.dispatchEvent(
+            new Event("change",{
+              bubbles:true
+            })
+          );
+
+        }
+
+        if(
+          typeof window.showDistrictProfile ===
+          "function"
+        ){
+          window.showDistrictProfile(
+            randomName
+          );
+        }
+
+        setTimeout(function(){
+
+          const profile =
+            document.getElementById(
+              "districtProfile"
+            );
+
+          if(profile){
+
+            profile.scrollIntoView({
+              behavior:"smooth",
+              block:"start"
+            });
+
+          }
+
+        },150);
+
+      }
+    );
+
+  }
+
+  const resetBtn =
+    document.getElementById(
+      "passportResetBtn"
+    );
+
+  if(resetBtn){
+
+    resetBtn.addEventListener(
+      "click",
+      function(){
+
+        const confirmReset =
+          confirm(
+            "Passport Explorer ID নতুন করে তৈরি করতে চাও?"
+          );
+
+        if(!confirmReset){
+          return;
+        }
+
+        localStorage.removeItem(
+          passportIdKey
+        );
+
+        updatePassport();
+
+      }
+    );
+
+  }
+
+  updatePassport();
+
+  const oldRender =
+    window.renderDistrictPlaces;
+
+  if(
+    typeof oldRender ===
+    "function"
+  ){
+
+    window.renderDistrictPlaces =
+      function(name){
+
+        const result =
+          oldRender.apply(
+            this,
+            arguments
+          );
+
+        setTimeout(
+          updatePassport,
+          50
+        );
+
+        return result;
+
+      };
+
+  }
+
+  window.updateDigitalPassport =
+    updatePassport;
+
+})();
+
+</script>
+
+<section id="bangladeshStory" class="bangladeshStory">
+
+  <div class="storyHeader">
+    <span class="storyKicker">🇧🇩 MY BANGLADESH</span>
+
+    <h2>আমার বাংলাদেশ</h2>
+
+    <p>
+      ৬৪ জেলা, ৬৪ গল্প—তোমার ভ্রমণের গল্পগুলো
+      এক জায়গায় জমা হোক।
+    </p>
+  </div>
+
+  <div class="storyCard">
+
+    <div class="storyIcon">🇧🇩</div>
+
+    <h3>বাংলাদেশ শুধু একটি দেশ নয়</h3>
+
+    <p>
+      এটা নদীর গল্প, মাটির গল্প, মানুষের গল্প।
+      প্রতিটি জেলা তোমাকে নতুন কিছু দেখাবে,
+      নতুন কোনো স্মৃতি উপহার দেবে।
+    </p>
+
+    <div class="storyQuote">
+      “একদিন যখন ৬৪টি জেলার গল্প শেষ হবে,
+      তখন বুঝবে—তুমি শুধু বাংলাদেশ ঘুরোনি,
+      তুমি বাংলাদেশকে অনুভব করেছো।”
     </div>
 
-    <div class="hero-content">
+    <div class="storyStats">
 
-        <div class="hero-badge">
-            🇧🇩 DIGITAL TRAVEL PASSPORT
-        </div>
+      <div>
+        <strong id="storyDistrictCount">0</strong>
+        <span>জেলা সম্পূর্ণ</span>
+      </div>
 
-        <h1>আমার জেলা সবার সেরা</h1>
+      <div>
+        <strong id="storyPlaceCount">0</strong>
+        <span>স্থান দেখা</span>
+      </div>
 
-        <p>
-            বাংলাদেশ শুধু একটি দেশ নয়—
-            <b>এটা ৬৪টি জেলার ৬৪ রকম গল্প।</b>
-        </p>
-
-        <div class="hero-quote">
-            নিজের জেলা থেকে শুরু হোক
-            বাংলাদেশের ৬৪ জেলা ঘোরার গল্প ❤️
-        </div>
+      <div>
+        <strong id="storyPercent">0%</strong>
+        <span>বাংলাদেশ Journey</span>
+      </div>
 
     </div>
+
+    <button
+      type="button"
+      id="storyShareBtn"
+      class="storyShareBtn"
+    >
+      📤 আমার Journey শেয়ার করি
+    </button>
+
+  </div>
+
+</section>
+
+<style>
+
+/* =========================================================
+   STEP 4 — MY BANGLADESH STORY
+   ========================================================= */
+
+.bangladeshStory{
+  width:100%;
+  max-width:1050px;
+  margin:80px auto;
+  padding:0 18px;
+  box-sizing:border-box;
+}
+
+.storyHeader{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.storyKicker{
+  display:inline-block;
+  padding:7px 14px;
+  border-radius:999px;
+  background:#e8f5e9;
+  color:#137333;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:1.2px;
+}
+
+.storyHeader h2{
+  margin:12px 0 8px;
+  font-size:clamp(30px,5vw,46px);
+  line-height:1.15;
+  font-weight:900;
+  color:#102a43;
+}
+
+.storyHeader p{
+  margin:0 auto;
+  max-width:650px;
+  color:#627d98;
+  font-size:16px;
+  line-height:1.7;
+}
+
+.storyCard{
+  position:relative;
+  overflow:hidden;
+  padding:42px 28px;
+  border-radius:28px;
+  text-align:center;
+  background:
+    linear-gradient(
+      135deg,
+      #f8fffa 0%,
+      #ffffff 50%,
+      #eefaf2 100%
+    );
+  border:1px solid #d8eee0;
+  box-shadow:0 20px 55px rgba(16,42,67,.10);
+}
+
+.storyCard::before{
+  content:"";
+  position:absolute;
+  width:220px;
+  height:220px;
+  top:-110px;
+  right:-90px;
+  border-radius:50%;
+  background:rgba(25,135,84,.08);
+}
+
+.storyCard::after{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  bottom:-100px;
+  left:-80px;
+  border-radius:50%;
+  background:rgba(255,193,7,.08);
+}
+
+.storyIcon{
+  position:relative;
+  z-index:1;
+  width:82px;
+  height:82px;
+  margin:0 auto 20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:#ffffff;
+  box-shadow:0 10px 30px rgba(16,42,67,.12);
+  font-size:42px;
+}
+
+.storyCard h3{
+  position:relative;
+  z-index:1;
+  margin:0 0 12px;
+  color:#102a43;
+  font-size:clamp(22px,4vw,32px);
+  font-weight:900;
+}
+
+.storyCard > p{
+  position:relative;
+  z-index:1;
+  max-width:700px;
+  margin:0 auto 24px;
+  color:#486581;
+  line-height:1.8;
+  font-size:16px;
+}
+
+.storyQuote{
+  position:relative;
+  z-index:1;
+  max-width:720px;
+  margin:25px auto 30px;
+  padding:20px 22px;
+  border-left:4px solid #198754;
+  border-radius:14px;
+  background:#ffffff;
+  color:#334e68;
+  font-size:16px;
+  line-height:1.8;
+  font-weight:600;
+  box-shadow:0 8px 25px rgba(16,42,67,.06);
+}
+
+.storyStats{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  max-width:700px;
+  margin:0 auto 28px;
+}
+
+.storyStats strong{
+  display:block;
+  margin-bottom:5px;
+  color:#137333;
+  font-size:27px;
+  font-weight:900;
+}
+
+.storyStats span{
+  display:block;
+  color:#627d98;
+  font-size:13px;
+  font-weight:700;
+}
+
+.storyShareBtn{
+  position:relative;
+  z-index:1;
+  border:0;
+  border-radius:14px;
+  padding:14px 22px;
+  background:#198754;
+  color:#ffffff;
+  font-size:15px;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(25,135,84,.22);
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+.storyShareBtn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 26px rgba(25,135,84,.28);
+}
+
+.storyShareBtn:active{
+  transform:translateY(0);
+}
+
+@media(max-width:600px){
+
+  .bangladeshStory{
+    margin:60px auto;
+    padding:0 12px;
+  }
+
+  .storyCard{
+    padding:32px 18px;
+    border-radius:22px;
+  }
+
+  .storyStats{
+    gap:8px;
+  }
+
+  .storyStats > div{
+    padding:14px 6px;
+  }
+
+  .storyStats strong{
+    font-size:22px;
+  }
+
+  .storyStats span{
+    font-size:11px;
+  }
+
+  .storyQuote{
+    padding:16px;
+    font-size:14px;
+  }
+
+}
+
+@media(max-width:380px){
+
+  .storyStats{
+    grid-template-columns:1fr;
+  }
+
+  .storyStats > div{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+  }
+
+  .storyStats strong{
+    margin:0;
+  }
+
+}
+
+</style>
+
+<script>
+
+/* =========================================================
+   STEP 4 — MY BANGLADESH STORY LOGIC
+   ========================================================= */
+
+(function(){
+
+  const visitedKey =
+    "amarJelaVisitedPlaces_v1";
+
+  function getVisitedData(){
+
+    try{
+
+      return JSON.parse(
+        localStorage.getItem(visitedKey)
+      ) || {};
+
+    }catch(error){
+
+      return {};
+
+    }
+
+  }
+
+  function calculateStoryProgress(){
+
+    const visited =
+      getVisitedData();
+
+    let districts = 0;
+    let places = 0;
+
+   <!-- =========================================================
+     STEP 5 — RANDOM TRAVEL CHALLENGE
+     ========================================================= -->
+
+<section id="travelChallenge" class="challengeSection">
+
+  <div class="challengeHeader">
+    <span class="challengeKicker">
+      🎯 TRAVEL CHALLENGE
+    </span>
+
+    <h2>আজ কোথায় যাবে?</h2>
+
+    <p>
+      ভাগ্যকে সিদ্ধান্ত নিতে দাও—
+      বাংলাদেশের ৬৪ জেলার মধ্য থেকে
+      একটি জেলা তোমার জন্য বেছে নাও।
+    </p>
+  </div>
+
+  <div class="challengeCard">
+
+    <div class="challengeTopIcon">
+      🎲
+    </div>
+
+    <span class="challengeLabel">
+      TODAY'S DESTINATION
+    </span>
+
+    <div
+      id="challengeDistrict"
+      class="challengeDistrict"
+    >
+      🇧🇩
+      <span>Ready?</span>
+    </div>
+
+    <div
+      id="challengeDivision"
+      class="challengeDivision"
+    >
+      একটি জেলা নির্বাচন করো
+    </div>
+
+    <div
+      id="challengeTagline"
+      class="challengeTagline"
+    >
+      তোমার পরবর্তী বাংলাদেশ Journey
+      এখান থেকেই শুরু হতে পারে।
+    </div>
+
+    <button
+      type="button"
+      id="startChallengeBtn"
+      class="challengeButton"
+    >
+      🎲 RANDOM DISTRICT
+    </button>
+
+    <button
+      type="button"
+      id="challengeExploreBtn"
+      class="challengeExploreBtn"
+      style="display:none;"
+    >
+      🧭 এই জেলা Explore করো
+    </button>
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+     STEP 5A — RANDOM TRAVEL CHALLENGE DESIGN
+     ========================================================= -->
+
+<section id="travelChallenge" class="challengeSection">
+
+  <div class="challengeHeader">
+
+    <span class="challengeKicker">
+      🎯 TRAVEL CHALLENGE
+    </span>
+
+    <h2>আজ কোথায় যাবে?</h2>
+
+    <p>
+      ভাগ্যকে সিদ্ধান্ত নিতে দাও—
+      বাংলাদেশের ৬৪ জেলার মধ্য থেকে
+      একটি জেলা তোমার জন্য বেছে নাও।
+    </p>
+
+  </div>
+
+
+  <div class="challengeCard">
+
+    <div class="challengeTopIcon">
+      🎲
+    </div>
+
+    <span class="challengeLabel">
+      TODAY'S DESTINATION
+    </span>
+
+
+    <div
+      id="challengeDistrict"
+      class="challengeDistrict"
+    >
+      🇧🇩
+      <span>Ready?</span>
+    </div>
+
+
+    <div
+      id="challengeDivision"
+      class="challengeDivision"
+    >
+      একটি জেলা নির্বাচন করো
+    </div>
+
+
+    <div
+      id="challengeTagline"
+      class="challengeTagline"
+    >
+      তোমার পরবর্তী বাংলাদেশ Journey
+      এখান থেকেই শুরু হতে পারে।
+    </div>
+
+
+    <button
+      type="button"
+      id="startChallengeBtn"
+      class="challengeButton"
+    >
+      🎲 RANDOM DISTRICT
+    </button>
+
+
+    <button
+      type="button"
+      id="challengeExploreBtn"
+      class="challengeExploreBtn"
+      style="display:none;"
+    >
+      🧭 এই জেলা Explore করো
+    </button>
+
+  </div>
 
 </section>
 
 
-<!-- ================= MAIN ================= -->
-
-<div class="container">
-
-
-    <!-- ================= DASHBOARD ================= -->
-
-    <div class="dashboard">
-
-        <div class="stat">
-
-            <div class="stat-icon">🗺️</div>
-
-            <div class="stat-number"
-                 id="totalDistrictProgress">
-                0/64
-            </div>
-
-            <div class="stat-label">
-                জেলা ঘোরা
-            </div>
-
-        </div>
-
-
-        <div class="stat">
-
-            <div class="stat-icon">📍</div>
-
-            <div class="stat-number"
-                 id="totalPlaceProgress">
-                0
-            </div>
-
-            <div class="stat-label">
-                জায়গা দেখা
-            </div>
-
-        </div>
-
-
-        <div class="stat">
-
-            <div class="stat-icon">🏆</div>
-
-            <div class="stat-number"
-                 id="explorerLevel">
-                নতুন Explorer
-            </div>
-
-            <div class="stat-label">
-                Explorer Level
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- ================= MAIN BOX ================= -->
-
-    <div class="box">
-
-
-        <!-- DISTRICT SELECT -->
-
-        <label class="title">
-            📍 আপনার জেলা নির্বাচন করুন
-        </label>
-
-        <select id="district">
-
-            <option value="">
-                — একটি জেলা নির্বাচন করুন —
-            </option>
-
-
-            <optgroup label="ঢাকা বিভাগ">
-
-                <option>ঢাকা</option>
-                <option>ফরিদপুর</option>
-                <option>গাজীপুর</option>
-                <option>গোপালগঞ্জ</option>
-                <option>কিশোরগঞ্জ</option>
-                <option>মাদারীপুর</option>
-                <option>মানিকগঞ্জ</option>
-                <option>মুন্সিগঞ্জ</option>
-                <option>নারায়ণগঞ্জ</option>
-                <option>নরসিংদী</option>
-                <option>রাজবাড়ী</option>
-                <option>শরীয়তপুর</option>
-                <option>টাঙ্গাইল</option>
-
-            </optgroup>
-
-
-            <optgroup label="চট্টগ্রাম বিভাগ">
-
-                <option>বান্দরবান</option>
-                <option>ব্রাহ্মণবাড়িয়া</option>
-                <option>চাঁদপুর</option>
-                <option>চট্টগ্রাম</option>
-                <option>কুমিল্লা</option>
-                <option>কক্সবাজার</option>
-                <option>ফেনী</option>
-                <option>খাগড়াছড়ি</option>
-                <option>লক্ষ্মীপুর</option>
-                <option>নোয়াখালী</option>
-                <option>রাঙ্গামাটি</option>
-
-            </optgroup>
-
-
-            <optgroup label="রাজশাহী বিভাগ">
-
-                <option>বগুড়া</option>
-                <option>জয়পুরহাট</option>
-                <option>নওগাঁ</option>
-                <option>নাটোর</option>
-                <option>চাঁপাইনবাবগঞ্জ</option>
-                <option>পাবনা</option>
-                <option>রাজশাহী</option>
-                <option>সিরাজগঞ্জ</option>
-
-            </optgroup>
-
-
-            <optgroup label="খুলনা বিভাগ">
-
-                <option>বাগেরহাট</option>
-                <option>চুয়াডাঙ্গা</option>
-                <option>যশোর</option>
-                <option>ঝিনাইদহ</option>
-                <option>খুলনা</option>
-                <option>কুষ্টিয়া</option>
-                <option>মাগুরা</option>
-                <option>মেহেরপুর</option>
-                <option>নড়াইল</option>
-                <option>সাতক্ষীরা</option>
-
-            </optgroup>
-
-
-            <optgroup label="বরিশাল বিভাগ">
-
-                <option>বরগুনা</option>
-                <option>বরিশাল</option>
-                <option>ভোলা</option>
-                <option>ঝালকাঠি</option>
-                <option>পটুয়াখালী</option>
-                <option>পিরোজপুর</option>
-
-            </optgroup>
-
-
-            <optgroup label="সিলেট বিভাগ">
-
-                <option>হবিগঞ্জ</option>
-                <option>মৌলভীবাজার</option>
-                <option>সুনামগঞ্জ</option>
-                <option>সিলেট</option>
-
-            </optgroup>
-
-
-            <optgroup label="রংপুর বিভাগ">
-
-                <option>গাইবান্ধা</option>
-                <option>কুড়িগ্রাম</option>
-                <option>লালমনিরহাট</option>
-                <option>নীলফামারী</option>
-                <option>পঞ্চগড়</option>
-                <option>রংপুর</option>
-                <option>ঠাকুরগাঁও</option>
-
-            </optgroup>
-
-
-            <optgroup label="ময়মনসিংহ বিভাগ">
-
-                <option>জামালপুর</option>
-                <option>ময়মনসিংহ</option>
-                <option>নেত্রকোনা</option>
-                <option>শেরপুর</option>
-
-            </optgroup>
-
-        </select>
-
-
-        <!-- ================= PASSPORT ================= -->
-
-        <div class="passport">
-
-            <div class="passport-title">
-                MY BANGLADESH EXPLORER PASSPORT
-            </div>
-
-            <h2 id="passportDistrict">
-                🇧🇩 Bangladesh Explorer
-            </h2>
-
-            <div class="passport-info">
-
-                <div class="passport-item">
-                    Places Visited
-                    <strong id="passportPlaces">0</strong>
-                </div>
-
-                <div class="passport-item">
-                    Districts
-                    <strong id="passportVisited">0/64</strong>
-                </div>
-
-                <div class="passport-item">
-                    Completion
-                    <strong id="passportPercent">0%</strong>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- ================= PROGRESS ================= -->
-
-        <div class="progressBox"
-             id="progressBox">
-
-            <div class="progressTop">
-
-                <span id="progressText">
-                    0/0 জায়গা
-                </span>
-
-                <span id="percent">
-                    0%
-                </span>
-
-            </div>
-
-            <div class="progress">
-
-                <div class="progressBar"
-                     id="progressBar">
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- ================= BUTTONS ================= -->
-
-        <div class="buttons">
-
-            <button class="share"
-                    onclick="shareResult()">
-                📤 Share Result
-            </button>
-
-            <button class="challenge"
-                    onclick="randomChallenge()">
-                🎯 Travel Challenge
-            </button>
-
-            <button class="reset"
-                    onclick="resetDistrict()">
-                🔄 Reset
-            </button>
-
-        </div>
-
-
-        <!-- ================= CHALLENGE ================= -->
-
-        <div class="challengeBox"
-             id="challengeBox">
-
-            <h3 id="challengeTitle">
-                🎯 আজকের Travel Challenge
-            </h3>
-
-            <p id="challengeText">
-                Challenge শুরু করতে
-                উপরের button চাপুন।
-            </p>
-
-        </div>
-
-
-        <!-- ================= CONTENT ================= -->
-
-        <div id="content">
-
-            <div class="empty">
-
-                <h2>
-                    🇧🇩 একটি জেলা নির্বাচন করুন
-                </h2>
-
-                <p>
-                    আপনার জেলার দর্শনীয় স্থান,
-                    ভ্রমণ অগ্রগতি এবং
-                    Explorer Passport দেখতে
-                    একটি জেলা নির্বাচন করুন।
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-    <script>
-
-const places = { 
-    
-"ঢাকা": [
-["লালবাগ কেল্লা","🏰","ঐতিহাসিক","মুঘল আমলের ঐতিহাসিক দুর্গ।"],
-["আহসান মঞ্জিল","🏛️","ঐতিহাসিক","বুড়িগঙ্গার তীরে অবস্থিত ঐতিহাসিক নবাববাড়ি।"],
-["জাতীয় জাদুঘর","🏛️","সংস্কৃতি","বাংলাদেশের ইতিহাস ও সংস্কৃতির বিশাল সংগ্রহশালা।"],
-["জাতীয় সংসদ ভবন","🏢","স্থাপত্য","বিশ্বখ্যাত স্থপতি লুই আই কান-এর নকশায় নির্মিত স্থাপনা।"],
-["সোহরাওয়ার্দী উদ্যান","🌳","ঐতিহাসিক","বাংলাদেশের ইতিহাসের গুরুত্বপূর্ণ ঘটনাবলির সঙ্গে জড়িত ঐতিহাসিক উদ্যান।"],
-["হাতিরঝিল","🌊","বিনোদন","ঢাকার জনপ্রিয় নগর বিনোদন ও জলাধার এলাকা।"],
-["বঙ্গবন্ধু নভোথিয়েটার","🌌","বিজ্ঞান","মহাকাশ ও বিজ্ঞানভিত্তিক প্রদর্শনীর জনপ্রিয় কেন্দ্র।"],
-["বাংলাদেশ জাতীয় চিড়িয়াখানা","🦁","বিনোদন","বিভিন্ন প্রাণী দেখার জন্য জনপ্রিয় দর্শনীয় স্থান।"]
-],
-
-"ফরিদপুর": [
-["জসীম পল্লী","🌿","সংস্কৃতি","পল্লীকবি জসীমউদ্দীনের স্মৃতিবিজড়িত স্থান।"],
-["জসীমউদ্দীনের বাড়ি","🏡","ঐতিহাসিক","পল্লীকবির স্মৃতি ও জীবনযাপনের সঙ্গে সম্পর্কিত স্থান।"],
-["পদ্মা নদীর তীর","🌊","প্রকৃতি","পদ্মা নদীর মনোরম প্রাকৃতিক দৃশ্য।"],
-["সাতৈর মসজিদ","🕌","ঐতিহাসিক","প্রাচীন ঐতিহ্যবাহী মসজিদ।"],
-["মথুরাপুর দেউল","🛕","ঐতিহাসিক","প্রাচীন স্থাপত্যের উল্লেখযোগ্য নিদর্শন।"]
-],
-
-"গাজীপুর": [
-["ভাওয়াল জাতীয় উদ্যান","🌳","প্রকৃতি","শালবন ও সবুজ প্রকৃতির জন্য বিখ্যাত।"],
-["বঙ্গবন্ধু শেখ মুজিব সাফারি পার্ক","🦁","বিনোদন","বন্যপ্রাণী ও প্রাকৃতিক পরিবেশের জনপ্রিয় পর্যটনকেন্দ্র।"],
-["নুহাশ পল্লী","🌿","সংস্কৃতি","কথাসাহিত্যিক হুমায়ূন আহমেদের স্মৃতিবিজড়িত স্থান।"],
-["ভাওয়াল রাজবাড়ি","🏛️","ঐতিহাসিক","ভাওয়াল রাজপরিবারের ঐতিহাসিক স্থাপনা।"],
-["বেলাই বিল","🌊","প্রকৃতি","জলাভূমি ও গ্রামীণ প্রকৃতির সুন্দর পরিবেশ।"]
-],
-
-"গোপালগঞ্জ": [
-["টুঙ্গিপাড়া সমাধিসৌধ","🕌","ঐতিহাসিক","বঙ্গবন্ধু শেখ মুজিবুর রহমানের সমাধিসৌধ।"],
-["ওড়াকান্দি ঠাকুরবাড়ি","🛕","ধর্মীয়","হরিচাঁদ ও গুরুচাঁদ ঠাকুরের স্মৃতিবিজড়িত স্থান।"],
-["উজানী রাজবাড়ি","🏛️","ঐতিহাসিক","প্রাচীন রাজপরিবারের ঐতিহ্যবাহী স্থাপনা।"],
-["মধুমতি নদীর তীর","🌊","প্রকৃতি","নদী ও গ্রামীণ প্রকৃতির সুন্দর দৃশ্য।"]
-],
-
-"কিশোরগঞ্জ": [
-["নিকলী হাওর","🌊","প্রকৃতি","বর্ষায় বিশাল জলরাশির অপূর্ব সৌন্দর্য।"],
-["ইটনা-মিঠামইন-অষ্টগ্রাম সড়ক","🛣️","প্রকৃতি","হাওরের মাঝ দিয়ে নির্মিত মনোরম সড়ক।"],
-["শোলাকিয়া ঈদগাহ","🕌","ধর্মীয়","বাংলাদেশের ঐতিহ্যবাহী বৃহৎ ঈদগাহ মাঠ।"],
-["পাগলা মসজিদ","🕌","ধর্মীয়","কিশোরগঞ্জের বিখ্যাত ঐতিহাসিক মসজিদ।"],
-["কিশোরগঞ্জ হাওর এলাকা","🌊","প্রকৃতি","বর্ষাকালে নৌভ্রমণের জন্য আকর্ষণীয় বিস্তীর্ণ জলাভূমি।"]
-],
-
-"মাদারীপুর": [
-["শকুনী লেক","🌊","প্রকৃতি","মাদারীপুর শহরের জনপ্রিয় বিনোদনকেন্দ্র।"],
-["আউলিয়াপুর নীলকুঠি","🏚️","ঐতিহাসিক","ব্রিটিশ আমলের নীলচাষের স্মৃতিবাহী স্থাপনা।"],
-["রাজারাম মন্দির","🛕","ঐতিহাসিক","প্রাচীন স্থাপত্যের গুরুত্বপূর্ণ নিদর্শন।"],
-["হাজরাপুর মসজিদ","🕌","ঐতিহাসিক","ঐতিহ্যবাহী প্রাচীন মসজিদ।"]
-],
-
-"মানিকগঞ্জ": [
-["বালিয়াটি জমিদার বাড়ি","🏛️","ঐতিহাসিক","বাংলাদেশের অন্যতম বিখ্যাত জমিদারবাড়ি।"],
-["তেওতা জমিদার বাড়ি","🏛️","ঐতিহাসিক","প্রাচীন জমিদার পরিবারের ঐতিহাসিক স্থাপনা।"],
-["আরিচা ঘাট","⛴️","নদী","যমুনা নদীর তীরের গুরুত্বপূর্ণ স্থান।"],
-["শাহজাহানপুর মসজিদ","🕌","ঐতিহাসিক","ঐতিহ্যবাহী স্থাপত্যের নিদর্শন।"]
-],
-
-"মুন্সিগঞ্জ": [
-["ইদ্রাকপুর কেল্লা","🏰","ঐতিহাসিক","মুঘল আমলের ঐতিহাসিক দুর্গ।"],
-["বিক্রমপুর","🏛️","ঐতিহাসিক","প্রাচীন বাংলার ঐতিহাসিক জনপদ।"],
-["বিক্রমপুর জাদুঘর","🏛️","সংস্কৃতি","বিক্রমপুরের ইতিহাস ও ঐতিহ্যের সংগ্রহশালা।"],
-["মাওয়া পদ্মা সেতু এলাকা","🌉","প্রকৃতি","পদ্মা নদী ও সেতুকে ঘিরে জনপ্রিয় ভ্রমণস্থান।"],
-["আড়িয়াল বিল","🌊","প্রকৃতি","বিস্তীর্ণ জলাভূমি ও প্রাকৃতিক সৌন্দর্যের স্থান।"]
-],
-
-"নারায়ণগঞ্জ": [
-["সোনারগাঁও","🏛️","ঐতিহাসিক","প্রাচীন বাংলার ঐতিহাসিক রাজধানী।"],
-["পানাম নগর","🏚️","ঐতিহাসিক","ঐতিহাসিক ভবনে ভরা প্রাচীন নগরী।"],
-["বাংলাদেশ লোক ও কারুশিল্প জাদুঘর","🏛️","সংস্কৃতি","বাংলার লোকজ সংস্কৃতি ও কারুশিল্পের সংগ্রহশালা।"],
-["মেঘনা নদীর তীর","🌊","প্রকৃতি","নদীর তীরে সুন্দর প্রাকৃতিক পরিবেশ।"]
-],
-
-"নরসিংদী": [
-["ওয়ারী-বটেশ্বর","🏺","প্রত্নতাত্ত্বিক","প্রাচীন নগরসভ্যতার গুরুত্বপূর্ণ প্রত্নতাত্ত্বিক স্থান।"],
-["ড্রিম হলিডে পার্ক","🎡","বিনোদন","পরিবারের জন্য জনপ্রিয় বিনোদনকেন্দ্র।"],
-["মেঘনা নদীর তীর","🌊","প্রকৃতি","মেঘনা নদীর সুন্দর প্রাকৃতিক পরিবেশ।"],
-["বেলাব উপজেলার ঐতিহাসিক স্থান","🏛️","ঐতিহাসিক","নরসিংদীর প্রাচীন ঐতিহ্যের বিভিন্ন নিদর্শন।"]
-],
-
-"রাজবাড়ী": [
-["গোয়ালন্দ ঘাট","⛴️","নদী","পদ্মা নদীর তীরের ঐতিহাসিক নদীবন্দর।"],
-["রাজবাড়ী জমিদার বাড়ি","🏛️","ঐতিহাসিক","পুরনো জমিদার পরিবারের ঐতিহাসিক স্থাপনা।"],
-["পদ্মা নদীর তীর","🌊","প্রকৃতি","পদ্মার বিস্তীর্ণ জলরাশির সুন্দর দৃশ্য।"],
-["দৌলতদিয়া ঘাট","⛴️","নদী","পদ্মা নদীর গুরুত্বপূর্ণ ফেরিঘাট এলাকা।"]
-],
-
-"শরীয়তপুর": [
-["সুরেশ্বর দরবার শরীফ","🕌","ধর্মীয়","শরীয়তপুরের পরিচিত ধর্মীয় ও ঐতিহাসিক স্থান।"],
-["পদ্মা নদীর তীর","🌊","প্রকৃতি","পদ্মার তীরের মনোরম প্রাকৃতিক দৃশ্য।"],
-["মেঘনা নদী","🌊","প্রকৃতি","মেঘনা নদীর বিশাল জলরাশি।"],
-["বুড়িরহাট","🌿","প্রকৃতি","গ্রামীণ পরিবেশ ও নদীকেন্দ্রিক সৌন্দর্যের স্থান।"]
-],
-
-"টাঙ্গাইল": [
-["মহেরা জমিদার বাড়ি","🏛️","ঐতিহাসিক","টাঙ্গাইলের বিখ্যাত জমিদারবাড়ি।"],
-["আতিয়া মসজিদ","🕌","ঐতিহাসিক","প্রাচীন স্থাপত্যের সুন্দর নিদর্শন।"],
-["মধুপুর জাতীয় উদ্যান","🌳","প্রকৃতি","শালবন ও সবুজ প্রকৃতির জন্য বিখ্যাত।"],
-["ধনবাড়ী নবাব বাড়ি","🏛️","ঐতিহাসিক","ধনবাড়ীর ঐতিহ্যবাহী নবাববাড়ি।"],
-["যমুনা নদীর তীর","🌊","প্রকৃতি","যমুনা নদীর বিস্তীর্ণ প্রাকৃতিক দৃশ্য।"]
-],
-
-"দিনাজপুর": [
-["কান্তজিউ মন্দির","🛕","ঐতিহাসিক","বাংলাদেশের বিখ্যাত টেরাকোটা মন্দির।"],
-["রামসাগর","🌊","প্রকৃতি","দিনাজপুরের বিশাল ঐতিহাসিক দীঘি ও বিনোদনকেন্দ্র।"],
-["নয়াবাদ মসজিদ","🕌","ঐতিহাসিক","কান্তজিউ মন্দিরের কাছাকাছি ঐতিহাসিক মসজিদ।"],
-["রাজবাড়ি","🏛️","ঐতিহাসিক","দিনাজপুর রাজপরিবারের ঐতিহাসিক স্থাপনা।"],
-["সিংড়া ফরেস্ট","🌳","প্রকৃতি","সবুজ বন ও প্রাকৃতিক পরিবেশের সুন্দর স্থান।"],
-["স্বপ্নপুরী","🎡","বিনোদন","দিনাজপুরের জনপ্রিয় বিনোদন ও পর্যটনকেন্দ্র।"],
-["চেহেলগাজী মাজার","🕌","ধর্মীয়","ঐতিহাসিক ধর্মীয় স্থান।"],
-["আবারগাঁও নীলকুঠি","🏚️","ঐতিহাসিক","পুরনো নীলচাষের স্মৃতিবাহী স্থাপনা।"]
-],
-
-"গাইবান্ধা": [
-["বালাসী ঘাট","🌊","নদী","যমুনা নদীর তীরের জনপ্রিয় ভ্রমণস্থান।"],
-["ফুলছড়ি চর","🌿","প্রকৃতি","নদী ও চরাঞ্চলের প্রাকৃতিক সৌন্দর্য।"],
-["ব্রহ্মপুত্র নদ","🌊","প্রকৃতি","বিস্তীর্ণ নদী ও চরাঞ্চলের দৃশ্য।"],
-["বর্ধনকুঠি","🏛️","ঐতিহাসিক","ঐতিহাসিক স্থাপনার নিদর্শন।"]
-],
-
-"কুড়িগ্রাম": [
-["চিলমারী বন্দর","⛴️","নদী","ব্রহ্মপুত্র নদীর ঐতিহাসিক নদীবন্দর।"],
-["ধরলা নদী","🌊","প্রকৃতি","নদী ও প্রাকৃতিক সৌন্দর্যের স্থান।"],
-["ব্রহ্মপুত্র চর","🌿","প্রকৃতি","চরাঞ্চলের গ্রামীণ প্রাকৃতিক পরিবেশ।"],
-["দোলমঞ্চ মন্দির","🛕","ঐতিহাসিক","ঐতিহ্যবাহী ধর্মীয় স্থাপনা।"]
-],
-
-"লালমনিরহাট": [
-["তিন বিঘা করিডোর","🇧🇩","ঐতিহাসিক","বাংলাদেশ-ভারত সীমান্তের ঐতিহাসিক স্থান।"],
-["বুড়িমারী স্থলবন্দর","🚛","সীমান্ত","গুরুত্বপূর্ণ সীমান্ত ও স্থলবন্দর এলাকা।"],
-["তিস্তা নদী","🌊","প্রকৃতি","তিস্তা নদীর সুন্দর প্রাকৃতিক দৃশ্য।"],
-["কাকিনা জমিদার বাড়ি","🏛️","ঐতিহাসিক","ঐতিহ্যবাহী জমিদারবাড়ি।"]
-],
-
-"নীলফামারী": [
-["নীলসাগর","🌊","প্রকৃতি","বিখ্যাত বড় দীঘি ও বিনোদনকেন্দ্র।"],
-["চিনি মসজিদ","🕌","ঐতিহাসিক","কারুকার্যপূর্ণ ঐতিহ্যবাহী মসজিদ।"],
-["সৈয়দপুর রেলওয়ে কারখানা","🚂","ঐতিহাসিক","বাংলাদেশের পুরনো রেলওয়ে স্থাপনাগুলোর অন্যতম।"],
-["সৈয়দপুর রেলওয়ে জাদুঘর","🚂","ঐতিহাসিক","রেলওয়ের ইতিহাস ও ঐতিহ্যের সঙ্গে সম্পর্কিত স্থান।"]
-],
-
-"পঞ্চগড়": [
-["তেঁতুলিয়া","🌿","প্রকৃতি","হিমালয়ের দৃশ্য উপভোগের জন্য বিখ্যাত।"],
-["ভিতরগড়","🏺","প্রত্নতাত্ত্বিক","প্রাচীন দুর্গনগরীর প্রত্নতাত্ত্বিক নিদর্শন।"],
-["বাংলাবান্ধা","🇧🇩","সীমান্ত","বাংলাদেশের উত্তরের গুরুত্বপূর্ণ সীমান্ত এলাকা।"],
-["তেঁতুলিয়া ডাকবাংলো","🏡","ঐতিহাসিক","হিমালয় দৃশ্যের জন্য পরিচিত ঐতিহাসিক স্থাপনা।"]
-],
-
-"রংপুর": [
-["তাজহাট জমিদার বাড়ি","🏛️","ঐতিহাসিক","রংপুরের বিখ্যাত রাজপ্রাসাদসদৃশ জমিদারবাড়ি।"],
-["কারমাইকেল কলেজ","🏫","ঐতিহাসিক","ঐতিহ্যবাহী শিক্ষা প্রতিষ্ঠান ও স্থাপত্য।"],
-["চিকলী বিল","🌊","প্রকৃতি","প্রাকৃতিক জলাভূমি ও বিনোদনকেন্দ্র।"],
-["রংপুর চিড়িয়াখানা","🦁","বিনোদন","বিভিন্ন প্রাণী দেখার জনপ্রিয় স্থান।"],
-["বেগম রোকেয়া স্মৃতিকেন্দ্র","📚","সংস্কৃতি","বেগম রোকেয়ার স্মৃতিবিজড়িত স্থান।"]
-],
-
-"ঠাকুরগাঁও": [
-["রাজা টংকনাথ রাজবাড়ি","🏛️","ঐতিহাসিক","ঐতিহ্যবাহী রাজবাড়ি।"],
-["হরিপুর রাজবাড়ি","🏛️","ঐতিহাসিক","পুরনো রাজপরিবারের ঐতিহাসিক স্থাপনা।"],
-["ঠাকুরগাঁও সুগার মিল","🏭","ঐতিহাসিক","জেলার শিল্প ঐতিহ্যের গুরুত্বপূর্ণ স্থাপনা।"],
-["লোকায়ন জীবনবৈচিত্র্য জাদুঘর","🏛️","সংস্কৃতি","স্থানীয় সংস্কৃতি ও ঐতিহ্য প্রদর্শনের স্থান।"]
-],
-
-"জামালপুর": [
-["লাউচাপড়া","⛰️","প্রকৃতি","পাহাড় ও সবুজ প্রকৃতির সুন্দর পর্যটনকেন্দ্র।"],
-["শাহ জামাল (রহ.) মাজার","🕌","ধর্মীয়","ঐতিহাসিক ধর্মীয় স্থান।"],
-["যমুনা নদীর তীর","🌊","প্রকৃতি","যমুনা নদীর সুন্দর প্রাকৃতিক পরিবেশ।"],
-["দেওয়ানগঞ্জের চরাঞ্চল","🌿","প্রকৃতি","নদী ও চরাঞ্চলের প্রাকৃতিক সৌন্দর্য।"]
-],
-
-"ময়মনসিংহ": [
-["শশী লজ","🏛️","ঐতিহাসিক","ময়মনসিংহের বিখ্যাত ঐতিহাসিক প্রাসাদ।"],
-["বাংলাদেশ কৃষি বিশ্ববিদ্যালয়","🌳","শিক্ষা","সবুজ ক্যাম্পাস ও ব্রহ্মপুত্র নদীর জন্য পরিচিত।"],
-["ব্রহ্মপুত্র নদ","🌊","প্রকৃতি","ময়মনসিংহ শহরের পাশ দিয়ে প্রবাহিত ঐতিহাসিক নদী।"],
-["ময়মনসিংহ জাদুঘর","🏛️","সংস্কৃতি","স্থানীয় ইতিহাস ও ঐতিহ্যের সংগ্রহশালা।"]
-],
-
-"নেত্রকোনা": [
-["বিরিশিরি","🌊","প্রকৃতি","সোমেশ্বরী নদী ও পাহাড়ি সৌন্দর্যের জন্য বিখ্যাত।"],
-["দুর্গাপুর","⛰️","প্রকৃতি","পাহাড়, নদী ও আদিবাসী সংস্কৃতির সুন্দর অঞ্চল।"],
-["সোমেশ্বরী নদী","🌊","প্রকৃতি","স্বচ্ছ পানি ও প্রাকৃতিক সৌন্দর্যের নদী।"],
-["চীনামাটির পাহাড়","⛰️","প্রকৃতি","সাদা মাটির পাহাড় ও নীল পানির লেকের জন্য পরিচিত।"]
-],
-
-"শেরপুর": [
-["গজনী অবকাশ কেন্দ্র","🌳","প্রকৃতি","পাহাড় ও বনঘেরা জনপ্রিয় পর্যটনকেন্দ্র।"],
-["মধুটিলা ইকোপার্ক","🌳","প্রকৃতি","সবুজ পাহাড় ও বনভূমির সুন্দর স্থান।"],
-["রাজার পাহাড়","⛰️","প্রকৃতি","শেরপুরের পাহাড়ি অঞ্চলের আকর্ষণীয় স্থান।"],
-["গারো পাহাড়","⛰️","প্রকৃতি","পাহাড় ও বনভূমির প্রাকৃতিক সৌন্দর্য।"]
-]
-
-"বগুড়া": [
-["মহাস্থানগড়","🏺","প্রত্নতাত্ত্বিক","প্রাচীন পুন্ড্রনগরের ঐতিহাসিক নিদর্শন।"],
-["গোকুল মেধ","🏺","প্রত্নতাত্ত্বিক","প্রাচীন স্থাপত্যের গুরুত্বপূর্ণ নিদর্শন।"],
-["ভাসু বিহার","🏺","প্রত্নতাত্ত্বিক","প্রাচীন বৌদ্ধ সভ্যতার প্রত্নতাত্ত্বিক স্থান।"],
-["নওয়াব বাড়ি","🏛️","ঐতিহাসিক","বগুড়ার ঐতিহ্যবাহী স্থাপনা।"],
-["করতোয়া নদীর তীর","🌊","প্রকৃতি","নদী ও গ্রামীণ প্রকৃতির সুন্দর পরিবেশ।"]
-],
-
-"জয়পুরহাট": [
-["বারশিবালয় মন্দির","🛕","ঐতিহাসিক","প্রাচীন ধর্মীয় স্থাপত্যের নিদর্শন।"],
-["নয়ানগর দিঘি","🌊","প্রকৃতি","ঐতিহ্যবাহী বড় দীঘি।"],
-["আলতাদিঘী এলাকা","🌳","প্রকৃতি","প্রকৃতি ও ঐতিহ্যের সুন্দর সমন্বয়।"],
-["পাঁচবিবি রাজবাড়ি","🏛️","ঐতিহাসিক","জেলার ঐতিহ্যবাহী স্থাপনা।"]
-],
-
-"নওগাঁ": [
-["পাহাড়পুর বৌদ্ধ বিহার","🏺","প্রত্নতাত্ত্বিক","বিশ্বখ্যাত প্রাচীন বৌদ্ধ বিহার।"],
-["কুসুম্বা মসজিদ","🕌","ঐতিহাসিক","সুলতানি আমলের ঐতিহাসিক মসজিদ।"],
-["আলতাদিঘী জাতীয় উদ্যান","🌳","প্রকৃতি","বন ও বিশাল দীঘিকে ঘিরে প্রাকৃতিক এলাকা।"],
-["দুবলহাটি রাজবাড়ি","🏛️","ঐতিহাসিক","প্রাচীন জমিদার পরিবারের ঐতিহাসিক স্থাপনা।"],
-["জগদ্দল বিহার","🏺","প্রত্নতাত্ত্বিক","প্রাচীন বৌদ্ধ বিহারের প্রত্নতাত্ত্বিক নিদর্শন।"]
-],
-
-"নাটোর": [
-["উত্তরা গণভবন","🏛️","ঐতিহাসিক","নাটোরের বিখ্যাত ঐতিহাসিক রাজপ্রাসাদ।"],
-["রাণী ভবানীর রাজবাড়ি","🏛️","ঐতিহাসিক","নাটোর রাজপরিবারের ঐতিহ্যবাহী স্থাপনা।"],
-["চলন বিল","🌊","প্রকৃতি","বাংলাদেশের অন্যতম বৃহৎ বিল ও জলাভূমি।"],
-["শহীদ সাগর","🌊","প্রকৃতি","প্রাকৃতিক সৌন্দর্য ও বিনোদনের স্থান।"],
-["দয়ারামপুর রাজবাড়ি","🏛️","ঐতিহাসিক","প্রাচীন ঐতিহ্যবাহী স্থাপনা।"]
-],
-
-"চাঁপাইনবাবগঞ্জ": [
-["ছোট সোনা মসজিদ","🕌","ঐতিহাসিক","বাংলাদেশের অন্যতম বিখ্যাত সুলতানি স্থাপত্য।"],
-["দারসবাড়ি মসজিদ","🕌","ঐতিহাসিক","প্রাচীন সুলতানি আমলের মসজিদের ধ্বংসাবশেষ।"],
-["কানসাট আমবাগান","🥭","প্রকৃতি","আমের জন্য বিখ্যাত বিশাল বাগান এলাকা।"],
-["তাহখানা কমপ্লেক্স","🏛️","ঐতিহাসিক","ঐতিহাসিক স্থাপনা ও মসজিদসমৃদ্ধ এলাকা।"],
-["মহানন্দা নদীর তীর","🌊","প্রকৃতি","নদীর তীরের সুন্দর প্রাকৃতিক পরিবেশ।"]
-],
-
-"পাবনা": [
-["হার্ডিঞ্জ ব্রিজ","🌉","স্থাপত্য","পদ্মা নদীর ওপর নির্মিত ঐতিহাসিক রেলসেতু।"],
-["পাকশী রেলওয়ে কলোনি","🚂","ঐতিহাসিক","ঐতিহ্যবাহী রেলওয়ে স্থাপনা ও এলাকা।"],
-["জোড় বাংলা মন্দির","🛕","ঐতিহাসিক","প্রাচীন টেরাকোটা স্থাপত্যের নিদর্শন।"],
-["ঈশ্বরচন্দ্র বিদ্যাসাগর সেতু এলাকা","🌉","নদী","পদ্মা নদীর তীরের গুরুত্বপূর্ণ এলাকা।"],
-["চাটমোহর শাহী মসজিদ","🕌","ঐতিহাসিক","প্রাচীন ঐতিহ্যবাহী মসজিদ।"]
-],
-
-"রাজশাহী": [
-["পুঠিয়া রাজবাড়ি","🏛️","ঐতিহাসিক","রাজশাহীর বিখ্যাত ঐতিহাসিক রাজবাড়ি ও মন্দিরসমূহ।"],
-["বরেন্দ্র গবেষণা জাদুঘর","🏛️","সংস্কৃতি","বাংলাদেশের অন্যতম প্রাচীন ও গুরুত্বপূর্ণ জাদুঘর।"],
-["পদ্মা নদীর তীর","🌊","প্রকৃতি","পদ্মার তীরে মনোরম প্রাকৃতিক পরিবেশ।"],
-["শহীদ জিয়া শিশু পার্ক","🎡","বিনোদন","পরিবার ও শিশুদের বিনোদনের জনপ্রিয় স্থান।"],
-["বাঘা মসজিদ","🕌","ঐতিহাসিক","সুলতানি আমলের বিখ্যাত ঐতিহাসিক মসজিদ।"],
-["রাজশাহী বিশ্ববিদ্যালয়","🌳","শিক্ষা","সবুজ ও সুন্দর ক্যাম্পাসের জন্য পরিচিত।"]
-],
-
-"সিরাজগঞ্জ": [
-["রবীন্দ্র কাছারিবাড়ি","🏡","সংস্কৃতি","কবিগুরু রবীন্দ্রনাথ ঠাকুরের স্মৃতিবিজড়িত স্থান।"],
-["যমুনা নদীর তীর","🌊","প্রকৃতি","বিস্তীর্ণ যমুনা নদীর সুন্দর দৃশ্য।"],
-["বঙ্গবন্ধু সেতু","🌉","স্থাপত্য","যমুনা নদীর ওপর নির্মিত বাংলাদেশের গুরুত্বপূর্ণ সেতু।"],
-["নবরত্ন মন্দির","🛕","ঐতিহাসিক","প্রাচীন ধর্মীয় স্থাপত্যের নিদর্শন।"],
-["শাহজাদপুর জমিদারবাড়ি","🏛️","ঐতিহাসিক","ঐতিহ্যবাহী জমিদারবাড়ি ও রবীন্দ্রস্মৃতিবিজড়িত এলাকা।"]
-],
-
-"বাগেরহাট": [
-["ষাট গম্বুজ মসজিদ","🕌","ঐতিহাসিক","ইউনেস্কো বিশ্ব ঐতিহ্যের অংশ হিসেবে পরিচিত ঐতিহাসিক মসজিদ।"],
-["খান জাহান আলীর মাজার","🕌","ধর্মীয়","বাগেরহাটের বিখ্যাত ঐতিহাসিক মাজার।"],
-["সিঙ্গাইর মসজিদ","🕌","ঐতিহাসিক","প্রাচীন সুলতানি স্থাপত্যের নিদর্শন।"],
-["নয় গম্বুজ মসজিদ","🕌","ঐতিহাসিক","ঐতিহ্যবাহী প্রাচীন মসজিদ।"],
-["বাগেরহাট জাদুঘর","🏛️","সংস্কৃতি","ঐতিহাসিক মসজিদ নগরীর নিদর্শনসমৃদ্ধ জাদুঘর।"]
-],
-
-"চুয়াডাঙ্গা": [
-["দর্শনা","🌿","ঐতিহাসিক","চুয়াডাঙ্গার পরিচিত সীমান্ত ও শিল্প এলাকা।"],
-["ভালাইপুর নীলকুঠি","🏚️","ঐতিহাসিক","ব্রিটিশ আমলের নীলচাষের স্মৃতিবাহী স্থাপনা।"],
-["মাথাভাঙ্গা নদী","🌊","প্রকৃতি","নদীর তীরের সুন্দর প্রাকৃতিক পরিবেশ।"],
-["দামুড়হুদা জমিদারবাড়ি","🏛️","ঐতিহাসিক","ঐতিহ্যবাহী জমিদার পরিবারের স্থাপনা।"]
-],
-
-"যশোর": [
-["সাগরদাঁড়ি","🏡","সংস্কৃতি","কবি মাইকেল মধুসূদন দত্তের জন্মস্থান।"],
-["মাইকেল মধুসূদন দত্তের বাড়ি","🏡","সংস্কৃতি","কবির স্মৃতিবিজড়িত ঐতিহাসিক বাড়ি।"],
-["ভরত ভায়না","🏺","প্রত্নতাত্ত্বিক","প্রাচীন প্রত্নতাত্ত্বিক স্থাপনার নিদর্শন।"],
-["গদখালী ফুলের বাজার","🌸","প্রকৃতি","ফুলের চাষ ও সৌন্দর্যের জন্য জনপ্রিয়।"],
-["বেনাপোল স্থলবন্দর","🚛","সীমান্ত","বাংলাদেশের গুরুত্বপূর্ণ স্থলবন্দর।"]
-],
-
-"ঝিনাইদহ": [
-["নলডাঙ্গা মন্দির","🛕","ঐতিহাসিক","প্রাচীন ধর্মীয় স্থাপত্যের নিদর্শন।"],
-["শৈলকুপা","🌿","প্রকৃতি","গ্রামীণ পরিবেশ ও ঐতিহ্যের সুন্দর এলাকা।"],
-["কপোতাক্ষ নদ","🌊","প্রকৃতি","ঐতিহাসিক নদী ও প্রাকৃতিক সৌন্দর্যের স্থান।"],
-["জোড় বাংলা মন্দির","🛕","ঐতিহাসিক","প্রাচীন টেরাকোটা স্থাপত্যের নিদর্শন।"]
-],
-
-"খুলনা": [
-["সুন্দরবন","🌳","প্রকৃতি","বিশ্বের বৃহত্তম ম্যানগ্রোভ বন ও রয়েল বেঙ্গল টাইগারের আবাসস্থল।"],
-["রূপসা নদী","🌊","প্রকৃতি","খুলনা শহরের পাশ দিয়ে প্রবাহিত সুন্দর নদী।"],
-["রূপসা সেতু","🌉","স্থাপত্য","রূপসা নদীর ওপর নির্মিত আকর্ষণীয় সেতু।"],
-["বাগেরহাট ঐতিহাসিক মসজিদ নগরী","🕌","ঐতিহাসিক","খুলনা অঞ্চলের ঐতিহাসিক স্থাপত্যসমৃদ্ধ এলাকা।"],
-["দাকোপ সুন্দরবন এলাকা","🌳","প্রকৃতি","সুন্দরবনের প্রাকৃতিক সৌন্দর্য উপভোগের স্থান।"]
-],
-
-"কুষ্টিয়া": [
-["শিলাইদহ কুঠিবাড়ি","🏡","সংস্কৃতি","রবীন্দ্রনাথ ঠাকুরের স্মৃতিবিজড়িত ঐতিহাসিক কুঠিবাড়ি।"],
-["লালন শাহের আখড়া","🎵","সংস্কৃতি","বাউল সাধক লালন শাহের স্মৃতিবিজড়িত স্থান।"],
-["পদ্মা নদীর তীর","🌊","প্রকৃতি","পদ্মা নদীর সুন্দর প্রাকৃতিক পরিবেশ।"],
-["হার্ডিঞ্জ ব্রিজ এলাকা","🌉","স্থাপত্য","ঐতিহাসিক রেলসেতু ও পদ্মার তীর।"],
-["মীর মশাররফ হোসেনের বাস্তুভিটা","🏡","সংস্কৃতি","সাহিত্যিক মীর মশাররফ হোসেনের স্মৃতিবিজড়িত স্থান।"]
-],
-
-"মাগুরা": [
-["রাজা সীতারাম রায়ের বাড়ি","🏛️","ঐতিহাসিক","ঐতিহাসিক রাজপরিবারের স্মৃতিবিজড়িত স্থান।"],
-["শ্রীপুর","🌿","প্রকৃতি","গ্রামীণ প্রকৃতি ও ঐতিহ্যের সুন্দর এলাকা।"],
-["নবগঙ্গা নদী","🌊","প্রকৃতি","নদীর তীরের প্রাকৃতিক সৌন্দর্য।"],
-["শালিখা এলাকা","🌿","প্রকৃতি","গ্রামীণ পরিবেশ ও সবুজ প্রকৃতির স্থান।"]
-],
-
-"মেহেরপুর": [
-["মুজিবনগর স্মৃতিসৌধ","🇧🇩","ঐতিহাসিক","বাংলাদেশের মুক্তিযুদ্ধের ইতিহাসের গুরুত্বপূর্ণ স্মৃতিসৌধ।"],
-["মুজিবনগর আম্রকানন","🌳","ঐতিহাসিক","বাংলাদেশের স্বাধীনতার ইতিহাসের সঙ্গে জড়িত ঐতিহাসিক স্থান।"],
-["মেহেরপুর শহর","🏙️","ভ্রমণ","জেলার ঐতিহ্য ও স্থানীয় জীবন দেখার স্থান।"],
-["আমঝুপি নীলকুঠি","🏚️","ঐতিহাসিক","ব্রিটিশ আমলের নীলচাষের স্মৃতিবাহী স্থাপনা।"]
-],
-
-"নড়াইল": [
-["সুলতান কমপ্লেক্স","🎨","সংস্কৃতি","শিল্পী এস এম সুলতানের স্মৃতিবিজড়িত স্থান।"],
-["এস এম সুলতান স্মৃতি সংগ্রহশালা","🎨","সংস্কৃতি","খ্যাতিমান চিত্রশিল্পীর শিল্পকর্ম ও স্মৃতি সংরক্ষিত স্থান।"],
-["চিত্রা নদী","🌊","প্রকৃতি","নড়াইলের পরিচিত নদী ও প্রাকৃতিক পরিবেশ।"],
-["নড়াইল জমিদারবাড়ি","🏛️","ঐতিহাসিক","জেলার ঐতিহ্যবাহী স্থাপনা।"]
-],
-
-"সাতক্ষীরা": [
-["সুন্দরবন","🌳","প্রকৃতি","বিশ্বের বৃহত্তম ম্যানগ্রোভ বনাঞ্চলের অংশ।"],
-["যশোরেশ্বরী কালী মন্দির","🛕","ধর্মীয়","ঐতিহ্যবাহী ও প্রাচীন ধর্মীয় স্থান।"],
-["বেতনা নদী","🌊","প্রকৃতি","সাতক্ষীরার নদী ও প্রাকৃতিক সৌন্দর্যের অংশ।"],
-["কালীগঞ্জের নলতা শরীফ","🕌","ধর্মীয়","পরিচিত ধর্মীয় ও ঐতিহাসিক স্থান।"]
-],
-
-"বরগুনা": [
-["ফাতরার চর","🌳","প্রকৃতি","সুন্দরবনসংলগ্ন প্রাকৃতিক পর্যটন এলাকা।"],
-["পাথরঘাটা","🌊","সমুদ্র","সমুদ্র ও নদীকেন্দ্রিক সুন্দর এলাকা।"],
-["বিবিচিনি শাহী মসজিদ","🕌","ঐতিহাসিক","প্রাচীন ঐতিহ্যবাহী মসজিদ।"],
-["হরিণঘাটা","🌳","প্রকৃতি","বন ও নদীর প্রাকৃতিক সৌন্দর্যের স্থান।"]
-],
-
-"বরিশাল": [
-["দুর্গাসাগর দীঘি","🌊","প্রকৃতি","বরিশালের ঐতিহাসিক বড় দীঘি।"],
-["গুঠিয়া মসজিদ","🕌","স্থাপত্য","অসাধারণ স্থাপত্যের জন্য বিখ্যাত মসজিদ কমপ্লেক্স।"],
-["কীর্তনখোলা নদী","🌊","প্রকৃতি","বরিশাল শহরের পাশ দিয়ে প্রবাহিত নদী।"],
-["অক্সফোর্ড মিশন চার্চ","⛪","ঐতিহাসিক","ঐতিহ্যবাহী স্থাপত্যের সুন্দর নিদর্শন।"],
-["বেলস পার্ক","🌳","বিনোদন","বরিশাল শহরের জনপ্রিয় বিনোদন এলাকা।"]
-],
-
-"ভোলা": [
-["মনপুরা","🌊","প্রকৃতি","দ্বীপ ও নদীবেষ্টিত সুন্দর প্রাকৃতিক এলাকা।"],
-["চর কুকরি-মুকরি","🌳","প্রকৃতি","বন, নদী ও বন্যপ্রাণীর জন্য পরিচিত দ্বীপাঞ্চল।"],
-["মেঘনা নদী","🌊","প্রকৃতি","বিশাল জলরাশি ও নদীকেন্দ্রিক সৌন্দর্য।"],
-["দৌলতখান নদীর তীর","🌊","প্রকৃতি","নদী ও চরাঞ্চলের সুন্দর পরিবেশ।"]
-],
-
-"ঝালকাঠি": [
-["কীর্তিপাশা জমিদার বাড়ি","🏛️","ঐতিহাসিক","প্রাচীন জমিদার পরিবারের ঐতিহাসিক স্থাপনা।"],
-["ভিমরুলি পেয়ারা বাগান","🍐","প্রকৃতি","খাল ও পেয়ারা বাগানের জন্য বিখ্যাত।"],
-["সুগন্ধা নদী","🌊","প্রকৃতি","ঝালকাঠির সুন্দর নদী ও নৌপথ।"],
-["দপদপিয়া জমিদারবাড়ি","🏛️","ঐতিহাসিক","ঐতিহ্যবাহী জমিদারবাড়ির নিদর্শন।"]
-],
-
-"পটুয়াখালী": [
-["কুয়াকাটা সমুদ্র সৈকত","🏖️","সমুদ্র","সূর্যোদয় ও সূর্যাস্ত দুটোই দেখার জন্য বিখ্যাত।"],
-["ফাতরার বন","🌳","প্রকৃতি","সমুদ্রসংলগ্ন বনাঞ্চল ও প্রাকৃতিক সৌন্দর্য।"],
-["শুঁটকি পল্লী","🐟","সংস্কৃতি","উপকূলীয় মানুষের ঐতিহ্যবাহী শুঁটকি উৎপাদন এলাকা।"],
-["লেবুর চর","🌊","প্রকৃতি","উপকূলীয় প্রাকৃতিক সৌন্দর্যের স্থান।"]
-],
-
-"পিরোজপুর": [
-["স্বরূপকাঠি পেয়ারা বাগান","🍐","প্রকৃতি","খাল ও পেয়ারা বাগানের জন্য বিখ্যাত।"],
-["নেছারাবাদ","🌿","প্রকৃতি","নদী-খাল ও গ্রামীণ সৌন্দর্যের এলাকা।"],
-["কাউখালী","🌊","প্রকৃতি","নদীকেন্দ্রিক সুন্দর প্রাকৃতিক পরিবেশ।"],
-["শরীফপুর জমিদারবাড়ি","🏛️","ঐতিহাসিক","প্রাচীন ঐতিহ্যের স্থাপনা।"]
-],
-
-"হবিগঞ্জ": [
-["সাতছড়ি জাতীয় উদ্যান","🌳","প্রকৃতি","বন, পাখি ও জীববৈচিত্র্যের জন্য বিখ্যাত।"],
-["রেমা-কালেঙ্গা","🌳","প্রকৃতি","বাংলাদেশের অন্যতম গুরুত্বপূর্ণ প্রাকৃতিক বনাঞ্চল।"],
-["চুনারুঘাট চা বাগান","🍃","প্রকৃতি","সবুজ চা-বাগানের মনোরম পরিবেশ।"],
-["বিথঙ্গল আখড়া","🛕","ধর্মীয়","ঐতিহাসিক ধর্মীয় ও সাংস্কৃতিক স্থান।"]
-],
-
-"মৌলভীবাজার": [
-["লাউয়াছড়া জাতীয় উদ্যান","🌳","প্রকৃতি","বন্যপ্রাণী ও জীববৈচিত্র্যের জন্য বিখ্যাত বন।"],
-["মাধবকুণ্ড জলপ্রপাত","💦","প্রকৃতি","বাংলাদেশের অন্যতম পরিচিত জলপ্রপাত।"],
-["শ্রীমঙ্গল চা বাগান","🍃","প্রকৃতি","সবুজ চা-বাগানের জন্য বিখ্যাত।"],
-["হামহাম জলপ্রপাত","💦","প্রকৃতি","পাহাড়ি বনের ভেতরে অবস্থিত আকর্ষণীয় জলপ্রপাত।"],
-["মাধবপুর লেক","🌊","প্রকৃতি","চা-বাগান ও পাহাড়ঘেরা সুন্দর লেক।"]
-],
-
-"সুনামগঞ্জ": [
-["টাঙ্গুয়ার হাওর","🌊","প্রকৃতি","বাংলাদেশের অন্যতম বিখ্যাত হাওর ও জলাভূমি।"],
-["শিমুল বাগান","🌳","প্রকৃতি","বসন্তে লাল শিমুল ফুলে অসাধারণ সুন্দর হয়ে ওঠে।"],
-["বারিক্কা টিলা","⛰️","প্রকৃতি","পাহাড় ও নদীর মনোরম দৃশ্য দেখা যায়।"],
-["যাদুকাটা নদী","🌊","প্রকৃতি","স্বচ্ছ পানির জন্য পরিচিত সুন্দর নদী।"],
-["শাহ আরেফিনের মাজার","🕌","ধর্মীয়","সীমান্তবর্তী ঐতিহাসিক ধর্মীয় স্থান।"]
-],
-
-"সিলেট": [
-["জাফলং","⛰️","প্রকৃতি","পাহাড়, নদী ও পাথরের জন্য বিখ্যাত।"],
-["বিছানাকান্দি","🌊","প্রকৃতি","পাথর ও স্বচ্ছ পানির মনোরম প্রাকৃতিক স্থান।"],
-["রাতারগুল সোয়াম্প ফরেস্ট","🌳","প্রকৃতি","বাংলাদেশের বিখ্যাত মিঠাপানির জলাবন।"],
-["লাক্কাতুরা চা বাগান","🍃","প্রকৃতি","সবুজ চা-বাগানের সুন্দর পরিবেশ।"],
-["শাহজালাল (রহ.) মাজার","🕌","ধর্মীয়","সিলেটের অন্যতম গুরুত্বপূর্ণ ধর্মীয় স্থান।"],
-["শাহপরান (রহ.) মাজার","🕌","ধর্মীয়","ঐতিহাসিক ধর্মীয় ও আধ্যাত্মিক স্থান।"]
-],   
-
-"বান্দরবান": [
-["নীলগিরি","⛰️","পাহাড়","মেঘে ঢাকা পাহাড় ও মনোরম প্রাকৃতিক দৃশ্যের জন্য বিখ্যাত।"],
-["বুদ্ধ ধাতু জাদি","🛕","ধর্মীয়","বান্দরবানের বিখ্যাত বৌদ্ধ মন্দির।"],
-["নাফাখুম","💦","প্রকৃতি","পাহাড়ি ঝরনা ও জলপ্রপাতের অসাধারণ স্থান।"],
-["বগা লেক","🌊","পাহাড়","পাহাড়ের মাঝে অবস্থিত সুন্দর প্রাকৃতিক লেক।"],
-["চিম্বুক পাহাড়","⛰️","পাহাড়","বাংলাদেশের অন্যতম পরিচিত পাহাড়ি পর্যটনস্থান।"],
-["নীলাচল","🌄","পাহাড়","পাহাড় ও মেঘের অপূর্ব দৃশ্য দেখার স্থান।"],
-["শৈলপ্রপাত","💦","প্রকৃতি","পাহাড়ি ঝরনা ও পাথরের সুন্দর প্রাকৃতিক স্থান।"]
-],
-
-"ব্রাহ্মণবাড়িয়া": [
-["হারিপুর জমিদার বাড়ি","🏛️","ঐতিহাসিক","প্রাচীন জমিদার পরিবারের ঐতিহাসিক স্থাপনা।"],
-["উলচাপাড়া মসজিদ","🕌","ঐতিহাসিক","ঐতিহ্যবাহী প্রাচীন মসজিদ।"],
-["তিতাস নদী","🌊","প্রকৃতি","বাংলার লোকসংস্কৃতির সঙ্গে জড়িত ঐতিহাসিক নদী।"],
-["আখাউড়া রেলওয়ে জংশন","🚂","ঐতিহাসিক","ঐতিহ্যবাহী রেলপথ ও গুরুত্বপূর্ণ রেলওয়ে এলাকা।"],
-["কেল্লা শহীদ মাজার","🕌","ধর্মীয়","ঐতিহাসিক ধর্মীয় স্থান।"]
-],
-
-"চাঁদপুর": [
-["তিন নদীর মোহনা","🌊","প্রকৃতি","পদ্মা, মেঘনা ও ডাকাতিয়া নদীর মিলনস্থল।"],
-["মোলহেড","🌊","নদী","চাঁদপুরের জনপ্রিয় নদীর তীরের ভ্রমণস্থান।"],
-["চাঁদপুর বড় স্টেশন","🚉","নদী","নদীর তীরের পরিচিত দর্শনীয় এলাকা।"],
-["হাইমচর","🌊","প্রকৃতি","মেঘনা নদী ও চরাঞ্চলের প্রাকৃতিক সৌন্দর্য।"],
-["রক্তধারা","🌿","প্রকৃতি","চাঁদপুরের স্থানীয় দর্শনীয় প্রাকৃতিক স্থান।"]
-],
-
-"চট্টগ্রাম": [
-["পতেঙ্গা সমুদ্র সৈকত","🏖️","সমুদ্র","সমুদ্রের ঢেউ ও সূর্যাস্ত উপভোগের জনপ্রিয় স্থান।"],
-["ফয়েজ লেক","🌊","বিনোদন","পাহাড় ও লেক ঘেরা জনপ্রিয় বিনোদনকেন্দ্র।"],
-["চট্টগ্রাম চিড়িয়াখানা","🦁","বিনোদন","বিভিন্ন প্রাণী দেখার জনপ্রিয় স্থান।"],
-["বাটালি হিল","⛰️","পাহাড়","চট্টগ্রাম শহরের উঁচু পাহাড়ি দর্শনীয় স্থান।"],
-["জাতিতাত্ত্বিক জাদুঘর","🏛️","সংস্কৃতি","বাংলাদেশের বিভিন্ন জাতিগোষ্ঠীর জীবন ও সংস্কৃতির সংগ্রহশালা।"],
-["আন্দরকিল্লা শাহী জামে মসজিদ","🕌","ঐতিহাসিক","চট্টগ্রামের ঐতিহ্যবাহী মুঘল স্থাপত্য।"],
-["চট্টগ্রাম ওয়ার সেমেট্রি","🌿","ঐতিহাসিক","দ্বিতীয় বিশ্বযুদ্ধের স্মৃতিবিজড়িত সমাধিক্ষেত্র।"],
-["সীতাকুণ্ড চন্দ্রনাথ পাহাড়","⛰️","প্রকৃতি","পাহাড় ও ধর্মীয় ঐতিহ্যের জন্য বিখ্যাত।"]
-],
-
-"কুমিল্লা": [
-["শালবন বিহার","🏺","প্রত্নতাত্ত্বিক","প্রাচীন বৌদ্ধ সভ্যতার গুরুত্বপূর্ণ নিদর্শন।"],
-["ময়নামতি জাদুঘর","🏛️","প্রত্নতাত্ত্বিক","ময়নামতির প্রত্নতাত্ত্বিক নিদর্শনের সংগ্রহশালা।"],
-["ধর্মসাগর","🌊","প্রকৃতি","কুমিল্লা শহরের ঐতিহাসিক বড় দীঘি।"],
-["ইটাখোলা মুরা","🏺","প্রত্নতাত্ত্বিক","প্রাচীন বৌদ্ধ স্থাপত্যের নিদর্শন।"],
-["কোটিলা মুরা","🏺","প্রত্নতাত্ত্বিক","ময়নামতি অঞ্চলের গুরুত্বপূর্ণ প্রত্নতাত্ত্বিক স্থান।"],
-["রূপবান মুরা","🏺","প্রত্নতাত্ত্বিক","প্রাচীন সভ্যতার ঐতিহাসিক নিদর্শন।"],
-["লালমাই পাহাড়","⛰️","প্রকৃতি","কুমিল্লার পরিচিত পাহাড়ি এলাকা।"]
-],
-
-"কক্সবাজার": [
-["কক্সবাজার সমুদ্র সৈকত","🏖️","সমুদ্র","দীর্ঘ বালুকাময় সমুদ্র সৈকতের জন্য বিশ্বজুড়ে পরিচিত।"],
-["হিমছড়ি","⛰️","প্রকৃতি","পাহাড়, সমুদ্র ও ঝরনার সুন্দর সমন্বয়।"],
-["ইনানী সমুদ্র সৈকত","🏖️","সমুদ্র","পাথুরে সৈকত ও নীল সমুদ্রের জন্য বিখ্যাত।"],
-["মেরিন ড্রাইভ","🛣️","সমুদ্র","সমুদ্র ও পাহাড়ের পাশ দিয়ে যাওয়া মনোরম সড়ক।"],
-["মহেশখালী","🏝️","দ্বীপ","পাহাড়, সমুদ্র ও ঐতিহ্যের জন্য পরিচিত দ্বীপ এলাকা।"],
-["সোনাদিয়া দ্বীপ","🏝️","প্রকৃতি","পরিযায়ী পাখি ও উপকূলীয় প্রকৃতির জন্য পরিচিত।"],
-["রামু বৌদ্ধ বিহার","🛕","ধর্মীয়","ঐতিহ্যবাহী বৌদ্ধ মন্দির ও সংস্কৃতির স্থান।"],
-["দুলাহাজারা সাফারি পার্ক","🦁","বিনোদন","বন্যপ্রাণী দেখার জনপ্রিয় পর্যটনকেন্দ্র।"]
-],
-
-"ফেনী": [
-["রাজাঝির দিঘি","🌊","ঐতিহাসিক","ফেনী শহরের পরিচিত ঐতিহাসিক দীঘি।"],
-["মুহুরী প্রজেক্ট","🌊","প্রকৃতি","নদী ও বাঁধকে ঘিরে জনপ্রিয় ভ্রমণস্থান।"],
-["শর্শদী","🌿","প্রকৃতি","ফেনীর গ্রামীণ প্রকৃতির সুন্দর এলাকা।"],
-["চন্দ্রনাথের কাছাকাছি সীমান্ত এলাকা","⛰️","প্রকৃতি","পাহাড়ি প্রাকৃতিক পরিবেশের জন্য পরিচিত।"]
-],
-
-"খাগড়াছড়ি": [
-["আলুটিলা গুহা","⛰️","প্রকৃতি","পাহাড়ের ভেতরের বিখ্যাত প্রাকৃতিক গুহা।"],
-["রিছাং ঝরনা","💦","প্রকৃতি","পাহাড়ি ঝরনা ও সবুজ প্রকৃতির সুন্দর স্থান।"],
-["দেবতাখুম","🌊","প্রকৃতি","পাহাড়ের মাঝে স্বচ্ছ পানির মনোরম স্থান।"],
-["আলুটিলা পর্যটন কেন্দ্র","⛰️","পাহাড়","পাহাড় ও মেঘের সুন্দর দৃশ্য দেখা যায়।"],
-["রামগড় চা বাগান এলাকা","🍃","প্রকৃতি","সবুজ পাহাড় ও চা-বাগানের মনোরম পরিবেশ।"],
-["মায়াবিনী লেক","🌊","প্রকৃতি","পাহাড়ঘেরা সুন্দর কৃত্রিম লেক।"]
-],
-
-"লক্ষ্মীপুর": [
-["মেঘনা নদীর তীর","🌊","প্রকৃতি","মেঘনা নদীর বিস্তীর্ণ জলরাশি ও সুন্দর দৃশ্য।"],
-["রামগতি উপকূল","🌊","সমুদ্র","মেঘনা মোহনার উপকূলীয় প্রাকৃতিক সৌন্দর্য।"],
-["রায়পুর","🌿","প্রকৃতি","গ্রামীণ পরিবেশ ও স্থানীয় ঐতিহ্যের এলাকা।"],
-["দালাল বাজার জমিদার বাড়ি","🏛️","ঐতিহাসিক","লক্ষ্মীপুরের ঐতিহ্যবাহী জমিদারবাড়ি।"]
-],
-
-"নোয়াখালী": [
-["নিঝুম দ্বীপ","🏝️","প্রকৃতি","হরিণ, পাখি ও উপকূলীয় প্রকৃতির জন্য বিখ্যাত দ্বীপ।"],
-["বজরা শাহী মসজিদ","🕌","ঐতিহাসিক","ঐতিহ্যবাহী প্রাচীন মসজিদ।"],
-["হাতিয়া","🏝️","দ্বীপ","মেঘনা মোহনার বড় দ্বীপ ও উপকূলীয় এলাকা।"],
-["নোয়াখালী কেন্দ্রীয় শহীদ মিনার","🇧🇩","ঐতিহাসিক","ভাষা আন্দোলনের স্মৃতিবাহী স্থাপনা।"],
-["মাইজদী শহর","🏙️","ভ্রমণ","জেলার প্রশাসনিক ও আধুনিক নগর এলাকা।"]
-],
-
-"রাঙ্গামাটি": [
-["কাপ্তাই লেক","🌊","প্রকৃতি","বাংলাদেশের বৃহত্তম কৃত্রিম হ্রদ।"],
-["ঝুলন্ত সেতু","🌉","স্থাপত্য","রাঙ্গামাটির অন্যতম পরিচিত পর্যটন আকর্ষণ।"],
-["শুভলং ঝরনা","💦","প্রকৃতি","কাপ্তাই লেকের পাহাড়ি ঝরনা।"],
-["পেদা টিং টিং","🌊","প্রকৃতি","লেক ও পাহাড়ের মনোরম পর্যটনস্থান।"],
-["রাজবন বিহার","🛕","ধর্মীয়","রাঙ্গামাটির গুরুত্বপূর্ণ বৌদ্ধ ধর্মীয় স্থান।"],
-["চাকমা রাজবাড়ি","🏛️","সংস্কৃতি","চাকমা রাজপরিবারের ঐতিহ্যবাহী স্থান।"],
-["কাপ্তাই বাঁধ","🌊","স্থাপত্য","কাপ্তাই জলবিদ্যুৎ প্রকল্পের ঐতিহাসিক বাঁধ।"]
-],
-
-"বাগেরহাট": [
-["ষাট গম্বুজ মসজিদ","🕌","ঐতিহাসিক","বিশ্বখ্যাত ঐতিহাসিক মসজিদ।"],
-["খান জাহান আলীর মাজার","🕌","ধর্মীয়","ঐতিহাসিক মাজার ও পবিত্র স্থান।"],
-["সিঙ্গাইর মসজিদ","🕌","ঐতিহাসিক","প্রাচীন সুলতানি স্থাপত্যের নিদর্শন।"],
-["নয় গম্বুজ মসজিদ","🕌","ঐতিহাসিক","বাগেরহাটের ঐতিহ্যবাহী প্রাচীন মসজিদ।"],
-["কোদলা মঠ","🏛️","ঐতিহাসিক","প্রাচীন স্থাপত্যের উল্লেখযোগ্য নিদর্শন।"],
-["বিবি বেগনি মসজিদ","🕌","ঐতিহাসিক","ঐতিহাসিক মসজিদ নগরীর অংশ।"]
-],
-
-"ফরিদপুর": [
-["জসীম পল্লী","🌿","সংস্কৃতি","পল্লীকবি জসীমউদ্দীনের স্মৃতিবিজড়িত স্থান।"],
-["জসীমউদ্দীনের বাড়ি","🏡","ঐতিহাসিক","পল্লীকবির স্মৃতিবিজড়িত ঐতিহাসিক বাড়ি।"],
-["পদ্মা নদীর তীর","🌊","প্রকৃতি","পদ্মা নদীর মনোরম প্রাকৃতিক দৃশ্য।"],
-["সাতৈর মসজিদ","🕌","ঐতিহাসিক","প্রাচীন ঐতিহ্যবাহী মসজিদ।"],
-["মথুরাপুর দেউল","🏛️","ঐতিহাসিক","প্রাচীন স্থাপত্যের উল্লেখযোগ্য নিদর্শন।"]
-],
-
-"ঢাকা": [
-["লালবাগ কেল্লা","🏰","ঐতিহাসিক","মুঘল আমলের ঐতিহাসিক দুর্গ।"],
-["আহসান মঞ্জিল","🏛️","ঐতিহাসিক","বুড়িগঙ্গার তীরে অবস্থিত ঐতিহাসিক নবাববাড়ি।"],
-["জাতীয় জাদুঘর","🏛️","সংস্কৃতি","বাংলাদেশের ইতিহাস ও সংস্কৃতির বিশাল সংগ্রহশালা।"],
-["জাতীয় সংসদ ভবন","🏢","স্থাপত্য","বিশ্বখ্যাত আধুনিক স্থাপত্যের অন্যতম নিদর্শন।"],
-["সোহরাওয়ার্দী উদ্যান","🌳","ঐতিহাসিক","বাংলাদেশের ইতিহাসের গুরুত্বপূর্ণ ঘটনাবলির সঙ্গে জড়িত ঐতিহাসিক উদ্যান।"],
-["হাতিরঝিল","🌊","বিনোদন","ঢাকার জনপ্রিয় নগর বিনোদন ও জলাধার এলাকা।"],
-["বঙ্গবন্ধু নভোথিয়েটার","🌌","বিজ্ঞান","মহাকাশ ও বিজ্ঞানভিত্তিক প্রদর্শনীর জনপ্রিয় কেন্দ্র।"],
-["জাতীয় চিড়িয়াখানা","🦁","বিনোদন","বিভিন্ন প্রাণী দেখার জন্য জনপ্রিয় দর্শনীয় স্থান।"],
-["রমনা পার্ক","🌳","বিনোদন","ঢাকার ঐতিহাসিক ও সবুজ নগর উদ্যান।"],
-["বাহাদুর শাহ পার্ক","🌳","ঐতিহাসিক","পুরান ঢাকার ঐতিহাসিক উদ্যান।"]
-],
-
-"গাজীপুর": [
-["ভাওয়াল জাতীয় উদ্যান","🌳","প্রকৃতি","শালবন ও সবুজ প্রকৃতির জন্য বিখ্যাত।"],
-["বঙ্গবন্ধু শেখ মুজিব সাফারি পার্ক","🦁","বিনোদন","বন্যপ্রাণী ও প্রাকৃতিক পরিবেশের জনপ্রিয় পর্যটনকেন্দ্র।"],
-["নুহাশ পল্লী","🌿","সংস্কৃতি","কথাসাহিত্যিক হুমায়ূন আহমেদের স্মৃতিবিজড়িত স্থান।"],
-["ভাওয়াল রাজবাড়ি","🏛️","ঐতিহাসিক","ভাওয়াল রাজপরিবারের ঐতিহাসিক স্থাপনা।"],
-["বেলাই বিল","🌊","প্রকৃতি","জলাভূমি ও গ্রামীণ প্রকৃতির সুন্দর পরিবেশ।"]
-],
-
-"গোপালগঞ্জ": [
-["টুঙ্গিপাড়া সমাধিসৌধ","🕌","ঐতিহাসিক","বঙ্গবন্ধু শেখ মুজিবুর রহমানের সমাধিসৌধ।"],
-["ওড়াকান্দি ঠাকুরবাড়ি","🛕","ধর্মীয়","হরিচাঁদ ও গুরুচাঁদ ঠাকুরের স্মৃতিবিজড়িত স্থান।"],
-["উজানী রাজবাড়ি","🏛️","ঐতিহাসিক","প্রাচীন রাজপরিবারের ঐতিহ্যবাহী স্থাপনা।"],
-["মধুমতি নদীর তীর","🌊","প্রকৃতি","নদী ও গ্রামীণ প্রকৃতির সুন্দর দৃশ্য।"]
-],
-
-"কিশোরগঞ্জ": [
-["নিকলী হাওর","🌊","প্রকৃতি","বর্ষায় বিশাল জলরাশির অপূর্ব সৌন্দর্য।"],
-["ইটনা-মিঠামইন-অষ্টগ্রাম সড়ক","🛣️","প্রকৃতি","হাওরের মাঝ দিয়ে নির্মিত মনোরম সড়ক।"],
-["শোলাকিয়া ঈদগাহ","🕌","ধর্মীয়","বাংলাদেশের ঐতিহ্যবাহী বৃহৎ ঈদগাহ মাঠ।"],
-["পাগলা মসজিদ","🕌","ধর্মীয়","কিশোরগঞ্জের বিখ্যাত ঐতিহাসিক মসজিদ।"],
-["কিশোরগঞ্জ হাওর এলাকা","🌊","প্রকৃতি","বর্ষাকালে নৌভ্রমণের জন্য আকর্ষণীয় বিস্তীর্ণ জলাভূমি।"]
-],
-
-"মাদারীপুর": [
-["শকুনী লেক","🌊","প্রকৃতি","মাদারীপুর শহরের জনপ্রিয় বিনোদনকেন্দ্র।"],
-["আউলিয়াপুর নীলকুঠি","🏚️","ঐতিহাসিক","ব্রিটিশ আমলের নীলচাষের স্মৃতিবাহী স্থাপনা।"],
-["রাজারাম মন্দির","🛕","ঐতিহাসিক","প্রাচীন স্থাপত্যের গুরুত্বপূর্ণ নিদর্শন।"],
-["হাজরাপুর মসজিদ","🕌","ঐতিহাসিক","ঐতিহ্যবাহী প্রাচীন মসজিদ।"]
-],
-
-"মানিকগঞ্জ": [
-["বালিয়াটি জমিদার বাড়ি","🏛️","ঐতিহাসিক","বাংলাদেশের অন্যতম বিখ্যাত জমিদারবাড়ি।"],
-["তেওতা জমিদার বাড়ি","🏛️","ঐতিহাসিক","প্রাচীন জমিদার পরিবারের ঐতিহাসিক স্থাপনা।"],
-["আরিচা ঘাট","⛴️","নদী","যমুনা নদীর তীরের গুরুত্বপূর্ণ স্থান।"],
-["শাহজাহানপুর মসজিদ","🕌","ঐতিহাসিক","ঐতিহ্যবাহী স্থাপত্যের নিদর্শন।"]
-],
-
-"মুন্সিগঞ্জ": [
-["ইদ্রাকপুর কেল্লা","🏰","ঐতিহাসিক","মুঘল আমলের ঐতিহাসিক দুর্গ।"],
-["বিক্রমপুর","🏛️","ঐতিহাসিক","প্রাচীন বাংলার ঐতিহাসিক জনপদ।"],
-["বিক্রমপুর জাদুঘর","🏛️","সংস্কৃতি","বিক্রমপুরের ইতিহাস ও ঐতিহ্যের সংগ্রহশালা।"],
-["মাওয়া পদ্মা সেতু এলাকা","🌉","প্রকৃতি","পদ্মা নদী ও সেতুকে ঘিরে জনপ্রিয় ভ্রমণস্থান।"],
-["আড়িয়াল বিল","🌊","প্রকৃতি","বিস্তীর্ণ জলাভূমি ও প্রাকৃতিক সৌন্দর্যের স্থান।"]
-],
-
-"নারায়ণগঞ্জ": [
-["সোনারগাঁও","🏛️","ঐতিহাসিক","প্রাচীন বাংলার ঐতিহাসিক জনপদ।"],
-["পানাম নগর","🏚️","ঐতিহাসিক","ঐতিহাসিক ভবনে ভরা প্রাচীন নগরী।"],
-["বাংলাদেশ লোক ও কারুশিল্প জাদুঘর","🏛️","সংস্কৃতি","বাংলার লোকজ সংস্কৃতি ও কারুশিল্পের সংগ্রহশালা।"],
-["মেঘনা নদীর তীর","🌊","প্রকৃতি","নদীর তীরে সুন্দর প্রাকৃতিক পরিবেশ।"]
-],
-
-"নরসিংদী": [
-["ওয়ারী-বটেশ্বর","🏺","প্রত্নতাত্ত্বিক","প্রাচীন নগরসভ্যতার গুরুত্বপূর্ণ প্রত্নতাত্ত্বিক স্থান।"],
-["ড্রিম হলিডে পার্ক","🎡","বিনোদন","পরিবারের জন্য জনপ্রিয় বিনোদনকেন্দ্র।"],
-["মেঘনা নদীর তীর","🌊","প্রকৃতি","মেঘনা নদীর সুন্দর প্রাকৃতিক পরিবেশ।"],
-["বেলাব উপজেলার ঐতিহাসিক এলাকা","🏛️","ঐতিহাসিক","নরসিংদীর প্রাচীন ঐতিহ্যের বিভিন্ন নিদর্শন।"]
-],
-
-"রাজবাড়ী": [
-["গোয়ালন্দ ঘাট","⛴️","নদী","পদ্মা নদীর তীরের ঐতিহাসিক নদীবন্দর।"],
-["রাজবাড়ী জমিদার বাড়ি","🏛️","ঐতিহাসিক","পুরনো জমিদার পরিবারের ঐতিহাসিক স্থাপনা।"],
-["পদ্মা নদীর তীর","🌊","প্রকৃতি","পদ্মার বিস্তীর্ণ জলরাশির সুন্দর দৃশ্য।"],
-["দৌলতদিয়া ঘাট","⛴️","নদী","পদ্মা নদীর গুরুত্বপূর্ণ ফেরিঘাট এলাকা।"]
-],
-
-"শরীয়তপুর": [
-["সুরেশ্বর দরবার শরীফ","🕌","ধর্মীয়","শরীয়তপুরের পরিচিত ধর্মীয় ও ঐতিহাসিক স্থান।"],
-["পদ্মা নদীর তীর","🌊","প্রকৃতি","পদ্মার তীরের মনোরম প্রাকৃতিক দৃশ্য।"],
-["মেঘনা নদী","🌊","প্রকৃতি","মেঘনা নদীর বিশাল জলরাশি।"],
-["জাজিরা নদীতীর","🌿","প্রকৃতি","নদী ও গ্রামীণ প্রকৃতির সুন্দর পরিবেশ।"]
-],
-
-"টাঙ্গাইল": [
-["মহেরা জমিদার বাড়ি","🏛️","ঐতিহাসিক","টাঙ্গাইলের বিখ্যাত জমিদারবাড়ি।"],
-["আতিয়া মসজিদ","🕌","ঐতিহাসিক","প্রাচীন স্থাপত্যের সুন্দর নিদর্শন।"],
-["মধুপুর জাতীয় উদ্যান","🌳","প্রকৃতি","শালবন ও সবুজ প্রকৃতির জন্য বিখ্যাত।"],
-["ধনবাড়ী নবাব বাড়ি","🏛️","ঐতিহাসিক","ধনবাড়ীর ঐতিহ্যবাহী নবাববাড়ি।"],
-["যমুনা নদীর তীর","🌊","প্রকৃতি","যমুনা নদীর বিস্তীর্ণ প্রাকৃতিক দৃশ্য।"]
-],
-
-"দিনাজপুর": [
-["কান্তজিউ মন্দির","🛕","ঐতিহাসিক","বাংলাদেশের বিখ্যাত টেরাকোটা মন্দির।"],
-["রামসাগর","🌊","প্রকৃতি","দিনাজপুরের বিশাল ঐতিহাসিক দীঘি।"],
-["নয়াবাদ মসজিদ","🕌","ঐতিহাসিক","কান্তজিউ মন্দিরের কাছাকাছি ঐতিহাসিক মসজিদ।"],
-["দিনাজপুর রাজবাড়ি","🏛️","ঐতিহাসিক","দিনাজপুর রাজপরিবারের ঐতিহাসিক স্থাপনা।"],
-["সিংড়া ফরেস্ট","🌳","প্রকৃতি","সবুজ বন ও প্রাকৃতিক পরিবেশের সুন্দর স্থান।"],
-["স্বপ্নপুরী","🎡","বিনোদন","দিনাজপুরের জনপ্রিয় বিনোদন ও পর্যটনকেন্দ্র।"],
-["চেহেলগাজী মাজার","🕌","ধর্মীয়","ঐতিহাসিক ধর্মীয় স্থান।"],
-["নয়াবাদ গ্রাম","🌿","ঐতিহ্য","কান্তনগর এলাকার ঐতিহ্যবাহী গ্রামীণ পরিবেশ।"]
-],
-
-"নীলফামারী": [
-["নীলসাগর","🌊","প্রকৃতি","বিখ্যাত বড় দীঘি ও বিনোদনকেন্দ্র।"],
-["চিনি মসজিদ","🕌","ঐতিহাসিক","কারুকার্যপূর্ণ ঐতিহ্যবাহী মসজিদ।"],
-["সৈয়দপুর রেলওয়ে কারখানা","🚂","ঐতিহাসিক","বাংলাদেশের পুরনো রেলওয়ে স্থাপনাগুলোর অন্যতম।"],
-["সৈয়দপুর রেলওয়ে জংশন","🚂","ঐতিহাসিক","ঐতিহ্যবাহী রেলওয়ে এলাকার গুরুত্বপূর্ণ অংশ।"]
-],
-
-"পঞ্চগড়": [
-["তেঁতুলিয়া","🌿","প্রকৃতি","হিমালয়ের দৃশ্য উপভোগের জন্য বিখ্যাত।"],
-["ভিতরগড়","🏺","প্রত্নতাত্ত্বিক","প্রাচীন দুর্গনগরীর প্রত্নতাত্ত্বিক নিদর্শন।"],
-["বাংলাবান্ধা","🇧🇩","সীমান্ত","বাংলাদেশের উত্তরের গুরুত্বপূর্ণ সীমান্ত এলাকা।"],
-["তেঁতুলিয়া ডাকবাংলো","🏡","ঐতিহাসিক","হিমালয় দৃশ্যের জন্য পরিচিত ঐতিহাসিক স্থাপনা।"]
-],
-
-"রংপুর": [
-["তাজহাট জমিদার বাড়ি","🏛️","ঐতিহাসিক","রংপুরের বিখ্যাত রাজপ্রাসাদসদৃশ জমিদারবাড়ি।"],
-["কারমাইকেল কলেজ","🏫","ঐতিহাসিক","ঐতিহ্যবাহী শিক্ষা প্রতিষ্ঠান ও স্থাপত্য।"],
-["চিকলী বিল","🌊","প্রকৃতি","প্রাকৃতিক জলাভূমি ও বিনোদনকেন্দ্র।"],
-["রংপুর চিড়িয়াখানা","🦁","বিনোদন","বিভিন্ন প্রাণী দেখার জনপ্রিয় স্থান।"],
-["বেগম রোকেয়া স্মৃতিকেন্দ্র","📚","সংস্কৃতি","বেগম রোকেয়ার স্মৃতিবিজড়িত স্থান।"]
-],
-
-"ঠাকুরগাঁও": [
-["রাজা টংকনাথ রাজবাড়ি","🏛️","ঐতিহাসিক","ঐতিহ্যবাহী রাজবাড়ি।"],
-["হরিপুর রাজবাড়ি","🏛️","ঐতিহাসিক","পুরনো রাজপরিবারের ঐতিহাসিক স্থাপনা।"],
-["ঠাকুরগাঁও সুগার মিল","🏭","ঐতিহাসিক","জেলার শিল্প ঐতিহ্যের গুরুত্বপূর্ণ স্থাপনা।"],
-["লোকায়ন জীবনবৈচিত্র্য জাদুঘর","🏛️","সংস্কৃতি","স্থানীয় সংস্কৃতি ও ঐতিহ্য প্রদর্শনের স্থান।"]
-],
-
-"জামালপুর": [
-["লাউচাপড়া","⛰️","প্রকৃতি","পাহাড় ও সবুজ প্রকৃতির সুন্দর পর্যটনকেন্দ্র।"],
-["শাহ জামাল (রহ.) মাজার","🕌","ধর্মীয়","ঐতিহাসিক ধর্মীয় স্থান।"],
-["যমুনা নদীর তীর","🌊","প্রকৃতি","যমুনা নদীর সুন্দর প্রাকৃতিক পরিবেশ।"],
-["দেওয়ানগঞ্জ চরাঞ্চল","🌿","প্রকৃতি","নদী ও চরাঞ্চলের প্রাকৃতিক সৌন্দর্য।"]
-],
-
-"ময়মনসিংহ": [
-["শশী লজ","🏛️","ঐতিহাসিক","ময়মনসিংহের বিখ্যাত ঐতিহাসিক প্রাসাদ।"],
-["বাংলাদেশ কৃষি বিশ্ববিদ্যালয়","🌳","শিক্ষা","সবুজ ক্যাম্পাস ও ব্রহ্মপুত্র নদীর জন্য পরিচিত।"],
-["ব্রহ্মপুত্র নদ","🌊","প্রকৃতি","ময়মনসিংহ শহরের পাশ দিয়ে প্রবাহিত ঐতিহাসিক নদী।"],
-["ময়মনসিংহ জাদুঘর","🏛️","সংস্কৃতি","স্থানীয় ইতিহাস ও ঐতিহ্যের সংগ্রহশালা।"]
-],
-
-"নেত্রকোনা": [
-["বিরিশিরি","🌊","প্রকৃতি","সোমেশ্বরী নদী ও পাহাড়ি সৌন্দর্যের জন্য বিখ্যাত।"],
-["দুর্গাপুর","⛰️","প্রকৃতি","পাহাড়, নদী ও আদিবাসী সংস্কৃতির সুন্দর অঞ্চল।"],
-["সোমেশ্বরী নদী","🌊","প্রকৃতি","স্বচ্ছ পানি ও প্রাকৃতিক সৌন্দর্যের নদী।"],
-["চীনামাটির পাহাড়","⛰️","প্রকৃতি","সাদা মাটির পাহাড় ও নীল পানির লেকের জন্য পরিচিত।"]
-],
-
-"শেরপুর": [
-["গজনী অবকাশ কেন্দ্র","🌳","প্রকৃতি","পাহাড় ও বনঘেরা জনপ্রিয় পর্যটনকেন্দ্র।"],
-["মধুটিলা ইকোপার্ক","🌳","প্রকৃতি","সবুজ পাহাড় ও বনভূমির সুন্দর স্থান।"],
-["রাজার পাহাড়","⛰️","প্রকৃতি","শেরপুরের পাহাড়ি অঞ্চলের আকর্ষণীয় স্থান।"],
-["গারো পাহাড়","⛰️","প্রকৃতি","পাহাড় ও বনভূমির প্রাকৃতিক সৌন্দর্য।"]
-]
-
-};    
-"
-
- <script>
-
-/* =========================
-   ELEMENTS
-========================= */
-
-const districtSelect =
-document.getElementById("district");
-
-const content =
-document.getElementById("content");
-
-const progressBox =
-document.getElementById("progressBox");
-
-const progressText =
-document.getElementById("progressText");
-
-const percent =
-document.getElementById("percent");
-
-const progressBar =
-document.getElementById("progressBar");
-
-
-/* =========================
-   STORAGE
-========================= */
-
-function getKey(d){
-    return "visited_" + d;
+<style>
+
+/* =========================================================
+   STEP 5A — RANDOM TRAVEL CHALLENGE CSS
+   ========================================================= */
+
+.challengeSection{
+  width:100%;
+  max-width:1050px;
+  margin:80px auto;
+  padding:0 18px;
+  box-sizing:border-box;
 }
 
-
-function getVisited(d){
-
-    try{
-        return JSON.parse(
-            localStorage.getItem(getKey(d))
-        ) || [];
-    }
-
-    catch(e){
-        return [];
-    }
+.challengeHeader{
+  text-align:center;
+  margin-bottom:30px;
 }
 
+.challengeKicker{
+  display:inline-block;
+  padding:7px 14px;
+  border-radius:999px;
+  background:#fff4e5;
+  color:#c05621;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:1.2px;
+}
 
-function saveVisited(d,arr){
+.challengeHeader h2{
+  margin:12px 0 8px;
+  font-size:clamp(30px,5vw,46px);
+  line-height:1.15;
+  font-weight:900;
+  color:#102a43;
+}
 
-    localStorage.setItem(
-        getKey(d),
-        JSON.stringify(arr)
+.challengeHeader p{
+  max-width:650px;
+  margin:0 auto;
+  color:#627d98;
+  font-size:16px;
+  line-height:1.7;
+}
+
+.challengeCard{
+  position:relative;
+  overflow:hidden;
+  max-width:720px;
+  margin:auto;
+  padding:42px 25px;
+  text-align:center;
+  border-radius:30px;
+  background:
+    linear-gradient(
+      145deg,
+      #fffaf3,
+      #ffffff 55%,
+      #fff4e5
+    );
+  border:1px solid #f3dfc1;
+  box-shadow:0 22px 60px rgba(16,42,67,.10);
+}
+
+.challengeCard::before{
+  content:"";
+  position:absolute;
+  width:220px;
+  height:220px;
+  top:-120px;
+  left:-100px;
+  border-radius:50%;
+  background:rgba(255,193,7,.10);
+}
+
+.challengeCard::after{
+  content:"";
+  position:absolute;
+  width:190px;
+  height:190px;
+  right:-90px;
+  bottom:-100px;
+  border-radius:50%;
+  background:rgba(255,111,97,.07);
+}
+
+.challengeTopIcon{
+  position:relative;
+  z-index:1;
+  width:86px;
+  height:86px;
+  margin:0 auto 18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:#ffffff;
+  font-size:42px;
+  box-shadow:0 12px 30px rgba(16,42,67,.12);
+}
+
+.challengeLabel{
+  position:relative;
+  z-index:1;
+  display:block;
+  color:#c05621;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.challengeDistrict{
+  position:relative;
+  z-index:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin:15px 0 5px;
+  color:#102a43;
+  font-size:clamp(30px,7vw,52px);
+  font-weight:900;
+}
+
+.challengeDistrict span{
+  font-size:inherit;
+}
+
+.challengeDivision{
+  position:relative;
+  z-index:1;
+  color:#627d98;
+  font-size:15px;
+  font-weight:700;
+}
+
+.challengeTagline{
+  position:relative;
+  z-index:1;
+  max-width:560px;
+  margin:18px auto 28px;
+  color:#486581;
+  font-size:15px;
+  line-height:1.7;
+}
+
+.challengeButton,
+.challengeExploreBtn{
+  position:relative;
+  z-index:1;
+  width:100%;
+  max-width:320px;
+  border:0;
+  border-radius:15px;
+  padding:15px 20px;
+  font-size:15px;
+  font-weight:900;
+  cursor:pointer;
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+.challengeButton{
+  background:#f59e0b;
+  color:#ffffff;
+  box-shadow:0 10px 25px rgba(245,158,11,.25);
+}
+
+.challengeExploreBtn{
+  margin-top:12px;
+  background:#198754;
+  color:#ffffff;
+  box-shadow:0 10px 25px rgba(25,135,84,.22);
+}
+
+.challengeButton:hover,
+.challengeExploreBtn:hover{
+  transform:translateY(-2px);
+}
+
+.challengeButton:active,
+.challengeExploreBtn:active{
+  transform:translateY(0);
+}
+
+.challengeRolling{
+  animation:
+    challengeRoll .55s ease;
+}
+
+@keyframes challengeRoll{
+
+  0%{
+    transform:scale(.92) rotate(-2deg);
+    opacity:.45;
+  }
+
+  50%{
+    transform:scale(1.05) rotate(2deg);
+    opacity:.75;
+  }
+
+  100%{
+    transform:scale(1) rotate(0);
+    opacity:1;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .challengeSection{
+    margin:60px auto;
+    padding:0 12px;
+  }
+
+  .challengeCard{
+    padding:34px 18px;
+    border-radius:24px;
+  }
+
+  .challengeTopIcon{
+    width:74px;
+    height:74px;
+    font-size:36px;
+  }
+
+  .challengeDistrict{
+    font-size:34px;
+  }
+
+  .challengeTagline{
+    font-size:14px;
+  }
+
+}
+
+@media(max-width:380px){
+
+  .challengeCard{
+    padding:28px 14px;
+  }
+
+  .challengeDistrict{
+    font-size:29px;
+  }
+
+  .challengeButton,
+  .challengeExploreBtn{
+    font-size:14px;
+    padding:13px 15px;
+  }
+
+}
+
+</style>
+
+  <script>
+
+/* =========================================================
+   STEP 5B-1 — RANDOM TRAVEL CHALLENGE ENGINE
+   ========================================================= */
+
+(function(){
+
+  const startBtn =
+    document.getElementById(
+      "startChallengeBtn"
     );
 
-}
-
-
-/* =========================
-   DARK MODE
-========================= */
-
-function toggleDarkMode(){
-
-    document.body.classList.toggle("dark");
-
-    localStorage.setItem(
-        "darkMode",
-        document.body.classList.contains("dark")
+  const districtBox =
+    document.getElementById(
+      "challengeDistrict"
     );
 
-}
+  const divisionBox =
+    document.getElementById(
+      "challengeDivision"
+    );
 
+  const taglineBox =
+    document.getElementById(
+      "challengeTagline"
+    );
 
-if(localStorage.getItem("darkMode")==="true"){
-    document.body.classList.add("dark");
-}
+  const exploreBtn =
+    document.getElementById(
+      "challengeExploreBtn"
+    );
 
+  let selectedDistrict = "";
 
-/* =========================
-   DISTRICT CHANGE
-========================= */
+  function getDistrictList(){
 
-districtSelect.addEventListener(
-"change",
-function(){
-
-    const district=this.value;
-
-    if(!district){
-
-        content.innerHTML=`
-        <div class="empty">
-            <h2>🇧🇩 একটি জেলা নির্বাচন করুন</h2>
-            <p>
-            জেলা নির্বাচন করলেই
-            সেই জেলার দর্শনীয় স্থানগুলো দেখাবে।
-            </p>
-        </div>`;
-
-        progressBox.style.display="none";
-
-        return;
+    if(
+      !window.districts ||
+      typeof window.districts !== "object"
+    ){
+      return [];
     }
 
-    showDistrict(district);
+    return Object.keys(
+      window.districts
+    );
 
-});
+  }
 
+  function updateChallengeDisplay(name){
 
-/* =========================
-   SHOW DISTRICT
-========================= */
-
-function showDistrict(district){
-
-    const list=places[district] || [];
-
-    if(!list.length){
-
-        content.innerHTML=`
-        <div class="empty">
-            <h2>😔 তথ্য পাওয়া যায়নি</h2>
-            <p>
-            এই জেলার তথ্য এখনো যোগ করা হয়নি।
-            </p>
-        </div>`;
-
-        return;
+    if(
+      !name ||
+      !window.districts ||
+      !window.districts[name]
+    ){
+      return;
     }
 
+    const data =
+      window.districts[name];
 
-    const visited=getVisited(district);
+    selectedDistrict =
+      name;
 
+    if(districtBox){
 
-    let html=`
-    <h2 style="margin:25px 0 15px">
-        📍 ${district} জেলার দর্শনীয় স্থান
-    </h2>
+      districtBox.innerHTML =
+        `
+        <span>
+          ${data.emoji || "🇧🇩"}
+        </span>
 
-    <div class="grid">
-    `;
-
-
-    list.forEach(
-    function(place,index){
-
-        const [
-            name,
-            icon,
-            category,
-            description
-        ]=place;
-
-
-        const checked=
-        visited.includes(index)
-        ?"checked":"";
-
-
-        const mapUrl=
-        "https://www.google.com/maps/search/?api=1&query="
-        +
-        encodeURIComponent(
-            name+
-            ", "+
-            district+
-            ", Bangladesh"
-        );
-
-
-        html+=`
-
-        <div class="card">
-
-            <div class="cardTop">
-                ${icon}
-            </div>
-
-            <div class="cardBody">
-
-                <h3>${name}</h3>
-
-                <span class="category">
-                    ${category}
-                </span>
-
-                <p>
-                    ${description}
-                </p>
-
-                <a
-                class="map"
-                href="${mapUrl}"
-                target="_blank"
-                rel="noopener noreferrer">
-                    📍 Google Maps
-                </a>
-
-                <label class="visit">
-
-                    <input
-                    type="checkbox"
-                    class="visitCheck"
-                    data-index="${index}"
-                    ${checked}>
-
-                    আমি এখানে ঘুরেছি ✅
-
-                </label>
-
-            </div>
-
-        </div>
-
+        <span>
+          ${name}
+        </span>
         `;
 
-    });
-
-
-    html+=`</div>`;
-
-    content.innerHTML=html;
-
-    progressBox.style.display="block";
-
-
-    document
-    .querySelectorAll(".visitCheck")
-    .forEach(function(box){
-
-        box.addEventListener(
-        "change",
-        function(){
-
-            updateVisited(district);
-
-        });
-
-    });
-
-
-    updateProgress(district);
-
-}
-
-
-/* =========================
-   UPDATE VISITED
-========================= */
-
-function updateVisited(district){
-
-    const visited=[];
-
-
-    document
-    .querySelectorAll(".visitCheck")
-    .forEach(function(box){
-
-        if(box.checked){
-
-            visited.push(
-                Number(box.dataset.index)
-            );
-
-        }
-
-    });
-
-
-    saveVisited(
-        district,
-        visited
-    );
-
-
-    updateProgress(district);
-
-    updateDashboard();
-
-}
-
-
-/* =========================
-   DISTRICT PROGRESS
-========================= */
-
-function updateProgress(district){
-
-    const list=
-    places[district] || [];
-
-    const visited=
-    getVisited(district);
-
-
-    const total=list.length;
-
-    const done=visited.length;
-
-
-    const p=total
-    ?Math.round(done/total*100)
-    :0;
-
-
-    progressText.innerText=
-    `${done}/${total} জায়গা`;
-
-    percent.innerText=
-    `${p}%`;
-
-    progressBar.style.width=
-    `${p}%`;
-
-
-    document.getElementById(
-        "passportDistrict"
-    ).innerText=
-    "🇧🇩 "+district;
-
-
-    document.getElementById(
-        "passportPlaces"
-    ).innerText=
-    done;
-
-
-    document.getElementById(
-        "passportPercent"
-    ).innerText=
-    p+"%";
-
-}
-
-
-/* =========================
-   TOTAL PROGRESS
-========================= */
-
-function updateDashboard(){
-
-    let districts=0;
-
-    let totalPlaces=0;
-
-
-    Object.keys(places)
-    .forEach(function(d){
-
-        const visited=
-        getVisited(d);
-
-
-        totalPlaces+=
-        visited.length;
-
-
-        if(visited.length>0){
-
-            districts++;
-
-        }
-
-    });
-
-
-    document.getElementById(
-        "totalDistrictProgress"
-    ).innerText=
-    districts+"/64";
-
-
-    document.getElementById(
-        "totalPlaceProgress"
-    ).innerText=
-    totalPlaces;
-
-
-    let level="নতুন Explorer";
-
-
-    if(districts>=5)
-        level="Travel Starter";
-
-    if(districts>=10)
-        level="Road Explorer";
-
-    if(districts>=20)
-        level="Bangladesh Explorer";
-
-    if(districts>=40)
-        level="Master Explorer";
-
-    if(districts>=64)
-        level="🇧🇩 64 District Legend";
-
-
-    document.getElementById(
-        "explorerLevel"
-    ).innerText=level;
-
-
-    document.getElementById(
-        "passportVisited"
-    ).innerText=
-    districts+"/64";
-
-
-    document.getElementById(
-        "passportPlaces"
-    ).innerText=
-    totalPlaces;
-
-
-    const allTotal=
-    Object.values(places)
-    .reduce(
-        (sum,list)=>sum+list.length,
-        0
-    );
-
-
-    const allDone=totalPlaces;
-
-
-    const allPercent=
-    allTotal
-    ?Math.round(
-        allDone/allTotal*100
-    )
-    :0;
-
-
-    document.getElementById(
-        "passportPercent"
-    ).innerText=
-    allPercent+"%";
-
-}
-
-
-/* =========================
-   RANDOM CHALLENGE
-========================= */
-
-function randomChallenge(){
-
-    const box=
-    document.getElementById(
-        "challengeBox"
-    );
-
-    const title=
-    document.getElementById(
-        "challengeTitle"
-    );
-
-    const text=
-    document.getElementById(
-        "challengeText"
-    );
-
-
-    const challenges=[
-
-        [
-        "🎯 Challenge 01",
-        "আজ নিজের জেলার একটি নতুন জায়গা সম্পর্কে জানুন।"
-        ],
-
-        [
-        "🌿 Challenge 02",
-        "প্রকৃতির কোনো একটি জায়গা আপনার Travel List-এ যোগ করুন।"
-        ],
-
-        [
-        "📸 Challenge 03",
-        "আপনার জেলার সবচেয়ে সুন্দর জায়গার একটি ছবি তুলুন।"
-        ],
-
-        [
-        "🗺️ Challenge 04",
-        "মানচিত্র খুলে আপনার জেলার পাশের একটি জেলা খুঁজে দেখুন।"
-        ],
-
-        [
-        "❤️ Challenge 05",
-        "পরিবারের সঙ্গে ভবিষ্যতে কোথায় ঘুরতে চান সেটি ঠিক করুন।"
-        ],
-
-        [
-        "🇧🇩 Challenge 06",
-        "আজ বাংলাদেশের অন্য একটি জেলার ইতিহাস জানুন।"
-        ],
-
-        [
-        "🚀 Challenge 07",
-        "আপনার 64 District Travel Dream-এর প্রথম গন্তব্য ঠিক করুন।"
-        ]
-
-    ];
-
-
-    const item=
-    challenges[
-        Math.floor(
-            Math.random()*
-            challenges.length
-        )
-    ];
-
-
-    title.innerText=item[0];
-
-    text.innerText=item[1];
-
-    box.style.display="block";
-
-
-    box.scrollIntoView({
-        behavior:"smooth",
-        block:"center"
-    });
-
-}
-
-
-/* =========================
-   RESET
-========================= */
-
-function resetDistrict(){
-
-    const district=
-    districtSelect.value;
-
-
-    if(!district){
-
-        alert(
-            "আগে একটি জেলা নির্বাচন করুন।"
-        );
-
-        return;
-    }
-
-
-    if(!confirm(
-        district+
-        " জেলার ভ্রমণ অগ্রগতি Reset করতে চান?"
-    )){
-
-        return;
+      districtBox.classList.remove(
+        "challengeRolling"
+      );
+
+      void districtBox.offsetWidth;
+
+      districtBox.classList.add(
+        "challengeRolling"
+      );
 
     }
 
+    if(divisionBox){
 
-    localStorage.removeItem(
-        getKey(district)
+      divisionBox.textContent =
+        "📍 " +
+        (data.division || "") +
+        " বিভাগ";
+
+    }
+
+    if(taglineBox){
+
+      taglineBox.textContent =
+        data.tagline ||
+        "তোমার পরবর্তী বাংলাদেশ Journey এখান থেকেই শুরু হতে পারে।";
+
+    }
+
+    if(exploreBtn){
+
+      exploreBtn.style.display =
+        "block";
+
+    }
+
+  }
+
+  function startRandomChallenge(){
+
+    const districts =
+      getDistrictList();
+
+    if(!districts.length){
+
+      if(districtBox){
+        districtBox.innerHTML =
+          "⚠️ <span>District data পাওয়া যায়নি</span>";
+      }
+
+      return;
+
+    }
+
+    if(exploreBtn){
+
+      exploreBtn.style.display =
+        "none";
+
+    }
+
+    if(districtBox){
+
+      districtBox.innerHTML =
+        "🎲 <span>ঘুরছে...</span>";
+
+    }
+
+    if(divisionBox){
+
+      divisionBox.textContent =
+        "তোমার জন্য একটি জেলা খোঁজা হচ্ছে...";
+
+    }
+
+    if(taglineBox){
+
+      taglineBox.textContent =
+        "Ready for your next Bangladesh adventure?";
+
+    }
+
+    let count = 0;
+
+    const totalRolls = 10;
+
+    const animation =
+      setInterval(function(){
+
+        const randomDistrict =
+          districts[
+            Math.floor(
+              Math.random() *
+              districts.length
+            )
+          ];
+
+        const data =
+          window.districts[
+            randomDistrict
+          ];
+
+        if(districtBox){
+
+          districtBox.innerHTML =
+            `
+            <span>
+              ${data.emoji || "🇧🇩"}
+            </span>
+
+            <span>
+              ${randomDistrict}
+            </span>
+            `;
+
+        }
+
+        count++;
+
+        if(count >= totalRolls){
+
+          clearInterval(
+            animation
+          );
+
+          const finalDistrict =
+            districts[
+              Math.floor(
+                Math.random() *
+                districts.length
+              )
+            ];
+
+          updateChallengeDisplay(
+            finalDistrict
+          );
+
+        }
+
+      },100);
+
+  }
+
+  if(startBtn){
+
+    startBtn.addEventListener(
+      "click",
+      startRandomChallenge
     );
 
+  }
 
-    showDistrict(district);
+  window.startRandomTravelChallenge =
+    startRandomChallenge;
 
-    updateDashboard();
+  window.getSelectedChallengeDistrict =
+    function(){
 
-}
+      return selectedDistrict;
 
+    };
 
-/* =========================
-   SHARE RESULT
-========================= */
-
-async function shareResult(){
-
-    const district=
-    districtSelect.value;
-
-
-    if(!district){
-
-        alert(
-            "আগে একটি জেলা নির্বাচন করুন।"
-        );
-
-        return;
-    }
-
-
-    const list=
-    places[district] || [];
-
-
-    const visited=
-    getVisited(district);
-
-
-    const done=
-    visited.length;
-
-
-    const total=
-    list.length;
-
-
-    const p=total
-    ?Math.round(done/total*100)
-    :0;
-
-
-    const text=
-`🇧🇩 আমার জেলা সবার সেরা
-
-📍 জেলা: ${district}
-
-🗺️ ঘোরা হয়েছে: ${done}/${total} জায়গা
-
-📊 অগ্রগতি: ${p}%
-
-❤️ নিজের জেলা থেকে শুরু হোক
-বাংলাদেশের ৬৪ জেলা ঘোরার গল্প।
-
-#আমারজেলাসবারসেরা
-#BangladeshExplorer`;
-
-
-    if(navigator.share){
-
-        try{
-
-            await navigator.share({
-
-                title:
-                "আমার জেলা সবার সেরা",
-
-                text:text
-
-            });
-
-        }
-
-        catch(e){}
-
-    }
-
-    else{
-
-        try{
-
-            await navigator.clipboard
-            .writeText(text);
-
-            alert(
-                "Result Copy হয়েছে।"
-            );
-
-        }
-
-        catch(e){
-
-            alert(text);
-
-        }
-
-    }
-
-}
-
-
-/* =========================
-   INITIAL DASHBOARD
-========================= */
-
-updateDashboard();
+})();
 
 </script>
 
-<footer>
-   🇧🇩 <b>আমার জেলা সবার সেরা</b>
-<br><br>
-   বাংলাদেশ শুধু একটি দেশ নয়—
-   এটা ৬৪টি জেলার ৬৪ রকম গল্প। ❤️
-<br><br>
-   🌍 Explore • Travel • Remember
-</footer>
+<script>
 
-</body>
-</html>
+/* =========================================================
+   STEP 5B-2 — CONNECT CHALLENGE WITH DISTRICT EXPLORER
+   ========================================================= */
+
+(function(){
+
+  const exploreBtn =
+    document.getElementById(
+      "challengeExploreBtn"
+    );
+
+  if(!exploreBtn){
+    return;
+  }
+
+  exploreBtn.addEventListener(
+    "click",
+    function(){
+
+      const selectedDistrict =
+        typeof window.getSelectedChallengeDistrict ===
+        "function"
+          ? window.getSelectedChallengeDistrict()
+          : "";
+
+      if(!selectedDistrict){
+        return;
+      }
+
+      /* -----------------------------------------
+         1. District Selector খুঁজে বের করা
+         ----------------------------------------- */
+
+      const selector =
+        document.getElementById(
+          "district"
+        ) ||
+        document.getElementById(
+          "districtSelect"
+        );
+
+      if(selector){
+
+        selector.value =
+          selectedDistrict;
+
+        selector.dispatchEvent(
+          new Event(
+            "change",
+            {
+              bubbles:true
+            }
+          )
+        );
+
+      }
+
+
+      /* -----------------------------------------
+         2. District Profile update
+         ----------------------------------------- */
+
+      if(
+        typeof window.showDistrictProfile ===
+        "function"
+      ){
+
+        window.showDistrictProfile(
+          selectedDistrict
+        );
+
+      }
+
+
+      /* -----------------------------------------
+         3. District Places update
+         ----------------------------------------- */
+
+      if(
+        typeof window.renderDistrictPlaces ===
+        "function"
+      ){
+
+        window.renderDistrictPlaces(
+          selectedDistrict
+        );
+
+      }
+
+
+      /* -----------------------------------------
+         4. Explorer section-এ নিয়ে যাওয়া
+         ----------------------------------------- */
+
+      setTimeout(function(){
+
+        const profile =
+          document.getElementById(
+            "districtProfile"
+          );
+
+        if(profile){
+
+          profile.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+          });
+
+          return;
+
+        }
+
+        const places =
+          document.getElementById(
+            "districtPlaces"
+          );
+
+        if(places){
+
+          places.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+          });
+
+        }
+
+      },180);
+
+    }
+  );
+
+
+  /* -----------------------------------------
+     Challenge district পরিবর্তন হলে
+     Explore button সক্রিয় রাখা
+     ----------------------------------------- */
+
+  const challengeDistrict =
+    document.getElementById(
+      "challengeDistrict"
+    );
+
+  if(challengeDistrict){
+
+    const observer =
+      new MutationObserver(
+        function(){
+
+          const selected =
+            typeof window.getSelectedChallengeDistrict ===
+            "function"
+              ? window.getSelectedChallengeDistrict()
+              : "";
+
+          if(
+            selected &&
+            exploreBtn
+          ){
+
+            exploreBtn.disabled =
+              false;
+
+          }
+
+        }
+      );
+
+    observer.observe(
+      challengeDistrict,
+      {
+        childList:true,
+        subtree:true
+      }
+    );
+
+  }
+
+})();
+
+</script>
+
+<!-- =========================================================
+     STEP 6 — 64/64 BANGLADESH JOURNEY CELEBRATION
+     ========================================================= -->
+
+<section id="journeyComplete" class="journeyCompleteSection">
+
+  <div class="journeyCompleteCard">
+
+    <div class="completeFlag">
+      🇧🇩
+    </div>
+
+    <span class="completeKicker">
+      THE ULTIMATE BANGLADESH JOURNEY
+    </span>
+
+    <h2>
+      ৬৪ জেলা, এক বাংলাদেশ
+    </h2>
+
+    <p class="completeIntro">
+      প্রতিটি জেলার পথ, প্রতিটি শহরের গল্প,
+      প্রতিটি স্মৃতি—সব মিলিয়ে তোমার
+      নিজের বাংলাদেশ Journey।
+    </p>
+
+    <div class="completeProgress">
+
+      <div class="completeProgressTop">
+
+        <span>
+          🇧🇩 Bangladesh Explorer
+        </span>
+
+        <strong id="completeProgressText">
+          0 / 64
+        </strong>
+
+      </div>
+
+      <div class="completeProgressTrack">
+
+        <div
+          id="completeProgressBar"
+          class="completeProgressBar"
+        ></div>
+
+      </div>
+
+    </div>
+
+    <div
+      id="completeStatus"
+      class="completeStatus"
+    >
+      তোমার Journey এখনো চলছে...
+    </div>
+
+    <div
+      id="completeStats"
+      class="completeStats"
+    >
+
+      <div class="completeStat">
+
+        <strong id="completeDistricts">
+          0
+        </strong>
+
+        <span>
+          জেলা সম্পূর্ণ
+        </span>
+
+      </div>
+
+      <div class="completeStat">
+
+        <strong id="completePlaces">
+          0
+        </strong>
+
+        <span>
+          স্থান Explore
+        </span>
+
+      </div>
+
+      <div class="completeStat">
+
+        <strong id="completePercentage">
+          0%
+        </strong>
+
+        <span>
+          Journey Complete
+        </span>
+
+      </div>
+
+    </div>
+
+    <div
+      id="completeMessage"
+      class="completeMessage"
+    >
+      একদিন এই জায়গাটায় লেখা থাকবে—
+      ৬৪/৬৪ 🇧🇩
+    </div>
+
+    <button
+      type="button"
+      id="completeShareBtn"
+      class="completeShareBtn"
+    >
+      📤 আমার বাংলাদেশ Journey শেয়ার করি
+    </button>
+
+  </div>
+
+</section>
+
+<style>
+
+/* =========================================================
+   STEP 6A — CELEBRATION CSS PART 1
+   ========================================================= */
+
+.journeyCompleteSection{
+  width:100%;
+  max-width:1050px;
+  margin:90px auto 70px;
+  padding:0 18px;
+  box-sizing:border-box;
+}
+
+.journeyCompleteCard{
+  position:relative;
+  overflow:hidden;
+  padding:55px 28px;
+  text-align:center;
+  border-radius:32px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f0fff5 0%,
+      #ffffff 48%,
+      #fff8e8 100%
+    );
+
+  border:1px solid #d8eee0;
+
+  box-shadow:
+    0 25px 70px rgba(16,42,67,.12);
+}
+
+.journeyCompleteCard::before{
+  content:"";
+
+  position:absolute;
+
+  width:280px;
+  height:280px;
+
+  top:-150px;
+  left:-120px;
+
+  border-radius:50%;
+
+  background:
+    rgba(25,135,84,.08);
+}
+
+.journeyCompleteCard::after{
+  content:"";
+
+  position:absolute;
+
+  width:260px;
+  height:260px;
+
+  right:-130px;
+  bottom:-150px;
+
+  border-radius:50%;
+
+  background:
+    rgba(255,193,7,.10);
+}
+
+.completeFlag{
+  position:relative;
+  z-index:1;
+
+  width:95px;
+  height:95px;
+
+  margin:0 auto 20px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:#ffffff;
+
+  font-size:48px;
+
+  box-shadow:
+    0 14px 35px rgba(16,42,67,.13);
+}
+
+.completeKicker{
+  position:relative;
+  z-index:1;
+
+  display:inline-block;
+
+  padding:7px 14px;
+
+  border-radius:999px;
+
+  background:#e8f5e9;
+
+  color:#137333;
+
+  font-size:11px;
+
+  font-weight:900;
+
+  letter-spacing:1.8px;
+}
+
+.journeyCompleteCard h2{
+  position:relative;
+  z-index:1;
+
+  margin:15px 0 10px;
+
+  color:#102a43;
+
+  font-size:
+    clamp(32px,6vw,52px);
+
+  line-height:1.15;
+
+  font-weight:900;
+}
+
+.completeIntro{
+  position:relative;
+  z-index:1;
+
+  max-width:680px;
+
+  margin:0 auto 30px;
+
+  color:#486581;
+
+  font-size:16px;
+
+  line-height:1.8;
+}
+
+.completeProgress{
+  position:relative;
+  z-index:1;
+
+  max-width:680px;
+
+  margin:0 auto 25px;
+
+  padding:20px;
+
+  border-radius:20px;
+
+  background:
+    rgba(255,255,255,.88);
+
+  border:1px solid #e1ece5;
+}
+
+.completeProgressTop{
+  display:flex;
+
+  align-items:center;
+  justify-content:space-between;
+
+  gap:15px;
+
+  margin-bottom:12px;
+
+  color:#334e68;
+
+  font-size:14px;
+
+  font-weight:800;
+}
+
+.completeProgressTop strong{
+  color:#137333;
+  font-size:16px;
+}
+
+.completeProgressTrack{
+  width:100%;
+  height:14px;
+
+  overflow:hidden;
+
+  border-radius:999px;
+
+  background:#e7f0ea;
+}
+
+.completeProgressBar{
+  width:0%;
+  height:100%;
+
+  border-radius:inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #198754,
+      #20a464
+    );
+
+  transition:
+    width .6s ease;
+}
+
+.completeStatus{
+  position:relative;
+  z-index:1;
+
+  margin:18px 0;
+
+  color:#627d98;
+
+  font-size:15px;
+
+  font-weight:700;
+}
+
+.completeStats{
+  position:relative;
+  z-index:1;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:14px;
+
+  max-width:700px;
+
+  margin:0 auto 28px;
+}
+
+.completeStat{
+  padding:18px 10px;
+
+  border-radius:18px;
+
+  background:
+    rgba(255,255,255,.9);
+
+  border:1px solid #e1ece5;
+}
+
+.completeStat strong{
+  display:block;
+
+  margin-bottom:5px;
+
+  color:#137333;
+
+  font-size:27px;
+
+  font-weight:900;
+}
+
+.completeStat span{
+  color:#627d98;
+
+  font-size:13px;
+
+  font-weight:700;
+}
+
+.completeMessage{
+  position:relative;
+  z-index:1;
+
+  max-width:650px;
+
+  margin:0 auto 25px;
+
+  padding:18px 20px;
+
+  border-radius:16px;
+
+  background:#ffffff;
+
+  color:#334e68;
+
+  font-size:15px;
+
+  line-height:1.8;
+
+  font-weight:700;
+
+  box-shadow:
+    0 8px 25px rgba(16,42,67,.06);
+}
+
+.completeShareBtn{
+  position:relative;
+  z-index:1;
+
+  border:0;
+
+  border-radius:15px;
+
+  padding:15px 24px;
+
+  background:#198754;
+
+  color:#ffffff;
+
+  font-size:15px;
+
+  font-weight:900;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 10px 25px rgba(25,135,84,.23);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+.completeShareBtn:hover{
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 14px 30px rgba(25,135,84,.28);
+}
+
+.completeShareBtn:active{
+  transform:
+    translateY(0);
+}
+
+
+<style>
+
+/* =========================================================
+   STEP 6A — CELEBRATION CSS PART 2
+   ========================================================= */
+
+.completeMessage{
+  position:relative;
+  z-index:1;
+
+  max-width:650px;
+  margin:0 auto 25px;
+
+  padding:18px 20px;
+
+  border-radius:16px;
+
+  background:#ffffff;
+  color:#334e68;
+
+  font-size:15px;
+  line-height:1.8;
+  font-weight:700;
+
+  box-shadow:
+    0 8px 25px rgba(16,42,67,.06);
+}
+
+.completeShareBtn{
+  position:relative;
+  z-index:1;
+
+  border:0;
+  border-radius:15px;
+
+  padding:15px 24px;
+
+  background:#198754;
+  color:#ffffff;
+
+  font-size:15px;
+  font-weight:900;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 10px 25px rgba(25,135,84,.23);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+.completeShareBtn:hover{
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 14px 30px rgba(25,135,84,.28);
+}
+
+.completeShareBtn:active{
+  transform:translateY(0);
+}
+
+
+/* =========================================================
+   JOURNEY FINISHED ANIMATION
+   ========================================================= */
+
+.journeyFinished{
+  animation:
+    journeyFinished .8s ease;
+}
+
+@keyframes journeyFinished{
+
+  0%{
+    transform:scale(.96);
+  }
+
+  60%{
+    transform:scale(1.02);
+  }
+
+  100%{
+    transform:scale(1);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE RESPONSIVE
+   ========================================================= */
+
+@media(max-width:600px){
+
+  .journeyCompleteSection{
+    margin:65px auto 50px;
+    padding:0 12px;
+  }
+
+  .journeyCompleteCard{
+    padding:40px 17px;
+    border-radius:24px;
+  }
+
+  .completeFlag{
+    width:78px;
+    height:78px;
+    font-size:38px;
+  }
+
+  .completeIntro{
+    font-size:14px;
+   .completeIntro{
+    font-size:14px;
+  }
+
+  .completeProgress{
+    padding:15px;
+  }
+
+  .completeStats{
+    gap:8px;
+  }
+
+  .completeStat{
+    padding:14px 6px;
+  }
+
+  .completeStat strong{
+    font-size:22px;
+  }
+
+  .completeStat span{
+    font-size:11px;
+  }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL DEVICES
+   ========================================================= */
+
+@media(max-width:380px){
+
+  .completeStats{
+    grid-template-columns:1fr;
+  }
+
+  .completeStat{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+  }
+
+  .completeStat strong{
+    margin:0;
+  }
+
+  .completeProgressTop{
+    font-size:12px;
+  }
+
+}
+
+</style>    
+
+  /* =======================================================
+     SHARE JOURNEY — PART 1
+     ======================================================= */
+
+  const shareButton =
+    document.getElementById(
+      "completeShareBtn"
+    );
+
+
+  if(shareButton){
+
+    shareButton.addEventListener(
+      "click",
+      async function(){
+
+        const visited =
+          getVisitedPlaces();
+
+        const completedDistricts =
+          getCompletedDistrictCount(
+            visited
+          );
+
+        const visitedPlaces =
+          getVisitedCount(visited);
+
+        const percentage =
+          Math.round(
+            (completedDistricts / totalDistricts) * 100
+          );
+
+
+        const shareText =
+          "🇧🇩 আমার বাংলাদেশ Journey\n\n" +
+          "জেলা সম্পূর্ণ: " +
+          completedDistricts +
+          "/64\n" +
+          "স্থান Explore: " +
+          visitedPlaces +
+          "\n" +
+          "Journey Complete: " +
+          percentage +
+          "%\n\n" +
+          "আমার জেলা সবার সেরা 🇧🇩❤️";
+
+
+        if(navigator.share){
+
+          try{
+
+            await navigator.share({
+
+              title:
+                "আমার বাংলাদেশ Journey",
+
+              text:
+                shareText
+
+            });
+
+          }catch(error){
+
+            if(
+              error &&
+              error.name !== "AbortError"
+            ){
+
+              console.log(
+                "Share cancelled or unavailable."
+              );
+
+            }
+
+          }
+
+        }
+
+      }
+    );
+
+  }
+
+    /* =======================================================
+     SHARE FALLBACK — PART 2
+     ======================================================= */
+
+  if(shareButton){
+
+    shareButton.addEventListener(
+      "click",
+      async function(){
+
+        if(navigator.share){
+
+          return;
+
+        }
+
+        const visited =
+          getVisitedPlaces();
+
+        const completedDistricts =
+          getCompletedDistrictCount(
+            visited
+          );
+
+        const visitedPlaces =
+          getVisitedCount(visited);
+
+        const percentage =
+          Math.round(
+            (completedDistricts / totalDistricts) * 100
+          );
+
+        const shareText =
+          "🇧🇩 আমার বাংলাদেশ Journey\n\n" +
+          "জেলা সম্পূর্ণ: " +
+          completedDistricts +
+          "/64\n" +
+          "স্থান Explore: " +
+          visitedPlaces +
+          "\n" +
+          "Journey Complete: " +
+          percentage +
+          "%\n\n" +
+          "আমার জেলা সবার সেরা 🇧🇩❤️";
+
+
+        try{
+
+          await navigator.clipboard.writeText(
+            shareText
+          );
+
+          const oldText =
+            shareButton.textContent;
+
+          shareButton.textContent =
+            "✅ Journey Copied!";
+
+          setTimeout(function(){
+
+            shareButton.textContent =
+              oldText;
+
+          },2000);
+
+        }catch(error){
+
+          alert(
+            shareText
+          );
+
+        }
+
+      }
+    );
+
+  }
+
+
+  /* =======================================================
+     INITIAL UPDATE
+     ======================================================= */
+
+  updateJourneyCompletion();
+
+    /* =======================================================
+     AUTO UPDATE + GLOBAL FUNCTION — PART 3/3
+     ======================================================= */
+
+  if(
+    typeof window.renderDistrictPlaces ===
+    "function"
+  ){
+
+    const originalRender =
+      window.renderDistrictPlaces;
+
+
+    if(
+      !originalRender.__journeyWrapped
+    ){
+
+      const wrappedRender =
+        function(){
+
+          const result =
+            originalRender.apply(
+              this,
+              arguments
+            );
+
+          setTimeout(
+            updateJourneyCompletion,
+            50
+          );
+
+          return result;
+
+        };
+
+
+      wrappedRender.__journeyWrapped =
+        true;
+
+      window.renderDistrictPlaces =
+        wrappedRender;
+
+    }
+
+  }
+
+
+  /* =======================================================
+     STORAGE CHANGE LISTENER
+     ======================================================= */
+
+  window.addEventListener(
+    "storage",
+    function(event){
+
+      if(
+        event.key === VISITED_KEY
+      ){
+
+        updateJourneyCompletion();
+
+      }
+
+    }
+  );
+
+
+  /* =======================================================
+     GLOBAL FUNCTION
+     ======================================================= */
+
+  window.updateJourneyCompletion =
+    updateJourneyCompletion;
+
+
+})();
+
+</script>
+
